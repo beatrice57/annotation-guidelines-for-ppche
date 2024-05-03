@@ -1,0 +1,1589 @@
+<!doctype html><!--DONE-->
+<html>
+<head>
+<link rel="stylesheet" href="manual.css">
+<title>Conjunction</title>
+</head>
+
+<body>
+
+<a name="top">
+<h2>Conjunction</h2>
+
+<ul>
+<li><a href="syn-conj.html#conj_word">Word-level conjunction</a>
+    <ul>
+    <li><a href="syn-conj.html#diagnostic_conjp">CONJP with conjoined words</a>
+    </ul>
+<li><a href="syn-conj.html#conj_phrase">Phrase-level conjunction</a>
+    <ul>
+    <li><a href="syn-conj.html#conjp_recursive">Recursive conjunction structure</a>
+    <li><a href="syn-conj.html#prices">Prices</a>
+    </ul>
+<li><a href="syn-conj.html#conj_unlike_categories">Conjunction of unlike categories</a>
+<li><a href="syn-conj.html#correl_conj">Correlative conjunction</a>
+	<ul>
+	<li><a href="syn-conj.html#correl_conj_word">Word-level correlative conjunction</a>
+	<li><a href="syn-conj.html#correl_conj_phrase">Phrase-level correlative conjunction</a>
+	<li><a href="syn-conj.html#correl_conj_floated">Floated correlative conjunction</a>
+        <li>X AS WELL AS Y, AS WELL X AS Y (see <a href="words.html#as_well_as">AS WELL AS</a>)
+        <li>BOTH X AS WELL AS Y, AS WELL X AND Y (see <a href="words.html#as_well_as_mixed">AS WELL AS</a>)
+	</ul>
+<li><a href="syn-conj.html#conj_and_neg">Conjunction and negation</a>
+	<ul>
+	<li><a href="syn-conj.html#x_and_not_y">X (AND/BUT) NOT Y</a>
+	<li><a href="syn-conj.html#not_x_but_y">NOT (ONLY) X BUT (ALSO) Y</a>
+	</ul>
+<li><a href="syn-conj.html#conjp_extraposed">Extraposed CONJP</a>
+<li><a href="syn-conj.html#conj_clause">Clausal conjunction</a>
+	<ul>
+	<li><a href="syn-conj.html#conj_matrix_ips">Conjoined matrix IPs</a>
+	<li><a href="syn-conj.html#conj_embedded_ips">Conjoined embedded IPs</a>
+	<li><a href="syn-conj.html#conj_direct_speech">Conjoined direct speech</a>
+	<li><a href="syn-conj.html#pseudo-imp">Pseudo-imperative</a>
+	<li><a href="syn-conj.html#right_node_raising">Right node raising</a>
+	<li><a href="syn-conj.html#gapping">Gapping</a>
+	<li><a href="syn-conj.html#backwards_gapping">Backwards gapping</a>
+	<li><a href="syn-conj.html#conj_cps">Conjoined CPs</a>
+	</ul>
+<li><a href="syn-conj.html#shared_mod">Shared modifier</a>
+	<ul>
+	<li><a href="syn-conj.html#shared_premod">Shared premodifier</a>
+	<li><a href="syn-conj.html#shared_postmod">Shared postmodifier</a>
+	<li><a href="syn-conj.html#clausal_conj_plus_shared_mod">Clausal conjunction and shared modifier</a>
+	</ul>
+</ul>
+
+<a name="conj_word">
+<h3>Word-level conjunction</h3>
+
+Constituents that are labeled only at the word level (notably, verbs
+and particles) conjoin at that level.
+
+<p>
+<blockquote> <pre>
+(IP-INF (TO to)
+        (VB (VB read) (CONJ and) (VB write))
+        (NP-OB1 (NS letters)))
+
+( (RP (RP in) (CONJ or) (RP out))
+</pre> </blockquote>
+
+<p> For simplicity, categories that project phrases also conjoin at the
+word level, provided that all conjuncts consist of a single word.  Since
+the constituenthood of the conjunction structure is already indicated by
+a phrasal tag, no additional word-level tag surrounds the structure,
+unlike in the case of verbs and particles.
+
+<p>
+<blockquote> <pre>
+( (NP (N chess) (CONJ or) (N checkers)))
+
+( (ADJP (ADJ red) (PUNC ,) (ADJ yellow) (PUNC ,) (CONJ or) (ADJ green)))
+
+( (ADVP-LOC (ADV here) (CONJ and) (ADV there)))
+
+( (QP (QR  more) (CONJ or) (Q less)))
+</pre> </blockquote>
+
+<p> This convention is extended to conjoined prepositions.
+
+<p>
+<blockquote> <pre>
+( (PP (P (P before) (CONJ or) (P after))
+      (NP (N dinner))))
+</pre> </blockquote>
+
+<a name="diagnostic_conjp">
+<h4>CONJP with conjoined words</h4>
+
+Word-level conjunction structures generally include at least one overt
+conjunction.  In the rare exceptions, CONJPs are added to clarify the
+structure (notably, to distinguish these cases from compound nouns).
+
+<p>
+<blockquote> <pre>
+( (NP (NS Friends)
+      (PUNC ,)
+      (CONJP (NPRS Romans))
+      (PUNC ,)
+      (CONJP (NS countrymen))))
+
+( (ADJP (ADJ red)
+	(PUNC ,)
+	(CONJP (ADJ white))
+	(PUNC ,)
+	(CONJP (ADJ blue))))
+</pre> </blockquote>
+
+<a name="conj_phrase">
+<h3>Phrase-level conjunction</h3>
+
+When any of the conjuncts consists of more than a single word, all
+conjuncts are labeled as phrases.  The non-first conjuncts are labeled
+<tt>CONJP</tt>, and they are adjoined to the first conjunct at the
+phrasal level.
+
+<p>
+<blockquote> <pre>
+(XP (XP (X ...))
+    (PUNC ,)
+    (CONJP (CONJ conjunction)
+           (YP (Y ...)))
+    (PUNC ,)
+    (CONJP (CONJ conjunction)
+           (ZP (Z ...) (W ...)))))      &larr; multi-word conjunct forces phrase-level conjunction
+
+(XP (XP (X ...))
+    (PUNC ,)
+    (CONJP (YP (Y ...)))                &larr; implicit CONJ
+    (PUNC ,)
+    (CONJP (CONJ conjunction)
+           (ZP (Z ...) (W ...))))
+</pre> </blockquote>
+
+<p> The general schema applies to all phrasal categories, including
+clauses.  But clausal conjunction raises some special issues, so it is
+discussed <a href="syn-conj.html#conj_clause">separately</a>.
+
+<p>
+<blockquote> <pre>
+( (NP (NP (D the) (N duke))
+      (CONJP (CONJ and)
+	     (NP (PRO$ his) (N lady)))))
+
+( (ADJP (ADJP (ADV quite) (ADJ expensive))
+	(CONJP (CONJ but)
+               (ADJP (ADV very) (ADJ durable)))))
+
+( (ADVP (ADVP (ADV comfortably))
+	(CONJP (CONJ and)
+               (ADVP (QR more) (ADV conveniently)))))
+
+( (PP (PP (P for)
+          (ADJP (ADJR better)))
+      (CONJP (CONJ or)
+             (PP (P for)
+                 (ADJP (ADJR worse))))))
+</pre> </blockquote>
+
+<p>
+All clear cases of phrasal conjunction, including ones with implicit
+conjunctions, contain <tt>CONJP</tt>.  Implicit conjunctions are
+ordinary in cases with more than two conjuncts, where an overt
+conjunction generally appears only before the final conjunct.  But
+there are also cases without any overt conjunction at all.
+
+<p>
+<blockquote> <pre>
+( (NP (NP (N life))
+      (PUNC ,)
+      (CONJP (NP (N liberty)))                  &larr; implicit CONJ in second conjunct
+      (PUNC ,)
+      (CONJP (CONJ and)
+	     (NP (D the) (N pursuit)
+		 (PP (P of)
+		     (NP (N happiness)))))))
+
+( (NP (NP (NS walls))
+      (PUNC ,)
+      (CONJP (NP (NS ceilings)))                
+      (PUNC ,)
+      (CONJP (NP (FP even) (NS floors)))))      &larr; implicit CONJ even in final conjunct
+</pre> </blockquote>
+
+<p> In general, sets of constituents (NPs, PPs, etc.) acting as a unit
+are instances of either conjunction
+or <a href="syn-phrase.html#np_mod_prn">apposition</a>.
+
+<p>
+<blockquote> <pre>
+( (NP (NP (ADJ great) (N joy))		       &larr; ill-formed structure; should be conjunction
+      (PUNC ,)
+      (NP (ADJ great) (N sorrow))))
+
+( (NP (NP (ADJ great) (N joy))		       &larr; corrected structure, with CONJP
+      (PUNC ,)                                   (separate phrasal brackets for each conjunct)
+      (CONJP (NP (ADJ great) (N sorrow)))))
+
+( (NP (NP (SUCH such) (N joy))		       &larr; ill-formed structure; should be apposition
+      (PUNC ,)
+      (NP (SUCH such) (ADJ pure) (N joy))))
+
+( (NP (SUCH such) (N joy)		       &larr; corrected structure, with NP-PRN-<a href="syn-disfluencies.html#elab">ELAB</a>
+      (PUNC ,)
+      (NP-PRN-ELAB (SUCH such)                   (separate phrasal brackets only for parenthetical)
+		   (ADJ pure)
+		   (N joy)))) 
+</pre> </blockquote>
+
+<a name="conjp_recursive">
+<h4>Recursive conjunction structure</h4>
+
+Conjunction structures can be recursive.  We attempt to represent the
+intent of the text, using various clues such as the distribution of
+conjunctions, punctuation, syntactic parallelism, and alliteration.
+
+<p>
+<blockquote> <pre>
+( (NP-OB1 (NP (N gold) (CONJ and) (N seluer))
+          (PUNC ,)
+          (CONJP (NP (NP (ADJ precious) (NS closes))             &larr; recursive CONJP 
+                     (CONJP (CONJ and)
+                            (NP (ADJ vertuous) (N stones)))))
+          (PUNC ,)
+          (CONJP (CONJ and)
+                 (NP (Q al) (D +te) (N pompe)
+                     (PP (P off)
+                         (NP (ADJ wordliche) (N blisse))))))
+  (ID CMAELR3-M23,28.70))
+
+( (NP (NP (NP-POS (ADJ blacke) (NS$ shepis))
+          (NS skynnes))
+      (PUNC ,)
+      (CONJP (CONJ and)
+             (NP (D a) (ADJ grete) (N payre)
+                 (PP (P of)
+                     (NP (NS bootis)))))
+      (PUNC ,)
+      (CONJP (CONJ and)                                          &larr; recursive CONJP 
+             (NP (NP (D a) (N boowe))
+                 (CONJP (CONJ and)
+                        (NP (NS arowis))))))
+  (ID CMMALORY-M4,30.935))
+</pre> </blockquote>
+
+<a name="prices">
+<h4>Prices</h4>
+
+Prices as in the following examples are always treated as phrasal
+conjunction structures.  The conventional written order of currency
+symbols and numbers can be reversed to reflect the spoken order, with an
+editorial comment about the written order.
+
+<p>
+<blockquote> <pre>
+(NP (NP (NUM 749)
+        (NS l.))
+    (CONJP (NP (NUM 0)
+               (NS s.)))
+    (CONJP (NP (NUM 7)
+               (NS d.))))
+
+(NP (NP (NUM 749))               &larr; phrase-level conjunction even with one-word conjuncts
+    (PUNC :)
+    (CONJP (NP (NUM 0)))
+    (PUNC :)
+    (CONJP (NP (NUM 7))))
+
+(NP (NP (NUM 749)
+        (NS +L))
+    (CODE {TEXT:+L749})
+    (CONJP (NP (NUM 0)
+               (NS s.)))
+    (CONJP (NP (NUM 7)
+               (NS d.))))
+</pre> </blockquote>
+
+<a name="conj_unlike_categories">
+<h3>Conjunction of unlike categories</h3>
+
+Conjuncts are generally of the same category, but not always.  In the
+case of unlike categories, the category enclosing the entire conjunction
+structure is, by default, that of the first conjunct.
+
+<p>
+<blockquote> <pre>
+( (DOD (DOD did) (CONJ and) (VBD said)))
+
+( (VBD (VBD said) (CONJ and) (DOD did)))
+
+( (ADJP (ADJP (Q half) (ADJ dead))
+	(CONJP (CONJ and)
+	       (PP (Q half) (P+N alive)))))
+
+( (PP (PP (Q half) (P+N alive))
+      (CONJP (CONJ and)
+	     (ADJP (Q half) (ADJ dead)))))
+
+( (ADVP (ADVP (ADV slowly))
+	(CONJP (CONJ and)
+	       (PP (P with)
+		   (NP (Q some) (N difficulty))))))
+
+( (PP (PP (P with)
+	  (NP (Q some) (N difficulty)))
+      (CONJP (CONJ and)
+	     (ADVP (ADV slowly)))))
+</pre> </blockquote>
+
+<a name="correl_conj">
+<a name="correl_conj_word">
+<h3>Correlative conjunction</h3>
+
+<h4>Word-level correlative conjunction</h4>
+
+Single-word cases are bracketed flat, as in the ordinary case.
+
+<p>
+<blockquote> <pre>
+( (NP (CONJ both) (N body) (CONJ and) (N soul))
+  (ID CMAELR3-M23,31.137))
+
+( (ADJP (CONJ both) (ADJ big) (CONJ and) (ADV little)))
+
+( (ADVP (CONJ neither) (ADV quickly) (CONJ nor) (ADV slowly)))
+
+( (QP (CONJ neither) (QR more) (CONJ nor) (QR less)))
+
+( (VB (CONJ either) (VB sing) (CONJ or) (VB dance)))
+</pre> </blockquote>
+
+<a name="correl_conj_phrase">
+<h4>Phrase-level correlative conjunction</h4>
+
+In phrase-level corelative conjunction, the correlative word attaches as
+high as possible within the conjunction structure, regardless of word order.
+
+<p>
+<blockquote> <pre>
+( (NP-SBJ (CONJ neither)
+          (NP (PRO he))
+          (CONJP (CONJ nor)
+                 (NP (PRO$ his) (N wife)))))
+
+( (PP (CONJ both)                                    &larr; BOTH attaches high in PP
+      (PP (P in)
+          (NP (N height)))
+      (CONJP (CONJ and)
+             (PP (P in)
+                 (NP (N width))))))
+
+( (PP (PP (P in)
+          (NP (N height)))
+      (CONJP (CONJ and)
+             (PP (P in)
+		 (NP (N width))))
+      (CONJ both)))	                             &larr; BOTH still attaches high in PP
+
+( (PP (P in)
+      (NP (ADJP (CONJ both)
+		(ADJ material)
+                (CONJP *ICH*-1))
+	  (NS respects)
+	  (CONJP-1 (CONJ and) (ADJ spiritual)))))
+
+( (PP (P in)
+      (NP (ADJP	(ADJ material)
+                (CONJP *ICH*-1))
+	  (NS respects)
+	  (CONJP-1 (CONJ and)
+		   (ADJ spiritual)
+		   (CONJ both)))))	             &larr; BOTH attaches high within CONJP
+</pre> </blockquote>
+
+<a name="correl_conj_floated">
+<h4>Floated correlative conjunction</h4>
+
+Floated correlative conjunctions are
+attached <a href="syn-intro.html#high_attachment">as high as
+possible</a>, usually at the IP level, but lower if necessary.  Where
+possible, they are coindexed with
+an <a href="syn-empty.html#ich"><tt>*ICH*</tt> trace</a>.
+
+<p>
+<blockquote> <pre>
+( (IP-MAT (CONJ-1 Either)
+          (NP-SBJ (PRO you))
+          (BEP are)
+          (NP-PRD (CONJ *ICH*-1)
+                  (NP (NPR God))
+                  (CONJP (CONJ or)
+			 (NP (NPR$ God's) (N disciple))))
+	  (PUNC .)))
+
+( (IP-SUB (NP-SBJ (D the) (N king))
+          (MD should)
+          (CONJ-1 neither)
+          (VB carry)
+          (NP-OB1 (CONJ *ICH*-1) (N sword) (CONJ nor) (N knife))))
+
+( (IP-SUB (NP-SBJ (PRO$ his) (N body))
+          (BED was)
+	  (ADJP-PRD (ADJ full)
+                    (PP (P of)
+                        (NP (ADJ great) (NS wounds))))
+	  (PUNC ,)
+	  (CONJ-1 both)
+	  (PP (P on)
+              (NP (CONJ *ICH*-1)
+		  (D the) (NS shoulders)		&larr; no NP because of subsequent NX 
+		  (PUNC ,)
+		  (CONJP (NX (NS arms)))
+		  (PUNC ,)
+		  (CONJP (CONJ and)
+			 (NX (N face)))))))
+
+( (IP-MAT (CONJ and)
+          (NP-SBJ (ADJ merciful) (NPR Christ))
+          (VBD granted)
+          (NP-OB2 (PRO him))
+          (NP-OB1 (N health)
+                  (CONJ-1 both)		                &larr; CONJ floated as high as possible
+                  (PP (P of)
+                      (NP (CONJ *ICH*-1) (N body) (CONJ and) (N soule))))
+          (PUNC .)))
+
+( (IP-MAT (CONJ for)
+          (PP (P in)
+              (NP (Q all) (NS tournaments)		&larr; no NP because of subsequent NX 
+                  (PUNC ,)
+                  (CONJP (NX (NS jousts)))
+                  (PUNC ,)
+                  (CONJP (CONJ and)
+                         (NX (NS deeds)
+                             (PP (P of)
+                                 (NP (NS arms)))))
+                  (PUNC ,)
+                  (CONJ-1 both)		                &larr; CONJ floated as high as possible
+                  (PP (P for)
+                      (NP (CONJ *-1) (N life) (CONJ and) (N death)))))
+          (PUNC ,)
+          (NP-SBJ (PRO he))
+          (VBD surpassed)
+          (NP-OB1 (Q all) (OTHER other) (NS knights))
+	  (PUNC ,)))
+</pre> </blockquote>
+
+<a name="conj_and_neg">
+<h3>Conjunction and negation</h3>
+
+In both of the following constructions, NOT is attached low because it
+forms a constituent with the phrase that it negates.  In other words,
+NOT is never treated as a correlative conjunction or as part of one.
+
+<a name="x_and_not_y">
+<h4>X (AND/BUT) NOT Y</h4>
+
+<p>
+<blockquote> <pre>
+(XP (XP (X first-conjunct))
+    (CONJP (CONJ conjunction)
+           (YP (NEG not) (Y second-conjunct))))		&larr; X AND/BUT NOT Y
+
+(XP (XP (X first-conjunct))
+    (CONJP (YP (NEG not) (Y second-conjunct))))		&larr; X NOT Y
+</pre> </blockquote>
+
+<p>
+<blockquote> <pre>
+( (NP (NP (D the) (N man))
+      (CONJP (CONJ and)
+             (NP (NEG not) (D the) (N horse)))))
+
+( (ADVP-LOC (ADVP (ADV inside))
+            (PUNC ,)
+            (CONJP (CONJ but)
+                   (ADVP (NEG not) (ADV outside)))))
+
+( (PP (PP (P to)
+          (NP (PRO us)))
+      (CONJP (CONJ and)
+             (PP (NEG not)
+                 (P to)
+                 (NP (PRO them))))))
+
+( (PP (PP (P in)
+          (NP (N hope)
+              (PP (P of)
+                  (NP (NPR$ God's) (N help)))))
+      (PUNC .)
+      (CONJP (CONJ &)                                       &larr; recursive CONJP
+             (PP (P in)
+                 (NP (N trust)
+                     (PP (PP (P of)
+                             (NP (PRO$ his) (N grace)))
+                         (PUNC .)
+                         (CONJP (PP (NEG not)
+                                    (P on)
+                                    (NP (PRO$ their) (N strength))))))))))
+</pre> </blockquote>
+
+<a name="not_x_but_y">
+<h4>NOT (ONLY) X BUT (ALSO) Y</h4>
+
+Unlike NOT (ONLY), ALSO attaches high - as a sister to the conjunction.
+
+<p>
+<blockquote> <pre>
+(XP (XP (NEG not) (FP only) (X first-conjunct) ...)
+    (CONJP (CONJ conjunction)
+           (ALSO also)
+           (YP (Y second-conjunct) ...)))
+</pre> </blockquote>
+
+<p>
+<blockquote> <pre>
+( (NP (NP (NEG not)
+          (NP (ADJ harsh) (NS curses)))
+      (CONJP (CONJ but)
+             (NP (ADJ gentle) (NS entreaties)))))
+
+( (PP (PP (NEG not)
+	  (P with)
+	  (NP (ADJ harsh) (NS curses)))
+      (CONJP (CONJ but)
+	     (PP (P with)
+		 (NP (ADJ gentle) (NS entreaties))))))
+
+( (NP (NP (NEG not) (FP only)			&larr; low attachment of NOT ONLY
+          (D the) (NS faculty))
+      (CONJP (CONJ but)
+	     (ALSO also)			&larr; high attachment of ALSO
+             (NP (D the) (NS students)))))
+</pre> </blockquote>
+
+<a name="conjp_extraposed">
+<h4>Extraposed CONJP</h4>
+
+<p>
+<table>
+<tr>
+<td valign=center><img src="default.GIF"> <!-- default -->
+<td valign=center>Cases where an extraposed CONJP is construed with a
+subject are treated by default
+as <a href="syn-conj.html#extraposed_conjp_on_subject">gapping</a>.
+</table>
+
+<p>
+When a non-first conjunct of a conjunction structure is extraposed, it
+is coindexed with an <a href="syn-empty.html#ich"><tt>*ICH*</tt> trace</a>.
+
+<p>
+<blockquote> <pre>
+( (NP (ADJP (ADJP (ADJ young))
+            (CONJP *ICH*-1))
+      (N people)
+      (CONJP-1 (CONJ and)
+               (ADJP (ADV musically) (ADJ talented)))))
+</pre> </blockquote>
+
+<p> This treatment extends to cases where the non-first conjunct is a
+single word.  Although word-level conjunction does not ordinarily
+contain <tt>CONJP</tt>, when extraposition is involved, a CONJP is added
+(motivated by the fact of extraposition itself).  But no additional
+phrasal nodes are added.  As in the phrasal case just discussed, the
+extraposed <tt>CONJP</tt> is coindexed with
+an <a href="syn-empty.html#ich"><tt>*ICH*</tt> trace</a>.
+
+<p>
+<blockquote> <pre>
+( (NP (ADJP (ADJP (ADJ young))
+            (CONJP *ICH*-1))
+      (N people)
+      (CONJP-1 (CONJ and) (ADJ talented))))
+</pre> </blockquote> 
+
+<p>
+<blockquote style="background-color:#F5FFFA"><!--mideng-->
+<pre>
+( (NP (PRO$ hir)
+      (ADJP (ADJ good)
+            (CONJP *ICH*-1))
+      (N conuersacyon)
+      (PUNC ,)
+      (CONJP-1 (CONJ and) (ADJ honest)))
+  (ID CMAELR4-M4,3.73))
+
+( (IP-MAT (NP-SBJ (PRO$ Hare) (NS ouerherren))
+          (VBP (VBP witi+d)
+               (CONJP *ICH*-1))
+          (NP-OB1 (PRO ham))
+          (CONJP-1 (CONJ ant)
+                   (VBP wrea+de+d))
+          (PUNC .))
+  (ID CMHALI-M1,150.309))
+
+( (IP-MAT (CONJ for)
+          (NP-SBJ (PRO ich))
+          (MD chulle)
+          (VB (VB lowse)
+              (CONJP *ICH*-1))
+          (NP-OB1 (PRO +te))
+          (CONJP-1 (CONJ &)
+                   (VB leten))
+          (PP (P hwen)
+              (CP-ADV (C 0)
+                      (IP-SUB (NP-SBJ *exp*)
+                              (NP-OB2 (PRO me))
+                              (VBP +tunche+d))))
+          (PUNC .))
+  (ID CMJULIA-M1,109.223))
+</pre>
+</blockquote>
+
+<a name="conj_clause">
+<h3>Clausal conjunction</h3>
+
+<a name="conj_matrix_ips">
+<h4>Conjoined matrix IPs</h4>
+
+<p> Main clauses are <a href="syn-tok.html">divided into separate
+sentence tokens</a> even when overtly conjoined.  An exception is made
+for <a href="syn-conj.html#pseudo-imp">pseudo-imperatives</a> in order
+to enable their retrieval.  An <a href="syn-empty.html#empty_subj">empty
+subject</a> <nobr><tt>(NP-SBJ *con*)</tt></nobr> is included in any
+non-first conjunct.
+
+<p>
+<blockquote> <pre>
+( (IP-MAT (ADVP-TMP (ADV Than))
+          (NP-SBJ (NPR Arthure))
+          (VBD toke)
+          (NP-OB1 (D the) (N swerde))
+          (PP (P by)
+              (NP (D the) (N sheethe)
+                  (CONJP (CONJ and)
+                         (NX (N gurdil))))))
+  (ID CMMALORY-M4,46.1496))
+
+( (IP-MAT (CONJ and)
+          (NP-SBJ *con*)
+          (VBD pulled)
+          (PP (P at)
+              (NP (PRO hit)))
+          (ADVP (ADV egirly))
+          (PUNC ,))
+  (ID CMMALORY-M4,46.1497))
+
+<hr>
+( (IP-MAT (NP-SBJ (D Thys) (N damesell))
+          (ADVP-TMP (ADV than))
+          (VBD behelde)
+          (NP-OB1 (D thys) (ADJ poure) (N knyght)))
+  (ID CMMALORY-M4,46.1526))
+
+( (IP-MAT (CONJ and)
+          (NP-SBJ *con*)
+          (VBD saw)
+          (CP-THT (C 0)
+                  (IP-SUB (NP-SBJ (PRO he))
+                          (BED was)
+                          (NP-PRD (D a) (ADJ lyckly) (N man))))
+          (PUNC ;))
+  (ID CMMALORY-M4,46.1427))
+</pre> </blockquote>
+
+<a name="conj_embedded_ips">
+<h4>Conjoined embedded IPs</h4>
+
+The absence of a VP level in our annotation system forces us to treat
+both VP and IP conjunction in the same way - namely, as IP conjunction.
+An <a href="syn-empty.html#empty_subj">empty
+subject</a> <nobr><tt>(NP-SBJ *con*)</tt></nobr> is included in any
+non-first conjunct.  Any traces of movement are annotated across the
+board (that is, in each conjunct).  Cases where more than the subject is
+missing from a non-first conjunct are annotated
+as <a href="syn-conj.html#gapping">gapping</a> rather than as simple
+conjunction.
+
+<p>
+<blockquote> <pre>
+( (CP-THT (C that)
+          (IP-SUB (IP-SUB (NP-SBJ (NUM two) (NS ladyes))
+                          (VBD mette)
+                          (PP (P with)
+                              (NP (PRO hym))))
+                  (PUNC ,)
+                  (CONJP (CONJ and)
+                         (IP-SUB (IP-SUB (NP-SBJ (D that) (ONE one))
+                                         (VBD sate)
+                                         (PP (P uppon)
+                                             (NP (D a) (N lyon))))
+                                 (PUNC ,)
+                                 (CONJP (CONJ and)
+                                        (IP-SUB (NP-SBJ (D that) (OTHER other))
+                                                (VBD sate)
+                                                (PP (P uppon)
+                                                    (NP (D a) (N serpente)))))))))
+  (ID CMMALORY-M4,665.4767))
+
+( (CP-ADV (C 0)
+          (IP-SUB (IP-SUB (NP-SBJ (PRO he))
+                          (BED was)
+                          (NP-PRD (N kynge)
+                                  (PP (P of)
+                                      (NP (Q all) (NPR Englond)))))
+                  (CONJP (CONJ and)
+                         (IP-SUB (NP-SBJ *con*)
+                                 (ADVP (ADV so))
+                                 (VBD regned)))))
+  (ID CMMALORY-M4,2.7))
+
+( (CP-REL (WPP-1 (WADV+P wherof))
+          (C 0)
+          (IP-SUB (IP-SUB (PP *T*-1)                               &larr; across-the-board extraction 
+                          (NP-SBJ (D the) (NS barons))
+                          (BED were)
+                          (ADJP-PRD (ADV sore) (ADJ agreved)))
+                  (CONJP (CONJ and)
+			 (IP-SUB (PP *T*-1)                        &larr; across-the-board extraction 
+                                 (NP-SBJ *con*)
+                                 (VBD put)
+                                 (NP-OB1 (PRO it))
+                                 (RP of)
+                                 (PP (P in)
+                                     (NP (N delay)))
+                                 (PP (P till)
+                                     (NP (D the) (ADJ hyghe) (N feste)
+                                         (PP (P of)
+                                             (NP (NPR Eester)))))))))
+  (ID CMMALORY-M4,10.289))
+</pre> </blockquote>
+
+<a name="conj_direct_speech">
+<h4>Conjoined direct speech</h4>
+
+After a verb of saying, whether in a matrix or subordinate clause, all
+full conjoined clauses containing direct speech after the first one are
+split off as separate tokens.
+
+<p>
+<blockquote> <pre>
+( (IP-MAT (CONJ and)
+          (NP-SBJ (PRO she))
+          (VBD seyde)
+          (PUNC ,)
+          (PUNC ')
+          (IP-MAT-SPE (NP-VOC (NPR sir) (NPR Percivale))
+                      (PUNC ,)
+                      (NP-SBJ (PRO I))
+                      (VBP playne)
+                      (PP (P unto)
+                          (NP (PRO you)))
+                      (PP (P of)
+                          (NP (CP-FRL-SPE (WNP-1 0)
+                                          (C that)
+                                          (IP-SUB-SPE (NP-OB1 *T*-1)
+                                                      (NP-SBJ (PRO ye))
+                                                      (HVP have)
+                                                      (DON done)
+                                                      (PP (P unto)
+                                                          (NP (PRO me))))))))
+          (PUNC ,))
+  (ID CMMALORY-M4,665.4774))
+
+( (IP-MAT-SPE (CONJ and)			&larr; separate sentence token
+              (NP-SBJ (PRO I))
+              (HVP have)
+              (NEG nat)
+              (VBN offended)
+              (PP (P unto)
+                  (NP (PRO you)))
+              (PUNC .)
+              (PUNC '))
+  (ID CMMALORY-M4,665.4775))
+</pre> </blockquote>
+
+<!--
+<p> On the other hand, in embedded clauses, including parentheticals, all
+conjoined direct speech remains part of the same token.
+
+<p>
+<blockquote> <pre>
+(NODE (CP-ADV (WADVP-2 0)
+              (C 0)
+              (IP-SUB (ADVP *T*-2)
+                      (PP (P in)
+                          (NP (D the) (NUM xj.) (N c.)
+                              (PP (P of)
+                                  (NP (NPR Osee)))))
+                      (NP-SBJ (NPR God))
+                      (VBP seith)
+                      (ADVP (ADV thus))
+                      (PUNC ,)
+                      (PUNC ")
+                      (IP-MAT-SPE (IP-MAT-SPE (NP-SBJ (NPR Israel))
+                                              (BEP is)
+                                              (NP-PRD (D a) (N chijld)))
+                                  (PUNC ,)
+                                  (CONJP (CONJ and)
+                                         (IP-MAT-SPE (NP-SBJ (PRO I))
+                                                     (VBD louede)
+                                                     (NP-OB1 (PRO him)))))))
+  (ID CMPURVEY-M3,I,53.2168))
+
+(NODE (CP-THT (C +tat)
+              (IP-SUB (NP-SBJ (PRO +tei))
+                      (MD shuld)
+                      (VB sey)
+                      (PUNC ,)
+                      (PUNC ")
+                      (IP-MAT-SPE (IP-MAT-SPE-1 (NP-SBJ (PRO$ My) (N mete))
+                                                (BEP is)
+                                                (ADJP-PRD (ADJ redye)))
+                                  (CONJP (CONJ and)
+                                         (IP-MAT-SPE=1 (NP-SBJ (Q all))
+                                                       (ADVP (ADV well)))))))
+  (ID CMROYAL-M34,17.120))
+</pre> </blockquote>
+-->
+
+<a name="pseudo-imp">
+<h4>Pseudo-imperative</h4>
+
+In the so-called pseudo-imperative, an imperative and a following matrix
+declarative correspond pragmatically to the protasis and apodosis of a
+conditional construction.  In order to represent the tight link between
+the two clauses and to enable their retrieval, pseudo-imperatives are
+annotated as single tokens.  The constituent clauses are annotated
+according to form, not function, and the root node is <tt>IP-IMP</tt> in
+accordance with the guidelines
+for <a href="syn-conj.html#conj_unlike_categories">conjoining unlike
+categories</a>.  In doubtful cases, the default annotation is as a
+single token, in order to enable retrieval.
+
+<p>
+<blockquote> <pre>
+(IP-IMP (IP-IMP (VBI Cross)
+                (NP-OB1 (D the) (N line)))
+        (PUNC ,)
+        (CONJP (CONJ and)
+               (IP-MAT (NP-SBJ (PRO I))
+                       (VBP shoot)))
+        (PUNC .))
+
+(IP-IMP (IP-IMP (VBI Stay)
+                (PP (P behind)
+                    (NP (D the) (N line))))
+        (PUNC ,)
+        (CONJP (CONJ or)
+               (IP-MAT (NP-SBJ (PRO I))
+                       (VBP shoot)))
+        (PUNC .))
+</pre> </blockquote>
+
+<a name="right_node_raising">
+<h4>Right node raising</h4>
+
+Right node raising is treated differently depending on whether the
+raised constituent is smaller than NP or not.  In the first case, that
+constituent is immediately dominated by NP; in the second (general)
+case, by some type of IP.  In the examples below, the raised constituent
+is underlined.
+
+<p>
+<blockquote> <pre>
+an enlarging and a restraining <u>power</u>		&larr; right node raised constituent = N
+She asked for, but she did not get, <u>a raise</u>.	&larr; right node raised constituent = NP
+</pre> </blockquote>
+
+The NP-internal type is treated like ordinary conjunction, except that
+the head of the first conjunct is not expressed.
+
+<p>
+<blockquote> <pre>
+(NP (NP (D an) (ADJ enlarging)
+    (CONJP (CONJ and)
+           (NP (D a) (ADJ restraining) (N power))))
+</pre> </blockquote>
+
+In the clausal type, the incomplete IP is coindexed with the IP from
+which its missing parts can be reconstructed.  The incomplete IP shares
+a dash tag with the complete IP and is further annotated as a
+parenthetical, yielding <tt>IP-MAT-PRN</tt>, <tt>IP-SUB-PRN</tt>, and so
+on.  The incomplete IP includes no information beyond part-of-speech and
+minimal phrasal labeling (possibly including the annotation of
+grammatical functions).  PPs in such clauses need not include a
+prepositional object.
+
+<p>
+<blockquote> <pre>
+( (IP-MAT-1 (NP-SBJ (PRO She))			  &larr; complete clause (includes raised constituent)
+            (VBD asked)
+            (PP (P for)
+                (IP-MAT-PRN=1 (CONJ but) 	  &larr; incomplete clause (excludes raised constituent)
+                              (NP-SBJ (PRO she))
+                              (DOD did)
+                              (NEG not)
+                              (VB get))
+                (NP (D a) (N raise)))))
+
+( (IP-MAT-1 (NP-SBJ (PRO She))
+            (VBD received)
+            (IP-MAT-PRN=1 (PP (P though)
+                              (CP-ADV (C 0)
+			              (IP-SUB (NP-SBJ (PRO she))
+                                              (DOD did)
+                                              (NEG not)
+                                              (VB know)
+					      (CP-QUE-SUB (WNP-2 (WPRO what))
+                                                          (IP-INF (NP-OB1 *T*-2)
+							          (TO to)
+                                                                  (DO do)
+                                                                  (PP (P with))))))))	&larr; missing object
+            (NP-OB1 (D a) (N raise))))
+</pre>
+</blockquote>
+
+<p>
+<blockquote style="background-color:#F5FFFA"><!--mideng-->
+<pre>
+( (IP-INF-1 (TO to)
+            (VB se)
+            (IP-INF-PRN=1 (CONJ and)
+                          (TO to)
+                          (VB beholde))
+            (NP-OB1 (D the) (N multitude)
+                    (PP (P of)
+                        (NP (N peple)
+                            (CP-REL (WNP-2 0)
+                                    (C that)
+                                    (IP-SUB (NP-SBJ *T*-2)
+                                            (VBD fledde)))))))
+  (ID CMMALORY-M4,25.787))
+
+( (IP-SUB-1 (PP (P by)
+                (NP (N grace)))
+            (NP-SBJ (PRO he))
+            (VBP sese)
+            (PUNC ,)
+            (IP-SUB-PRN=1 (CONJ or)
+                          (NP-SBJ (PRO he))
+                          (VBP heres))
+            (PUNC ,)
+            (IP-SUB-PRN=1 (CONJ or)
+                          (NP-SBJ (PRO he))
+                          (VBP felys))
+            (NP-OB1 (FP anely) (NPR Godd))
+            (PP (P in)
+                (NP (Q all) (NS creaturs))))
+  (ID CMROLLTR-M24,16.384))
+
+( (IP-MAT-1 (CONJ And)
+            (PP (P+D for-+ti))
+            (NP-SBJ (PRO he))
+            (MD may)
+            (ADVP-TMP (ADV neuer))
+            (VB fele)
+            (IP-MAT-PRN=1 (CONJ ne)
+                          (VB come)
+                          (PP (P to)))		&larr; missing object
+            (NP-OB1 (D +te) (NS joyes)
+                    (PP (P of)
+                        (NP (NPR Heuene))))
+            (PUNC ,)))
+</pre> </blockquote>
+
+<!--
+( (IP-MAT-1 (NP-SBJ (Q No) (N tonge))
+            (MD maye)
+            (VB telle)
+            (PUNC ,)
+            (IP-MAT-PRN=1 (CONJ ne)
+                          (CODE &lt;em&gt;)
+                          (NP-SBJ (N herte))
+                          (ADVP (ADV fully))
+                          (CODE &lt;$$em&gt;)
+                          (VB thynke))
+            (PUNC ,)
+            (NP-OB1 (D the) (NS paynes)
+                    (CP-REL (WNP-2 0)
+                            (C that)
+                            (IP-SUB (NP-OB1 *T*-2)
+                                    (NP-SBJ (PRO$ oure) (NPR savyoure))
+                                    (VBD sufferde)
+                                    (PP (P for)
+                                        (NP (PRO vs))))))
+  (ID CMJULNOR-M34,56.173))
+
+( (IP-MAT-1 (CONJ but)
+            (NP-SBJ (PRO he))
+            (VBD ravisched)
+            (IP-MAT-PRN=1 (CONJ and)
+                          (VBD tok)
+                          (ADVP-DIR (ADV awey)))
+            (NP-OB1 (D a) (N mynchoun)
+                    (PP (P of)
+                        (NP (D +te) (N abbay)
+                            (PP (P of)
+                                (NP (NPR Wynborne))))))
+            (PUNC ,)))
+
+( (IP-MAT-1 (CONJ Vor)
+            (NP-SBJ (N herte)
+                    (QP (Q non)))
+            (NEG ne)
+            (MD may)
+            (VB +tenche)
+            (PUNC &sol;)
+            (IP-MAT-PRN=1 (CONJ ne)
+                          (NP-SBJ (N$ mannes) (N tonge))
+                          (VB telle))
+            (PUNC :)
+            (CP-QUE-SUB (WNP-2 (WD huet) (N +ting))
+                        (C 0)
+                        (IP-SUB (NP-PRD *T*-2)
+                                (BEP is)
+                                (NP-SBJ (D +tet) (N pais)
+                                        (CP-REL (WNP-3 0)
+                                                (C +tet)
+                                                (IP-SUB (NP-OB1 *T*-3)
+                                                        (NP-SBJ (NPR god))
+                                                        (HVP he+t)
+                                                        (VBN behote)
+                                                        (NP-OB2 (PRO$ his) (NS urendes)))))))
+            (PUNC .))
+  (ID CMAYENBI-M2,261.2474))
+-->
+
+<a name="gapping">
+<h4>Gapping</h4>
+
+<p>
+The treatment of gapping resembles that
+of <a href="syn-conj.html#right_node_raising">right node raising</a>.
+As with right node raising, the gapped clause is coindexed with the
+complete clause from which it can be reconstructed.
+
+<p>
+If the gapped clause is clause-internal, it is labeled as a
+parenthetical.  Gapping of this type is often used even without strict
+equivalence between the complete and the gapped clause.  If the
+relationship is extremely loose, however, the second clause may be
+dominated by <a href="syn-phrase.html#frag"><tt>FRAG</tt></a>.  In
+<a href="words.html#and_that">AND THAT</a> gapping, <tt>FRAG</tt>
+dominates the entire conjunct including AND.
+
+<p>
+<blockquote> <pre>
+( (IP-MAT-1 (CONJ And)
+            (NP-SBJ (NS men))
+            (VBP comen)
+            (PP (P fro)
+                (ADJP (ADJ fer)))
+            (PP (P by)
+                (NP (N watre)))
+            (PP (P in)
+                (NP (NS schippes)))
+            (IP-MAT-PRN=1 (CONJ &)
+                          (PP (P be)
+                              (NP (N londe)))
+                          (PP (P with)
+                              (NP (NS cartes))))
+            (IP-INF-PRP (FOR for) (TO to)
+                        (VB fetten)
+                        (PP (P of)
+                            (NP (D +tat) (N grauell)))))
+  (ID CMMANDEV-M3,19.464))
+
+( (IP-MAT-1 (CONJ and)
+            (ADVP-LOC (ADV there))
+            (BED was)
+            (NP-SBJ (NPR Gryfflette))
+            (VAN put)
+            (PP (P to)
+                (NP (D the) (N erth)))
+            (NP-ADV (N horse) (CONJ and) (N man))
+            (PUNC ,)
+            (IP-MAT-PRN=1 (CONJ and)
+                          (NP-SBJ (NPR Lucas)
+                                  (NP-PRN (D the) (N Butler)))
+                          (NP-ADV (N horse) (CONJ and) (N man)))
+            (PUNC ,)
+            (PP (P $by)
+                (NP (NP (NPR kynge) (NPR Brandegoris))
+                    (CONJP (CONJ and)
+                           (NP (NPR kynge) (NPR Idres)))
+                    (CONJP (CONJ and)
+                           (NP (NPR kynge) (NPR Angwyshaunce)))))
+            (PUNC .))
+  (ID CMMALORY-M4,21.648))
+</pre> </blockquote>
+
+<p> If the gapped clause is sentence-final (which in right node raising
+is impossible by definition), it does not receive a <tt>-PRN</tt> tag.
+
+<p>
+<blockquote> <pre>
+( (CP-ADV (C 0)
+          (IP-SUB (IP-SUB-1 (NP-SBJ (NPR kynge) (NPR Uther))	        &larr; complete clause
+                            (MD wille)
+                            (ADVP (ADV wel))
+                            (VB rewarde)
+                            (NP-OB1 (PRO me)))
+                  (CONJP (CONJ and)
+                         (IP-SUB=1 (BE be)				&larr; gapped clause
+                                   (VAN sworne)
+                                   (PP (P unto)
+                                       (NP (PRO me)))
+                                   (IP-INF (TO to)
+                                           (VB fulfille)
+                                           (NP-OB1 (PRO$ my) (N desyre)))))))
+  (ID CMMALORY-M4,3.57))
+
+( (IP-MAT (IP-MAT-1 (CONJ And)
+                    (ADVP (ADV so))
+                    (NP-SBJ (NPR sir) (NPR Launcelot))
+                    (VBD rode)
+                    (PP (P on)
+                        (NP (D the) (ONE one) (N syde))))
+          (CONJP (CONJ and)
+                 (IP-MAT=1 (NP-SBJ (PRO she))
+                           (PP (P on)
+                               (NP (D the) (OTHER other) (N syde)))))
+          (PUNC .))
+  (ID CMMALORY-M4,207.3402))
+
+( (IP-MAT (IP-MAT-1 (ADVP-TMP (ADV Than))
+                    (NP-SBJ (NPR sir) (NPR Percivale))
+                    (VBD smote)
+                    (NP-OB1 (D the) (ADJ firste))
+                    (PP (P to)
+                        (NP (D the) (N erth))))
+          (CONJP (CONJ and)
+                 (IP-MAT=1 (NP-OB1 (PRO$ hys) (N horse))
+                           (PP (P uppon)
+                               (NP (PRO hym)))))
+          (PUNC ,))
+  (ID CMMALORY-M4,661.4640))
+</pre> </blockquote>
+
+<p>
+Gapping differs from ordinary IP conjunction in that more than the
+subject is missing from any non-first conjuncts.  A common case is for
+the subject and a modal to be missing.  Also, as a rule, gapped clauses
+dominate more than one constituent (not counting conjunctions);
+otherwise, the default annotation is ordinary conjunction (possibly
+together with extraposition).
+
+<a name="extraposed_conjp_on_subject">
+<p>
+<b>Exception:</b> Cases where a CONJP is extraposed from a subject are
+treated by default as gapping rather than conjunction.
+
+<p>
+<blockquote>
+<pre>
+( (IP-MAT (IP-MAT-1 (NP-SBJ (D The) (N queen))                         &larr; like this
+		    (BEP was)
+		    (VAG making)
+		    (NP-OB1 (ADJ great) (N sorrow)))
+	  (PUNC ,)
+          (CONJP (CONJ and)
+		 (IP-MAT=1 (NP-SBJ (Q all) (D the) (NS barons))))
+	  (PUNC .)))
+
+( (IP-MAT (NP-SBJ (NP (D The) (N queen))   		               &larr; not like this
+		  (CONJP *ICH*-1))
+	  (BEP was)
+	  (VAG making)
+	  (NP-OB1 (ADJ great) (N sorrow))
+	  (CONJP-1 (CONJ and)
+		   (NP (Q all) (D the) (NS barons)))
+	  (PUNC .)))
+</pre> </blockquote>
+
+<p>
+The above exception to the default preference for ordinary conjunction
+maximizes consistency with the historical French corpora and is
+motivated for both English and French by the subject-verb agreement
+facts illustrated immediately below.  In French, the facts are more
+salient than in English, where the loss of agreement morphology bleeds
+conclusive evidence for the gapping analysis.
+
+<p>
+<blockquote>
+<pre>
+<b>Singular agreement consistent with gapping</b>
+
+      The queen is coming,
+      and the barons <s>are coming</s>.
+
+<b>Singular agreement inconsistent with conjunction + extraposition</b>
+
+      The queen [CONJP and the barons] { *is, &check; are } coming.
+
+      The queen [CONJP-1 <s>and the barons</s>] { &check;is, *are } coming,
+      [CONJP-1 and the barons ].
+<pre>
+</blockquote>
+
+<a name="backwards_gapping">
+<h4>Backwards gapping</h4>
+
+<p> Backwards gapping is necessary for cases where missing material
+precludes a right node raising analysis.  It is also used for
+<a href="words.html#whether_or_no">WHETHER OR NO</a> clauses.
+
+<p> In backwards gapping, the constituent that counts as gapped is the
+first conjunct (rather than a non-first conjunct, as
+with <a href="syn-conj.html#gapping">ordinary gapping</a>).  The
+conjunction is included under CONJP in either type.
+
+<p>
+<blockquote> <pre>
+( (IP-MAT (IP-MAT=1 (NP-SBJ (PRO I))
+                    (HVP have))                               &larr; missing "withstood"
+          (CONJP (CONJ and)
+                 (IP-MAT-1 (NP-SBJ *con*)
+		           (MD will)
+		           (VB withstand)
+		           (NP-OB1 (PRO him))))))
+
+( (PP (P+N because)
+      (CP-ADV (C 0)
+              (IP-SUB (IP-SUB=1 (NP-SBJ (PRO I))
+                                (HVP haue)
+		    		(NEG not))                    &larr; missing "thought"
+   		      (CONJP (CONJ nor)
+			     (IP-SUB-1 (NP-SBJ *con*)
+                                       (MD can)
+				       (NEG not)
+				       (VB thinke)
+				       (IP-SMC (NP-SBJ=2 (PRO it))
+					       (ADJP-PRD (ADJ reasonable))
+ 					       (IP-INF-2 (TO to)
+						    	 (VB yeld)
+							 (PP (P to)
+							     (NP (ADJ sondry)
+                                                                 (PRO$ his)
+                                                                 (NS requestes)))))))))))
+</pre> </blockquote>
+
+<a name="conj_cps">
+<h4>Conjoined CPs</h4>
+
+<p>
+<blockquote> <pre>
+( (CP-THT (CP-THT (C that)
+                  (IP-SUB (NP-SBJ (PRO we))
+			  (VBP come)))
+          (CONJP (CONJ or)
+		 (CP-THT (C that)
+			 (IP-SUB (NP-SBJ (PRO you))
+				 (VBP go))))))
+
+( (CP-QUE-SUB (CP-QUE-SUB (WNP-1 (WPRO what))
+			  (IP-SUB (NP-OB1 *T*-1)
+				  (NP-SBJ (PRO we))
+				  (MD should)
+				  (DO do)))
+              (CONJP (CONJ and)
+		     (CP-QUE-SUB (WADVP-2 (WADV why))
+				 (IP-SUB (ADVP *T*-2)
+					 (NP-SBJ (PRO we))
+					 (MD should)
+					 (DO do)
+					 (NP-OB1 (PRO it)))))))
+
+( (CP-QUE-SUB (CP-QUE-SUB (WNP-1 (WPRO what))
+			  (IP-SUB (NP-OB1 *T*-1)
+				  (NP-SBJ (PRO we))
+				  (MD should)
+				  (VB take)))
+              (CONJP (CONJ and)
+		     (CP-QUE-SUB (WNP-2 (WADV what))
+				 (IP-SUB (NP-OB1 *T*-2)
+					 (NP-SBJ (PRO we))
+					 (MD should)
+					 (VB leave))))))
+
+</pre> </blockquote>
+
+Conjunction of embedded clauses is treated as CP conjunction (rather
+than as IP conjunction) only if the non-first conjunct contains overt CP
+material (that is, a complementizer or wh- phrase).
+
+<p>
+<blockquote> <pre>
+( (CP-THT (C that)
+          (IP-SUB (IP-SUB (NP-SBJ (PRO we))
+			  (VBP come))
+		  (CONJP (CONJ or)
+			 (IP-SUB (NP-SBJ (PRO you))      &larr; like this
+				 (VBP go))))))
+
+( (CP-THT (CP-THT (C that)
+                  (IP-SUB (NP-SBJ (PRO we)) 
+			  (VBP come)))
+          (CONJP (CONJ or)
+		 (CP-THT (C 0)                           &larr; not like this
+			 (IP-SUB (NP-SBJ (PRO you))
+				 (VBP go))))))
+</pre> </blockquote>
+
+<!--     
+( (CP-ADV (CP-ADV (C that)
+                  (IP-SUB (NP-SBJ (PRO I))
+                          (VBP know)
+                          (PP (P of)
+                              (NP (NP-POS (D that) (N$ knyghtes))
+                                  (N felyship)))))
+          (CONJP (CONJ and)
+                 (CP-ADV (C that)
+                         (IP-SUB (NP-SBJ (PRO I))
+                                 (MD may)
+                                 (VB fyght)
+                                 (PP (P with)
+                                     (NP (PRO hym)))))))
+  (ID CMMALORY-M4,658.4527))
+
+( (CP-THT (CP-THT (C that)
+                  (IP-SUB (NP-SBJ (PRO he))
+                          (MD will)
+                          (VB put)
+                          (NP-OB1 (PRO$ his) (ADJ owne) (N child))
+                          (PP (P to)
+                              (NP (N nourisshynge)))
+                          (PP (P to)
+                              (NP (D+OTHER another) (N woman)))))
+          (CONJP (CONJ and)
+                 (CP-THT (C that)
+                         (IP-SUB (NP-SBJ (PRO$ his) (N wyf))
+                                 (VBP nourisshe)
+                                 (NP-OB1 (PRO$ yours))))))
+  (ID CMMALORY-M4,6.142))
+
+( (CP-QUE-SUB (CP-QUE-SUB (WNP-1 (WD what) (N peple))
+                          (C 0)
+                          (IP-SUB (NP-OB1 *T*-1)
+                                  (NP-SBJ (PRO we))
+                                  (HVP have)
+                                  (VBN loste)))
+              (CONJP (CONJ and)
+                     (CP-QUE-SUB (WNP-2 (WD what) (ADJ good) (NS men))
+                                 (C 0)
+                                 (IP-SUB (NP-OB1 *T*-2)
+                                         (NP-SBJ (PRO we))
+                                         (VBP lese)
+                                         (PP (P+N because)	     &larr; <a href="syn-conj.html#clausal_conj_plus_shared_mod">low shared modifier</a>
+                                             (CP-ADV (C 0)
+                                                     (IP-SUB (NP-SBJ (PRO we))
+                                                             (VBP wayte)
+                                                             (ADVP-TMP (ADV allweyes))
+                                                             (PP (P on)
+                                                                 (NP (D thes) (N+NS footemen))))))))))
+  (ID CMMALORY-M4,27.851))
+</pre> </blockquote>
+-->
+
+<a name="shared_mod">
+<h3>Shared modifier</h3>
+
+<a name="shared_premod">
+<h4>Shared premodifier</h4>
+
+<p>
+When the first conjunct includes pre-head modifiers, it is possible in
+principle for conjunction to apply at the word level or at the phrase
+level.  In order to indicate the (potential) attachment ambiguity, the
+non-first conjuncts are labeled with special tags ending in <tt>X</tt>
+- <tt>(W)ADJX, (W)ADVX,</tt> <tt>(W)NX</tt>, <tt>(W)QX</tt>,
+and <tt>NUMX</tt> (the last without a wh- variant).  Since non-first
+conjuncts in these cases are never taken to be full phrases, the first
+conjunct is not surrounded by phrasal brackets of its own.
+
+<p>
+<table>
+<tr>
+<td valign=center><img src="hand.GIF">
+<td valign=center>The shared modifier labels are used even when the
+attachment ambiguity is resolved by the context.
+</table>
+
+<p>
+<blockquote> <pre>
+( (NP (ADJ great) (N joy)
+      (CONJP (CONJ or)
+             (NX (N sorrow)))))
+
+( (NP (Q all) (D the) (NS lords)
+      (PUNC ,)
+      (CONJP (NX (NS knights)))
+      (PUNC ,)
+      (CONJP (CONJ and)
+             (NX (PRO$ their) (NS ladies)))))
+
+( (ADJP (QR more) (ADJ cursed)
+        (CONJP (CONJ and)
+               (ADJX (ADJ abominable)))))
+
+( (ADVP (ADV very) (ADJ slowly)
+        (CONJP (CONJ and)
+               (ADVX (ADV deliberately)))))
+</pre> </blockquote>
+
+<p> This convention does not extend to PP.
+
+<p>
+<blockquote> <pre>
+( (PP (PP (ADV along)
+	  (P with)
+	  (NP (PRO me)))
+      (PUNC ,)
+      (CONJP (CONJ and)
+	     (PP (P with)
+		 (NP (D the) (N rest))))))
+</pre> </blockquote>
+
+<a name="shared_postmod">
+<h4>Shared postmodifier</h4>
+
+<p>
+In keeping with our general principles, shared postmodifiers are
+attached <a href="syn-intro.html#high_attachment">as high as
+possible</a>.
+
+<p>
+<blockquote> <pre>
+( (NP (NP (D the) (ADJ regional) (NS dialects))
+      (CONJP (CONJ and)
+             (NP (D the) (OTHER other) (NS varieties)))
+      (PP (P of)
+	  (NP (NPR English)))))
+
+( (NP (Q all) (D the) (NS officers)
+      (CONJP (CONJ and)
+             (NX (NS soldiers)))
+      (CP-REL (WNP-1 0)
+              (C that)
+              (IP-SUB (NP-SBJ *T*-1)
+                      (BED were)
+                      (ADVP-LOC (ADV there))))))
+
+( (NP (D the)
+      (N story)
+      (CP-REL (WNP-1 0)
+              (C that)
+              (IP-SUB (NP-OB1 *T*-1)
+                      (NP-SBJ (PRO they))
+                      (VBP tell)))
+      (PP (P about)					        &larr; daughter of NP, not IP-SUB
+          (NP (PRO the)
+              (N king)))))
+
+( (PP (PP (P in)
+	  (NP (D the) (ADJ regional) (NS dialects)))
+      (CONJP (CONJ and)
+	     (PP (P in)
+		 (NP (D the) (OTHER other) (NS varieties))))
+      (PP (P of)                                                &larr; counterintuitive attachment because of second "in"
+	  (NP (NPR English)))))
+
+</pre> </blockquote>
+
+<a name="clausal_conj_plus_shared_mod">
+<h4>Clausal conjunction and shared modifier</h4>
+
+Because of the way that we divide sentence tokens, shared adjuncts
+(potentially) interpreted as belonging to two tokens must be annotated
+as belonging to one or the other.  As a result, sentence-initial
+adjuncts (most commonly, clause-initial WHEN and IF clauses) appear as
+constituents of the first token only, while later adjuncts appear as
+constituents of some subsequent token only.
+
+<p>
+<blockquote> <pre>
+( (IP-MAT (ADVP-TMP (ADV Tomorrow))				&larr; potential shared adjunct
+          (PUNC ,)
+	  (NP-SBJ (PRO we))
+	  (MD will)
+	  (VB go)
+	  (PP (P tp)
+	      (NP (NPR Stony) (NPR Brook)))
+	  (PUNC ,)))
+
+( (IP-MAT (CONJ and)
+	  (NP-SBJ (PRO we))
+	  (MD will)
+	  (VB visit)
+	  (NP-OB1 (PRO$ our) (NS friends))
+	  (PUNC .)))
+
+<hr>
+( (IP-MAT (NP-SBJ (PRO we))
+	  (MD will)
+	  (VB go)
+	  (PP (P to)
+	      (NP (NPR Stony) (NPR Brook)))
+	  (PUNC ,)))
+
+( (IP-MAT (CONJ and)
+	  (NP-SBJ (PRO we))
+	  (MD will)
+	  (VB visit)
+	  (NP-OB1 (PRO$ our) (NS friends))
+	  (ADVP-TMP (ADV tomorrow))				&larr; potential shared adjunct
+	  (PUNC .)))
+</pre> </blockquote>
+
+<p> For uniformity, the guideline extends to embedded clauses.
+
+<p>
+<blockquote> <pre>
+( (CP-THT (C that)
+	  (IP-SUB (IP-SUB (ADVP-TMP (ADV tomorrow))		        &larr; potential shared adjunct
+			  (PUNC ,)
+			  (NP-SBJ (PRO we))
+			  (MD will)
+			  (VB go)
+			  (PP (P to)
+			      (NP (NPR Stony) (NPR Brook))))
+		  (PUNC ,)
+		  (CONJP (CONJ and)
+			 (IP-SUB (NP-SBJ (PRO we))
+				 (MD will)
+				 (VB visit)
+				 (NP-OB1 (PRO$ our) (NS friends)))))))
+
+<hr>
+( (CP-THT (C that)
+          (IP-SUB (IP-SUB (NP-SBJ (PRO we))
+			  (MD will)
+			  (VB go)
+			  (PP (P to)
+			      (NP (NPR Stony) (NPR Brook))))
+		  (PUNC ,)
+		  (CONJP (CONJ and)
+			 (IP-SUB (NP-SBJ (PRO we))
+				 (MD will)
+				 (VB visit)
+				 (NP-OB1 (PRO$ our) (NS friends))
+				 (ADVP-TMP (ADV tomorrow)))))))		&larr; potential shared adjunct
+</pre> </blockquote>
+
+<p> Corresponding cases involving shared arguments are treated
+differently - namely,
+as <a href="syn-conj.html#right_node_raising">right node raising</a>
+or <a href="syn-conj.html#gapping">gapping</a>.  Certain cases might
+require backwards gapping as a last resort.
+
+<p>
+<blockquote> <pre>
+( (IP-MAT-1 (NP-SBJ (PRO we))
+	    (MD will)
+	    (VB leave)
+	    (PUNC ,)
+	    (IP-MAT-PRN=1 (CONJ and)
+			  (NP-SBJ (PRO you))
+			  (MD will)
+			  (VB take))
+	    (NP-OB1 (D the) (ADJR heavier) (N baggage))
+	    (PUNC .)))
+
+( (IP-MAT (IP-MAT-1 (NP-OB1 (D the) (ADJR heavier) (N baggage))
+		    (PUNC ,)
+		    (NP-SBJ (PRO we))
+		    (MD will)
+		    (VB leave))
+	  (PUNC ,)
+	  (CONJP (CONJ and)
+		 (IP-MAT=1 (NP-SBJ (PRO you))
+			   (MD will)
+			   (VB take)))
+	  (PUNC .)))
+</pre> </blockquote>
+
+</body>
+</html>

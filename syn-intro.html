@@ -1,0 +1,532 @@
+<!doctype html><!--DONE-->
+<html>
+<head>
+<link rel="stylesheet" href="manual.css">
+<title>Introduction to syntactic annotation</title>
+</head>
+
+<a name="top">
+<h2>Introduction to syntactic annotation </h2>
+
+<ul>
+<li><a href="syn-intro.html#general_principles">General principles</a>
+	<ul>
+	<li><a href="syn-intro.html#dash_tags">"Dash" tags</a>
+	<li><a href="syn-intro.html#structural_principles">Structural principles</a>
+	</ul>
+<li><a href="syn-intro.html#internal_structure_of_phrases">Internal structure of phrases</a>
+<li><a href="syn-intro.html#internal_structure_of_clauses">Internal structure of clauses</a>
+	<ul>
+	<li><a href="syn-intro.html#ip">IP</a>
+	<li><a href="syn-intro.html#non-wh_cp">Non-wh CP</a>
+	<li><a href="syn-intro.html#wh_cp">Wh- CP</a>
+	<li><a href="syn-intro.html#v_to_c">Verb movement to C</a>
+	</ul>
+</ul>
+
+<p>
+<hr>
+
+<p> The annotation uses a limited tree representation in the form of
+labeled parentheses.  All open parentheses have an associated label,
+either a part-of-speech (POS) label for words (<tt>N</tt>, <tt>Adj</tt>,
+etc.) or a phrase label for larger constituents (<tt>NP, ADJP,</tt> etc.).
+We use the terms 'label' and 'tag' interchangeably.  Every terminal node
+is associated with a POS label, but phrase labels are not included in
+every case where a fully labeled tree would require them.  Intermediate
+projections in the sense of X' theory (N', ADJ', etc.) are not generally
+included in our representations.  By comparison to trees in current
+syntactic theory, the trees in our corpora are flat, and they are not
+required to be binary-branching.
+
+<p> The partial representation of phrase structure just described is not
+intended to make a theoretical statement, but is adopted for practical
+reasons.  Certain phrases are generally omitted in the annotation scheme
+because their boundaries are too difficult to define.  The prime example
+is VP.  The problematic character of VP is particularly obvious in early
+Middle English, where the order of the verb and its syntactic dependents
+is in flux (at least on the surface).  But even in Present-Day English,
+the attachment site of verbal adjuncts is systematically ambiguous between
+low attachment within VP and high attachment at the clause level.  Other
+categories and distinctions, such as including an NP level within DP, are
+omitted because the cost of including them outweighs their usefulness.
+Intermediate projections are omitted for both reasons.  In no case should
+the lack of any particular phrase label be taken to imply that earlier
+forms of English failed to include the corresponding syntactic category.
+The trees in the corpora are simply underspecified.
+
+<p> The examples in this section of the manual are constructed examples
+from Modern English so as to be maximally accessible.  In the remainder of
+the manual, we also include examples from the corpora.  The examples are
+mostly from late Middle English and (Early) Modern English; examples from
+early Middle English are included when they are necessary to make a
+linguistic point.
+
+<a name="general_principles">
+<h3>General principles</h3>
+
+As just mentioned, the structures in our corpora generally include neither
+VP nor intermediate projections.  As a result, IP immediately dominates
+all verbs, as in the following structure:
+
+<p>
+<blockquote>
+<pre>
+( (IP-MAT (NP-SBJ (NPR Mary))
+          (HVP has)
+          (BEN been)
+          (VAG meaning)
+          (IP-INF (TO to)
+                  (VB go))
+          (PP (P for)
+	      (NP (D a) (N week)))
+	  (PUNC .)))
+</pre>
+</blockquote>
+
+<a name="dash_tags">
+<h4>Dash tags</h4>
+
+<ul>
+<li>
+Dash tags indicate syntactic subcategory or function.  Basic labels
+indicate a constituent's category (NP, PP, ADJP, etc.).  Additional labels
+(so-called dash tags or extended tags), which are separated from the
+category label by a hyphen, indicate subcategory or function.  More than
+one dash tag is possible:
+
+<p>
+<blockquote>
+<pre>
+NP-SBJ         subject NP
+
+ADJP-SPR       secondary predicate ADJP
+
+PP-PRN         parenthetical PP
+
+IP-INF-PRP     purpose infinitive
+
+NP-SBJ-RSP     resumptive subject NP
+</pre>
+</blockquote>
+
+<p>
+<li>
+All clause labels (IP, CP) carry a dash tag.  See
+<a href="syn-intro.html#internal_structure_of_clauses">Internal structure of
+clauses</a> for further basic information and
+<a href="syn-sub.html">Types of subordinate clauses</a> for detailed
+discussion.
+
+<p>
+<li>
+All NP daughters of IP carry a dash tag.  Bare NPs are restricted to below
+the IP level.
+
+<p>
+<blockquote>
+<pre>
+( (IP-MAT (NP-TMP (N Yesterday))				&larr; temporal NP
+          (NP-SBJ (NPR Mary))		 	  	        &larr; subject
+          (VBD told)
+          (NP-OB2 (NPR Jane))				        &larr; indirect object
+          (CP-THT (C that)
+                  (IP-SUB (NP-SBJ (PRO she))
+                          (VBD studied)
+                          (NP-MSR (QP (ADVR too) (Q much)))	&larr; measure NP
+                          (PP (P during)
+			      (NP (D the) (N weekend)))))       &larr; no dash tag
+	  (PUNC .)))
+</pre>
+</blockquote>
+
+<p>
+<li>
+AdvP daughters of IP are marked for certain semantic functions
+(directional, locative, and temporal).  Other semnatic functions are
+unmarked.
+
+<p>
+<blockquote>
+<pre>
+( (IP-MAT (NP-SBJ (NPR Mary))
+          (ADVP (ADV happily))
+          (VBD put)
+          (NP-OB1 (D the) (N book))
+          (ADVP-LOC (ADV there))
+	  (ADVP-TMP (ADV+WARD afterward))
+	  (PUNC .)))
+</pre>
+</blockquote>
+
+<p>
+<li>
+PPs are generally not marked for function.
+
+<p>
+<blockquote>
+<pre>
+( (IP-MAT (NP-SBJ (NPR Mary))
+          (VBD put)
+          (NP-OB1 (D the) (N book))
+          (PP (P on)
+              (NP (D the) (N table)))
+          (PP (P on)
+              (NP (NPR Saturday)))
+	  (PUNC .)))
+</pre>
+</blockquote>
+
+</ul>
+
+<a name="structural_principles">
+<h4>Structural principles</h4>
+
+<ul>
+<li>
+Daughters of IP are generally phrases.  However, IP can immediately
+dominate word-level constituents, as illustrated in the following example:
+
+<p>
+<blockquote>
+<pre>
+( (IP-MAT (CONJ But)			      &larr; sentential conjunction
+	  (INTJ alas)			      &larr; single-word interjection
+	  (, ,)
+          (NP-SBJ (PRO we))
+	  (MD will)			      &larr; modal
+	  (NEG not)			      &larr; negation
+	  (Q all)			      &larr; floated quantifier
+          (VB end)			      &larr; verb
+          (RP up))			      &larr; particle
+	  (PP (P with)
+	      (NP (PRO$ our) (N favorite)))
+	  (. .)))
+</pre>
+</blockquote>
+
+<p>
+<li>
+The absence of intermediate projections in the trees has several
+consequences:
+
+<p>
+<ul>
+<li>Phrases immediately dominate their head.
+
+<p>
+<li>
+Specifiers are not structurally distinct from pre-head modifiers.
+
+<p>
+<li>
+Adjuncts are not structurally distinct from complements, though the
+distinction may be encoded by dash tags.
+
+</ul>
+
+<a name="high_attachment">
+<p>
+<li>
+If the attachment level of a constituent is ambiguous or difficult to
+determine, the default, as in the Penn Treebank, is to attach as high
+as is plausible in context.
+
+<p>
+<blockquote>
+<pre>
+( (IP-MAT (NP-SBJ (NPR Mary))
+          (VBD saw)
+          (NP-OB1 (D the) (N man))
+          (PP (P with)					&larr; daughter of IP-MAT, not NP-OB1
+              (NP (D the) (N telescope)))
+	  (PUNC .)))
+
+(NP (D the)
+    (N story)
+    (CP-REL (WNP-1 0)
+            (C that)
+            (IP-SUB (NP-OB1 *T*-1)
+                    (NP-SBJ (PRO they))
+                    (VBP tell)))
+    (PP (P about)					&larr; daughter of NP, not IP-SUB
+        (NP (PRO the)
+            (N king))))
+
+(NP (D the)
+    (N story)
+    (RRC (BAG being)
+         (VAN told))
+    (PP (P about)					&larr; daughter of NP, not RRC
+        (NP (PRO the)
+            (N king))))
+</pre>
+</blockquote>
+</ul>
+
+<a name="internal_structure_of_phrases">
+<h3>Internal structure of phrases</h3>
+
+The internal structure of all nonclausal phrases is fundamentally similar.
+
+<p>
+<ul>
+<li>Where possible, heads and phrases stand in a one-to-one relation.
+Empty heads are possible, though not always explicitly.  In potential
+elision contexts, it can be difficult to determine whether the phrase
+contains an overt head; such cases are discussed in appropriate detail
+in <a href="syn-phrase.html" target="mainframe">Internal structure of
+phrases</a>.
+
+<p>
+<li>
+By convention, single-word modifiers do not project a phrase if they
+precede the head being modified.
+
+<p>
+<blockquote>
+<pre>
+(NP (Q many)	                                        &larr; no QP
+    (ADJ happy)                                         &larr; no ADJP
+    (NS children)
+    (PP (P on)
+        (NP (D the) (ADJ overcrowded) (N beach))))
+
+(NP (ADJP (ADJ happy) (CONJ and) (ADJ excited))		&larr; ADJP
+    (NS children))
+
+(NP (Q many)				                &larr; no QP
+    (ADJP (ADV very) (ADJ happy))	                &larr; ADJP
+    (NS children))
+
+(NP (QP (ADV very) (Q many))		                &larr; QP
+    (ADJ happy) 	                                &larr; no ADJP
+    (NS children))
+
+(ADJP (ADV very) (ADJ happy))	                        &larr; no ADVP
+
+(PP (ADV right)			                        &larr; no ADVP
+    (P up)
+    (NP (D the) (N street)))
+</pre>
+</blockquote>
+
+<a name="postmod">
+<p>
+<li>
+However, again by convention, post-head modifiers do project phrases even
+when they consist of just a single word.
+
+<p>
+<blockquote>
+<pre>
+(NP (ADJ various)                           &larr; no ADJP for either adjective
+    (ADJ black)
+    (NS cats)))
+
+(NP (ADJ black)
+    (NS cats)
+    (ADJP (ADJ galore)))                    &larr; ADJP for post-head modifier
+
+(NP (ADJR enough)                           &larr; no ADJP
+    (N food))
+
+(ADJP (ADJ fast)
+      (ADVP (ADVR enough))                  &larr; ADVP for post-head modifier
+</pre>
+</blockquote>
+
+</ul>
+
+<a name="internal_structure_of_clauses">
+<h3>Internal structure of clauses</h3>
+
+<a name="ip">
+<h4>IP</h4>
+
+Various aspects of the internal structure of IPs have already been noted.
+IPs generally have subjects.  If the subject is not overt,
+an <a href="syn-empty.html#empty_subj">empty subject</a> is added.
+
+<p>
+<blockquote>
+<pre>
+( (IP-MAT (NP-SBJ (PRO They))             &larr; overt subject
+          (VBD came)
+          (PP (P at)
+              (NP (NUM six)))
+	  (PUNC ,)))
+
+( (IP-MAT (CONJ and)
+          (NP-SBJ *con*)                  &larr; empty subject
+          (VBD left)
+          (PP (P at)
+              (NP (NUM eight)))
+	  (PUNC .)))
+</pre>
+</blockquote>
+
+<p> But subjects are not obligatory in imperatives
+or <a href="syn-sub.html#ip-inf">infinitives</a>.
+
+<p>
+<blockquote>
+<pre>
+( (IP-IMP (VBI Eat)                              &larr; no subject
+          (NP-OB1 (PRO$ your) (NS vegetables))
+	  (PUNC .)))
+
+( (IP-IMP (DOI Do@)
+          (NEG @n't)
+          (NP-SBJ you)                           &larr; only overt subject indicated
+          (VB dare)
+	  (PUNC !)))
+
+( (IP-MAT (NP-SBJ (PRO We))
+          (VBP expect)
+          (IP-INF (TO to)                        &larr; no subject
+                  (VB win))
+          (PUNC .)))
+
+( (IP-MAT (NP-SBJ (PRO We))
+          (VBD heard)
+          (IP-INF (NP-SBJ (PRO them))            &larr; only overt subject indicated
+                  (VB arrive))
+          (PUNC .)))
+</pre>
+</blockquote>
+
+<a name="non-wh_cp">
+<h4>Non-wh CP</h4>
+
+THAT clauses (<tt>CP-THT</tt>), degree complements (<tt>CP-DEG</tt>), and
+certain adverbial clauses (<tt>CP-ADV</tt>) have the following basic
+structure:
+
+<p>
+<blockquote>
+<pre>
+(CP (C that / 0)
+    (IP ...))
+</pre>
+</blockquote>
+
+<p> The complementizer position is always included; when not filled by
+an overt complementizer, it contains <tt>0</tt> (zero).
+
+<p>
+<blockquote>
+<pre>
+( (IP-MAT (NP-SBJ (PRO We))
+          (VBD know)    
+          (CP-THT (C that / 0)
+                  (IP-SUB (NP-SBJ (PRO you))
+			  (VBP like)
+			  (NP-OB1 (NS vegetables))))
+	  (PUNC .)))
+</pre>
+</blockquote>
+
+<a name="wh_cp">
+<h4>Wh- CP</h4>
+
+All other types of CP contain both a wh- position and a complementizer
+position.  The schematic struture is as follows, where "WXP" ranges over
+wh- phrases:
+
+<p>
+<blockquote>
+<pre>
+(CP (WXP ...)
+    (C that / 0)
+    (IP ...))
+</pre>
+</blockquote>
+
+<p> Both positions can be overtly filled, which was common in Middle
+English.  Empty wh- positions and empty complementizers are both indicated
+by <tt>0</tt> (zero).  The wh- phrase is coindexed with a trace of the
+same category within the IP.  See <a href="syn-empty.html#wh-trace">Wh-
+trace</a> for details,
+particularly <a href="syn-empty.html#position_of_trace">Position of
+traces</a> for the counterintuitive of the trace in IP-initial position.
+
+<p>
+<blockquote>
+<pre>
+(NP (D the) (N people)
+    (CP-REL (WNP-1 (WPRO who))                                   &larr; overt wh-phrase
+            (C 0)                                                &larr; empty complementizer
+            (IP-SUB (NP-OB1 *T*-1)          
+                    (NP-SBJ (PRO you))
+	            (VBD met))))
+
+(NP (D the) (N people)
+    (CP-REL (WNP-1 0)                                            &larr; empty wh-phrase
+            (C that)                                             &larr; overt complementizer
+            (IP-SUB (NP-OB1 *T*-1)          
+                    (NP-SBJ (PRO you))
+	            (VBD met))))
+
+(NP (D the) (N people)
+    (CP-REL (WNP-1 0)                                            &larr; empty wh-phrase
+            (C 0)                                                &larr; empty complementizer
+            (IP-SUB (NP-OB1 *T*-1)          
+                    (NP-SBJ (PRO you))
+	            (VBD met))))
+
+( (IP-MAT (NP-SBJ (PRO We))
+          (VBP understand)  
+          (CP-QUE-SUB (WADJP-1 (WADV how) (ADJ serious))         &larr; overt wh-phrase
+                      (C that / 0)                               &larr; overt / empty complementizer
+                      (IP-SUB (ADJP-PRD *T*-1)
+                              (NP-SBJ (D the) (N situation))
+			      (BEP is)))
+	  (PUNC .)))
+</pre>
+</blockquote>
+
+<a name="v_to_c">
+<h4>Verb movement to C</h4>
+
+Subject-verb inversion <a href="syn-sub.html#cp-que">questions</a>,
+<a href="syn-sub.html#cp-exl">exclamatives</a>, <a href="syn-sub.html#cp-adv_v1">V1
+conditionals</a>, and other constructions is not explicitly represented
+as verb movement to C in our annotation scheme.  The inverted verb
+remains a daughter of IP.  However, clauses with inversion differ
+structurally from ones without inversion in not containing a C position.
+
+<p>
+<blockquote>
+<pre>
+(PP (P if)
+    (CP-ADV (C 0)			 &larr; C, no inversion
+            (IP-SUB (NP-SBJ (PRO I))
+                    (HVD had)
+                    (VBN known))))
+
+(CP-ADV (IP-SUB (HVD had)		 &larr; inversion, no C
+	        (NP-SBJ (PRO I))
+                (VBN known)))
+
+( (IP-MAT (NP-SBJ (PRO))
+          (VBD wrote)
+          (CP-QUE-SUB (WADVP-1 (WADV when))
+                      (C 0)			      &larr; C, no inversion
+                      (IP-SUB (ADVP-TMP *T*-1)
+                              (NP-SBJ (PRO they))
+                              (MD will)
+			      (VB come)))
+	  (PUNC .)))
+
+( (CP-QUE-MAT (WADVP-1 (WADV when))		      &larr; inversion, no C
+              (IP-SUB (ADVP-TMP *T*-1)
+   	              (MD will)
+	              (NP-SBJ (PRO they))
+		      (VB come))
+	      (PUNC ?)))
+</pre>
+</blockquote>
+
+</body>
+</html>

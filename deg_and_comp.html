@@ -1,0 +1,509 @@
+<!doctype html><!--DONE-->
+<html>
+<head>
+<link rel="stylesheet" href="manual.css">
+<title>Background to degree and comparative constructions</title>
+</head>
+
+<body>
+<a name="top">
+<h2>Background to degree and comparative constructions</h2>
+
+<ul>
+<li><a href="deg_and_comp.html#dimension_adj">Dimension adjectives</a>
+<li><a href="deg_and_comp.html#deg_constructions">Degree constructions</a>
+    <ul>
+    <li><a href="deg_and_comp.html#modification_of_modifiers">Modification of modifiers</a>
+    <li><a href="deg_and_comp.html#measure_modification">Measure modification</a>
+    <li><a href="deg_and_comp.html#dimension_n">Dimension noun</a>
+    </ul>
+<li><a href="deg_and_comp.html#comp_constructions">Comparative constructions</a>
+</ul>
+
+<hr>
+
+<a name="dimension_adj">
+<h3>Dimension adjectives</h3>
+
+<p>
+As is well known, certain adjectives are <b>gradable</b>; that is, the
+properties referred to by the adjectives characterize entities that can
+exhibit those properties to a greater or lesser extent or degree.  In
+what follows, we refer to the gradable properties as <b>dimensions</b>
+and to the adjectives expressing them as <b>dimension adjectives</b>.
+Dimension adjectives can be modified, with the resulting expression
+corresponding to some point on a scale.  The scale represents the
+dimension, and the modifier specifies the point.
+
+<blockquote>
+<pre>
+( (ADJP (ADV barely / hardly / unusually / unexpectedly / very)
+	(ADJ warm)))
+</pre>
+</blockquote>
+
+<b>Note:</b> The following discussion focuses on adjectives, but extends
+in a straightforward way to gradable adverbs.
+
+<a name="deg_constructions">
+<h3>Degree constructions</h3>
+
+<p> The degree to which an entity exhibits a dimension may be correlated
+with some other property.  In particular, the correlating property might
+hold beyond (above or below) a certain threshold point for its
+dimension.  This type of correlation is highlighted by a type of
+modifier that we will call a <b>degree head</b>; we will refer to the
+phrase expressing the correlating property as the <b>degree
+complement.</b> Our annotation treats degree heads as heads of modifiers
+on a par with other modifiers of dimension adjectives.  They are tagged
+as ordinary adverbs (<tt>ADV</tt>) if they end in <i>-ly</i> and as
+comparative adverbs (<tt>ADVR</tt>) otherwise; in both cases, they
+project <tt>ADVP</tt> if necessary.  Even though the degree complement
+depends on the degree head (not on the dimension adjective), the
+annotation represents all three expressions as sisters.
+
+<blockquote>
+<pre>
+( (ADJP (ADV overly / sufficiently)   	        &larr; degree head
+	(ADJ warm)				&larr; dimension adjective
+	(PP (P for)				&larr; degree complement
+	    (NP (N comfort)))))
+
+( (ADJP (ADVR so)
+	(ADJ warm)
+	(CP-DEG (C that / 0)
+		(IP-SUB (NP-SBJ (PRO we))
+			(BED were)
+			(ADJP-PRD (ADJ uncomfortable))))))
+
+( (ADJP (ADVR too)
+	(ADJ hot)
+	(PP (P for)
+	    (NP (N comfort)))))
+
+( (ADJP (ADVR too)
+	(ADJ hot)
+	(IP-INF-DEG (TO to)
+		    (BE be)
+		    (ADJP-PRD (ADJ comfortable)))))
+
+( (ADJP (ADVR too)
+	(ADJ hot)
+	(IP-INF-DEG (FOR for)
+		    (NP-SBJ (PRO us))
+		    (TO to)
+		    (BE be)
+		    (ADJP-PRD (ADJ comfortable)))))
+
+( (ADJP (ADVR too)
+	(ADJ hot)
+	(CP-EOP (WNP-1 0)
+		(IP-INF (NP-OB1 *T*-1)
+			(TO to)
+			(VB drink)))))
+</pre>
+</blockquote>
+
+<p> The degree complement may be absent in the syntax.
+
+<blockquote>
+<pre>
+( (ADJP (ADV overly / sufficiently)		&larr; degree head
+	(ADJ warm)))				&larr; dimension adjective
+
+( (IP-MAT (NP-SBJ (PRO It@))
+	  (BEP @'s)
+	  (ADJP-PRD (ADVR so)			&larr; degree head
+		    (ADJ warm))			&larr; dimension adjective
+	  (PUNC .)))
+</pre>
+</blockquote>
+
+<p> In connection with the degree head SO, the dimension adjective can
+be absent in the syntax.  In these cases, SO is tagged as <tt>P</tt>
+rather than <tt>ADVR</tt>.  See <a href="words.html#so_as">SO AS (THAT),
+SO AS TO</a> for examples and <a href="words.html#so_that">SO (THAT)</a>
+for related discussion.
+
+<!--
+<blockquote>
+<pre>
+( (IP-MAT (NP-SBJ (PRO It))
+	  (VBD got)
+	  (ADJP-PRD (ADVR so)
+		    (ADJ dusty / 0)
+		    (CP-DEG (C that / 0)
+			    (IP-SUB (NP-SBJ (PRO we))
+				    (HVD had)
+				    (IP-INF (TO to)
+					    (VB leave)))))
+	  (PUNC .)))
+</pre>
+</blockquote>
+-->
+
+<a name="modification_of_modifiers">
+<h4>Modification of modifiers</h4>
+
+<p> Degree modifiers may themselves may be modified.  By convention,
+extraposition from positions not available in the surface syntax is not
+annotated.
+
+<blockquote>
+<pre>
+( (ADJP (ADVP (Q all) (ADVR too))
+	(ADJ hot)))
+
+( (ADJP (ADVP (QP (ADV very) (Q much))
+	      (ADVR too))
+	(ADJ hot)))
+
+( (ADJP (ADVP (ADV barely) (ADV sufficiently))
+	(ADJ hot)))
+
+( (NP (ADJP (ADV barely)
+	    (ADJR <a href="words.html#enough">enough</a>))))
+
+( (ADJP (ADV barely)
+	(ADJ hot)
+	(ADVP (ADVR <a href="words.html#enough">enough</a>))))		&larr; like this
+
+( (ADJP (ADVP (ADV barely)
+	      (ADVP *ICH*-1))
+	(ADJ hot)
+	(ADVP-1 (ADVR <a href="words.html#enough">enough</a>))))	&larr; not like this
+
+( (ADJP (ADV-1 barely)
+	(ADJ hot)
+	(ADVP (ADV *ICH-1)
+	      (ADVR <a href="words.html#enough">enough</a>))))		&larr; not like this
+</pre>
+</blockquote>
+
+<a name="measure_modification">
+<h4>Measure modification</h4>
+
+<p> So far, we have discussed qualitative degree modifiers.  A subset of
+dimension adjectives, given below, additionally allows quantitative, or
+measure, modification.
+
+<p>
+<blockquote>
+<pre>
+Spatial:   DEEP, DISTANT, <a href="words.html#far">FAR</a>, HIGH, LONG, TALL, WIDE
+
+Temporal:  EARLY, LATE, OLD
+
+Other:     <a href="words.html#worth">WORTH</a>
+</pre>
+</blockquote>
+
+<p> This type of modification corresponds to the everyday procedure of
+measuring some length using a ruler.  The extent to which an entity
+exhibits the dimension under discussion is defined in terms of an
+interval bounded by two endpoints associated with the entity.  The
+interval is mapped onto an interval on the scale associated with the
+dimension (the ruler).  The scale in question has properties that go
+beyond scales associated with qualitative modification.  In particular,
+it has an origin or zero point, and it is divided into equal units.  In
+other words, the scale is isomorphic to the natural numbers.  The zero
+point on the scale is aligned with one of the endpoints on the entity,
+and the point on the scale corresponding to the other endpoint on the
+entity yields a numerical measure of the degree to which the entity
+exhibits the dimension.  The following expressions spell out the various
+parameters just introduced, apart from the zero point on the scale,
+which is constant and hence never expressed.
+
+<blockquote>
+<pre>
+( (ADJP (NP-MSR (NUM three)			&larr; second endpoint on scale
+		(NS feet))			&larr; unit of measurement
+	(ADJ wide)				&larr; dimension adjective
+	(PP (P from)
+	    (NP (D the)				&larr; first endpoint on entity
+		(ADJ left)
+		(N edge)))
+	(PP (P to)
+	    (NP (D the)				&larr; second endpoint on entity
+		(ADJ right)))))
+
+( (ADJP (NP-MSR (NUM three)			&larr; second endpoint on scale
+		(NS years))			&larr; unit of measurement
+		(ADJ old)			&larr; dimension adjective
+		(PP (P from)
+		    (NP (N birth)))		&larr; first endpoint on entity
+		(PP (P to)
+		    (NP (D the)			&larr; second endpoint on entity
+			(ADJ present)
+			(N moment))))))
+</pre>
+</blockquote>
+
+<p> The interval between the endpoints can be further described (say, in
+terms of its properties as a path).
+
+<blockquote>
+<pre>
+( (ADJP (NP-MSR (NUM twenty)			&larr; second endpoint on scale
+		(NS miles))			&larr; unit of measurement
+	(ADJ distant)				&larr; dimension adjective
+	(PP (P from)
+	    (NP (D the)				&larr; first endpoint on entity
+		(N center)
+		(PP (P of)
+		    (NP (N town)))))
+	(PP (P to)
+	    (ADVP (ADV here)))			&larr; second endpoint on entity
+	(PP (P by)				&larr; path descriptor
+	    (NP (ADJ winding)
+		(NS roads)))))
+
+( (ADJP (NP-MSR (NUM thirty-six)		&larr; second endpoint on scale
+		(NS inches))			&larr; unit of measurement
+	(ADJ long)				&larr; dimension
+	(PP (P in)				&larr; path descriptor
+	    (NP (N circumference)))))
+</pre>
+</blockquote>
+
+<p> In ordinary usage, various parameters, including the dimension itself, are
+often not overtly expressed.  In order to clarify the structure, silent heads of
+measure phrases and silent dimension adjectives may be added to the annotation.
+Implicit endpoints on the entity are not annotated, however.
+  
+<blockquote>
+<pre>
+( (ADJP (NP-MSR (NUM three)
+		(NS feet))
+	(ADJ 0)				&larr; implicit dimension (WIDE)
+	(PP (P from)			&larr; implicit second endpoint on entity
+	    (NP (D the)
+		(ADJ left)
+		(N edge)))
+
+( (ADJP (NP-MSR (NUM three)
+		(NS feet))
+	(ADJ 0)				&larr; implicit dimension (HIGH)
+	(PP (P to)			&larr; implicit first endpoint on entity
+	    (NP (D the)
+		(N top)))))
+
+( (ADJP (NP-MSR (NUM three)
+		(NS years))
+	(ADJ old)			&larr; implicit first and second endpoints
+
+( (ADJP (NP-MSR (NUM three)
+		(NS months))
+	(ADJ 0)				&larr; implicit dimension (OLD)
+
+( (IP-MAT (NP-SBJ (PRO She))
+	  (ADVP-TMP (ADV just))
+	  (VBD turned)
+          (ADJP-PRD (NP-MSR (NUM three)
+   			    (NS 0))	&larr; implicit unit (YEARS)
+		    (ADJ 0)))		&larr; implicit dimension (OLD)
+	  (PUNC .)))
+</pre>
+</blockquote>
+
+<a name="dimension_n">
+<h4>Dimension noun</h4>
+
+<p> Dimensions can also be expressed by nominal heads.  In such cases,
+the entire construction is annotated as a noun phrase, with a dash tag
+appropriate to the syntactic context.  The syntactic head of the entire
+NP construction is not usually the dimension noun.
+
+<blockquote>
+<pre>
+( (NP (NUM thirty-six)
+      (NS years)		&larr; head of NP =/= dimension head
+      (PP (P of)
+	  (NP (N age)))))	&larr; dimension (OLD) expressed, but not as ADJ
+
+( (PP (P from)
+      (NP (NUM thirty-six)
+	  (NS years)
+	  (PP (P of)
+	      (NP (N age))))))
+
+( (IP-MAT (NP-SBJ (PRO It))
+	  (BEP is)
+          (NP-PRD (NUM thirty-six)
+    	          (NS inches)			&larr; head of NP =/= dimension head
+	          (PP (P in)
+	     	      (NP (N length))))		&larr; dimension (LONG) expressed, but not as ADJ
+	  (PUNC .)))
+</pre>
+</blockquote>
+
+<p> The integration of scalar constructions into larger constituents
+follows general principles.
+
+<blockquote>
+<pre>
+( (NP (D a)
+      (N child)
+      (ADJP (NP-MSR (NUM eight)			&larr; postnominal ADJP
+	    	    (NS years))
+	    (ADJ old)))))			&larr; head of dimension construction = ADJ
+
+( (NP (D a)
+      (N child)
+      (PP (P of)				&larr; postnominal PP
+	  (ADJP (NP-MSR (NUM eight)
+	                (NS years))
+                (ADJ old)))))			&larr; head of dimension construction = ADJ
+
+( (NP (D a)
+      (N child)
+      (PP (P of)
+          (ADJP (NP-MSR (NUM eight)
+			(NS 0))
+		(ADJ 0)))))
+
+( (NP (D a)
+      (N child)
+      (RRC (NP-PRD (NUM eight)			&larr; postnominal NP
+          	   (NS years) 			&larr; head of dimension construction = NS
+		   (PP (P of)
+		       (NP (N age)))))))
+</pre>
+</blockquote>
+
+<a name="comp_constructions">
+<h3>Comparative constructions</h3>
+
+Comparative constructions are similar to degree constructions.  Instead
+of a pure degree head associated with a degree complement, they contain
+a comparative degree head associated with a standard of comparison.
+Comparative clauses (<tt>CP-CMP</tt>)
+are <a href="syn-intro.html#wh_cp">Wh- CP</a>.  The wh- antecedent is
+silent; its syntactic category is generally the wh- phrase counterpart
+to the syntactic category of the dimension of comparison (but see below
+for <a href="syn-sub.html#cp-cmp_subdeletion">comparative subdeletion</a>).
+
+<blockquote>
+<pre>
+( (ADJP (QR more)				&larr; degree head
+	(ADJ dangerous)				&larr; dimension of comparison
+        (CP-CMP (WADJP-1 0)			&larr; complement of degree head
+                (C than)
+                (IP-SUB (ADJP-PRD *T*-1)
+                        (NP-SBJ (D a) (N rattlesnake))
+		        (BEP is)))))
+
+( (NP (QP (ADVR as) 				&larr; degree head
+          (Q many) 				&larr; dimension of comparison
+      (NS cookies)
+      (CP-CMP (WNP-1 0)				&larr; complement of degree head
+              (C as)
+              (IP-SUB (NP-OB1 *T*-1)
+                      (NP-SBJ (PRO you))
+		      (VBD baked)))))
+</pre>
+</blockquote>
+
+<p> In synthetic comparatives, the degree head and the dimension of
+comparison are expressed in a single word.
+
+<blockquote>
+<pre>
+( (ADJP (ADJR taller)				&larr; degree head + dimension of comparison
+	(CP-CMP (WADJP-1 0)			&larr; complement of degree head
+		(C than)
+                (IP-SUB (ADJP-PRD *T*-1)
+                        (NP-SBJ (PRO you))
+                        (BEP are)))))
+
+( (ADVP (ADVR faster)				&larr; degree head + dimension of comparison
+	(CP-CMP (WADVP-1 0)			&larr; complement of degree head
+		(C than)
+                (IP-SUB (ADVP *T*-1)
+                        (NP-SBJ (PRO they))
+			(MD could)
+			(VB run)))))
+
+( (NP (QR more)					&larr; degree head + dimension of comparison
+      (NS cookies)
+      (CP-CMP (WNP-1 (WPRO 0))			&larr; complement of degree head
+	      (C than)
+              (IP-SUB (NP-OB1 *T*-1)
+                      (NP-SBJ (PRO you))
+		      (VBD baked))))
+</pre>
+</blockquote>
+
+<p> As with degree constructions, the complement of the comparative
+degree head can be silent in the syntax.
+
+<blockquote>
+<pre>
+( (NP (QR more) (NS cookies)
+
+( (ADJP (QR more) (ADJ important)))
+
+( (ADVP (ADVR faster)))
+</pre>
+</blockquote>
+
+<p> As expected, the degree head can be modified.  Any modifiers of AS
+are generally not set off with AS as a pharse.
+
+<blockquote>
+<pre>
+( (ADJP (QP (Q much) (QR more))
+	(ADJ dangerous)))
+
+( (ADJP (QP (NP-MSR (Q many) (NS times))
+	    (QR more))
+	(ADJ dangerous)))
+
+( (ADJP (ADV equally)                        &larr; no ADVP around EQUALLY AS
+        (ADVR as)
+	(ADJ important)))
+</pre>
+</blockquote>
+
+<p> Comparative structures may themselves function as modifiers.
+
+<blockquote>
+<pre>
+( (ADVP-LOC (NP-MSR (ADJR further))
+	    (ADV away)
+	    (PP (P from)
+		(NP (D the)
+		    (N house)))))
+
+( (ADVP-LOC (NP-MSR (ADJP (FP even)
+			  (ADJR further)))
+	    (ADV away)
+	    (PP (P from)
+		(NP (D the)
+		    (N house)))))
+
+( (ADVP-LOC (NP-MSR (ADJP (NP-MSR (NUMP (NUM five))
+				  (NS miles))
+			  (ADJR further)))
+	    (ADV away)
+	    (PP (P from)
+		(NP (D the)
+		    (N house)))))
+
+( (NP (ADJP (QP (NP-MSR (NUMP (NUM five))
+			(NS times))
+		(QR more))
+	    (ADJ serious))
+      (NS problems)
+      (CP-CMP (WNP-1 (WPRO 0))
+	      (IP-SUB (NP-OB1 *T*-1)
+		      (NP-SBJ (PRO they))
+		      (HVD had)
+		      (ADVP-TMP (ADV ever))
+		      (VBN encountered)))))
+</pre>
+</blockquote>
+
+
+</body>
+</html>

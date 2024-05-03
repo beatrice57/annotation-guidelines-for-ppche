@@ -1,0 +1,4085 @@
+<!doctype html><!--DONE-->
+<html>
+<head>
+<link rel="stylesheet" href="manual.css">
+<title>Internal structure of phrases</title>
+</head>
+
+<body>
+
+<a name="top">
+<h2>Internal structure of phrases</h2>
+
+<ul>
+<li><a href="syn-phrase.html#adjp">Adjective phrase</a> (<tt>ADJP</tt>)
+    <ul>
+    <li><a href="syn-phrase.html#adjp_head">Head of ADJP</a>
+    <li><a href="syn-phrase.html#adjp_comp">Complement of ADJ</a>
+    <li><a href="syn-phrase.html#adjp_mod">Modifier of ADJ</a>
+    <li>Movement out of ADJP
+        (see <a href="syn-const.html#movement_out_of_adjp">Clause-level constituents</a>)
+    <li>Treatment of individual words
+	<ul>
+	<li><a href="differences.html#much">LEAST</a>
+	<li><a href="differences.html#much">LESS</a>
+	<li><a href="differences.html#much">MORE</a>
+	<li><a href="differences.html#much">MOST</a>
+	<li><a href="differences.html#much">MUCH</a>
+	<li><a href="words.html#such">SUCH</a>
+	</ul>
+    </ul>
+<li><a href="syn-phrase.html#advp">Adverb phrase</a> (<tt>ADVP</tt>)
+    <ul>
+    <li><a href="syn-phrase.html#advp_comp">Complement of ADV</a>
+    <li><a href="syn-phrase.html#advp_mod">Modifier of ADV</a>
+    <li>Treatment of individual words
+	<ul>
+	<li><a href="words.html#ago">AGO</a>
+	</ul>
+    </ul>
+<li>Conjunction phrase (<tt>CONJP</tt>)
+    (see <a href="syn-conj.html">Conjunction</a>)
+<li><a href="syn-phrase.html#frag">Fragment</a> (<tt>FRAG</tt>)
+<li><a href="syn-phrase.html#intjp">Interjection phrase</a> (<tt>INTJP</tt>)
+<li><a href="syn-phrase.html#np">Noun phrase</a> (<tt>NP</tt>)
+    <ul>
+    <li><a href="syn-phrase.html#np_head">Head of NP</a>
+    <li><a href="syn-phrase.html#np_comp">Complement of N</a>
+    <li><a href="syn-phrase.html#np_mod">Modifier of N</a>
+    <li><a href="syn-phrase.html#np_gerund">Nominal versus mixed gerund</a>
+    <li>Treatment of individual words
+	<ul>
+	<li><a href="words.html#while">(THE) WHILE</a>
+	</ul>
+    </ul>
+<li><a href="syn-phrase.html#nump">Number phrase</a> (<tt>NUMP</tt>)
+    <ul>
+    <li><a href="syn-phrase.html#nump_special">Special cases</a>
+        (UP TO FIVE, BETWEEN TWO AND THREE, THREE <a href="words.html#times">TIMES</a> FIVE)
+    </ul>
+<li><a href="syn-phrase.html#pp">Prepositional phrase</a> (<tt>PP</tt>)
+    <ul>
+    <li><a href="syn-phrase.html#pp_comp">Complement of P</a>
+    <li><a href="syn-phrase.html#pp_mod">Modifier of P</a>
+    <li><a href="syn-phrase.html#pp_spec">Specifier of P</a>
+        <ul>
+        <li><a href="syn-phrase.html#pp_movement_to_spec">Movement to Spec(PP)</a>
+        <li><a href="syn-phrase.html#pp_np-dps">Dative of possession</a> (NP-DPS)
+        </ul>
+    <li>Treatment of individual words
+	<ul>
+	<li><a href="words.html#because">BECAUSE</a>
+	<li><a href="words.html#for">FOR (preposition)</a>
+	<li><a href="words.html#forasmuch">FORASMUCH</a> (also INASMUCH, INSOMUCH)
+	<li><a href="words.html#so_that">SO THAT</a>
+	</ul>
+    </ul>
+<li><a href="syn-phrase.html#qp">Quantifier phrase</a> (<tt>QP</tt>)
+    (see also
+    <a href="syn-const.html#floated_q">Floated quantifier</a>,
+    <a href="syn-const.html#np-msr">Measure phrase</a>)
+    <ul>
+    <li><a href="syn-phrase.html#qp_comp">Complement of Q</a>
+    <li><a href="syn-phrase.html#qp_mod">Modifier of Q</a>
+    <li>Treatment of individual words
+	<ul>
+	<li><a href="differences.html#much">(THE) LESS</a>
+	<li><a href="differences.html#much">(THE) MORE</a>
+	</ul>
+    </ul>
+<li><a href="syn-phrase.html#wh_phrase">Wh- phrase</a>
+    <ul>
+    <li><a href="syn-phrase.html#wadjp">WADJP</a>
+    <li><a href="syn-phrase.html#wadvp">WADVP</a>
+    <li><a href="syn-phrase.html#wnp">WNP</a>
+    <li><a href="syn-phrase.html#wpp">WPP</a>
+    <li><a href="syn-phrase.html#wqp">WQP</a>
+    </ul>
+<li><a href="syn-phrase.html#nonstructural">Nonstructural labels</a>
+    <ul>
+    <li><a href="syn-phrase.html#code">CODE</a>
+    <li><a href="syn-phrase.html#foreign">Foreign language passage</a>
+        (<tt>LATIN</tt>, <tt>FOREIGN</tt>)
+    <li><a href="syn-phrase.html#ls">List marker</a> (<tt>LS</tt>)
+    <li><a href="syn-phrase.html#meta">META</a>
+    <li><a href="syn-phrase.html#qtp">Quotation phrase</a> (<tt>QTP</tt>)
+    <li><a href="syn-phrase.html#ref">Reference</a> (<tt>REF</tt>)
+    </ul>
+</ul>
+
+<hr>
+
+<p> This section of the documentation focuses on the internal structure
+of phrasal constituents.  Phrases at the clausal level (= daughters of
+IP) are often labeled with dash tags and extended tags encoding
+additional information, as described
+in <a href="syn-const.html">Clause-level constituents</a>.  This section
+also covers certain nonstructural tags used to label foreign language
+passages, quotations, references, and similar material.
+
+<hr>
+
+<a name="adjp">
+<h3>Adjective phrase (<tt>ADJP</tt>)</h3>
+
+<ul>
+<li><a href="syn-phrase.html#adjp_head">Head of ADJP</a>
+	<ul>
+	<li><a href="syn-phrase.html#adjp_head_silent">Silent head of ADJP</a>
+	<li><a href="syn-phrase.html#adjp_head_adjr">Comparative adjective as head of ADJP</a>
+	<li><a href="syn-phrase.html#adjp_head_adjs">Superlative adjective as head of ADJP</a>
+	</ul>
+<li><a href="syn-phrase.html#adjp_comp">Complement of ADJ</a>
+	<ul>
+	<li><a href="syn-phrase.html#adjp_comp_np">NP complement of ADJ</a>
+		<ul>
+		<li><a href="syn-phrase.html#adjp_alre_plus_sup">ALRE plus superlative</a>
+		</ul>
+	<li><a href="syn-phrase.html#adjp_comp_pp">PP complement of ADJ</a>
+	<li><a href="syn-phrase.html#adjp_comp_clause">Clausal complement of ADJ</a>
+	</ul>
+<li><a href="syn-phrase.html#adjp_mod">Modifier of ADJ</a>
+<li>Movement out of ADJP (see <a href="syn-const.html#movement_out_of_adjp">Clause-level constituents</a>)
+<li>Treatment of individual words
+	<ul>
+	<li><a href="differences.html#much">LEAST</a>
+	<li><a href="differences.html#much">LESS</a>
+	<li><a href="differences.html#much">MORE</a>
+	<li><a href="differences.html#much">MOST</a>
+	<li><a href="differences.html#much">MUCH</a>
+	<li><a href="words.html#such">SUCH</a>
+	</ul>
+</ul>
+
+<hr>
+
+<p> Adjective phrases (<tt>ADJP</tt>) consist of an adjectival head,
+possibly accompanied by complements and/or modifiers.
+
+<p>
+<blockquote> <pre>
+( (ADJP (ADJ true)))
+
+( (ADJP (ADV very) (ADJ true)))
+
+( (ADJP (ADJR fairer)
+	(PP (P than)
+	    (NP (D the) (OTHERS others)))))
+
+( (ADJP (ADJS worst)
+	(PP (P of)
+	    (NP (Q all)))))
+</pre> </blockquote>
+
+<a name="adjp_variable_headedness">
+<p> Complements and/or modifiers can either precede or follow the head.
+See also <a href="syn-const.html#movement_out_of_adjp">Movement out of
+ADJP</a>.
+
+<p>
+<blockquote> <pre>
+( (ADJP (ADJ worth)
+        (NP (Q nothing))))
+
+( (ADJP (NP (Q nocht))		    &larr; worth nothing
+        (ADJ wur+d)))
+</pre> </blockquote>
+
+<a name="adjp_head">
+<a name="adjp_head_silent">
+<h4>Head of ADJP</h4>
+
+<h4>Silent head of ADJP</h4>
+
+The construction TWENTY MILES FROM LONDON is treated as the projection
+of an implicit <tt>ADJ</tt> head corresponding to DISTANT.
+
+<p>
+<blockquote> <pre>
+( (ADJP-LOC (NP-MSR (NUM twenty) (NS miles))
+            (ADJ distant)                         &larr; with overt head
+	    (PP (P from)
+		(NP (NPR London)))))
+
+( (ADJP-LOC (NP-MSR (NUM twenty) (NS miles))      &larr; with implicit head
+	    (PP (P from)
+		(NP (NPR London)))))
+</pre> </blockquote>
+
+<a name="adjp_head_adjr">
+<h4>Comparative adjective as head of ADJP</h4>
+
+<p>
+<table>
+<tr>
+<td valign=center><img src="hand.GIF">
+<td valign=center>When <a href="differences.html#much">(THE) LESS and
+(THE) MORE</a> are treated as comparative adjectives in the PPCME2, as
+they sometimes are, the discussion below extends to them.
+</table>
+
+<p>
+At the clausal level, comparative adjectives accompanied by a determiner
+are daughters of either <tt>ADJP</tt> or <tt>NP</tt></a>, depending on
+whether they are functioning as predicates or referring expressions.
+The containing phrase is labeled <tt>ADJP</tt> in the
+<a href="syn-const.html#np-adv_correl_elided">elided correlative
+comparatives</a> (THE MORE THE MERRIER),
+in <a href="syn-sub.html#ip-smc">small clauses</a>, or generally when it
+is the complement of a <a href="words.html#copular_verb">copular
+verb</a>.  However, even then, it is labeled <tt>NP</tt> if it picks out
+a particular entity;
+see <a href="syn-phrase.html#np_head_adjr">Comparative adjective as
+modifier of elided noun</a>.
+
+<p>
+<blockquote> <pre>
+( (IP-MAT (CONJ and)
+          (NP-SBJ *con*)
+          (BED was)
+          (ADVP-TMP (ADV neuer))
+          (ADJP-PRD (D +te) (ADJR wors))
+          (PUNC ,))
+  (ID CMMIRK-M34,31.882))
+
+( (IP-MAT (NP-SBJ (D the) (ADJ first)
+		  (CP-REL (WNP-1 0)
+			  (C that)
+			  (IP-SUB (NP-SBJ (PRO I))
+				  (VBD cam)
+				  (PP (P over)
+				      (NP *T*-1)))))
+	  (BED was)
+	  (NP-PRD (D the) (ADJR greatter))     	      &larr; referring expression
+          (PUNC ,))
+  (ID LELAND-1539-E1-P1,89.238))
+</pre> </blockquote>
+
+<a name="adjp_head_adjs">
+<h4>Superlative adjective as head of ADJP</h4>
+
+<p>
+<table>
+<tr>
+<td valign=center><img src="hand.GIF">
+<td valign=center>When <a href="differences.html#much">LEAST and
+MOST</a> are treated as superlative adjectives in the PPCME2, as they
+sometimes are, the discussion below extends to them.
+</table>
+
+<p>
+At the clausal level, superlative adjectives are generally labeled
+<tt><a href="syn-phrase.html#np_head_adjs">NP</a></tt>.  But
+a superlative adjective projects an <tt>ADJP</tt> if it meets all of the
+following conditions:
+
+<ul>
+<li> It occurs alone (without a determiner, possessive, or modifier).
+<li> It is the complement of a <a href="words.html#copular_verb">copular
+     verb</a>.
+<li> It functions as a predicate rather than as a referring expression
+     (that is, it does not pick out a particular entity).
+</ul>
+
+<p>
+<blockquote> <pre>
+( (IP-SUB (NP-SBJ (D +te) (N day))
+          (BEP is)
+          (ADJP-PRD (ADJS schortest)))
+  (ID CMPOLYCH-M3,VI,107.734))
+
+( (IP-SUB (NP-SBJ (PRO he))
+          (BED was)
+          (ADJP-PRD (ADJS eldest)))
+  (ID CMBRUT3-M3,14.408))
+
+( (IP-SUB (NP-SBJ (D +te) (N +tyng)
+                  (CP-REL (WNP-1 0)
+                          (C +tat)
+                          (IP-SUB (NP-OB1 *T*-1)
+                                  (NP-SBJ (PRO +tai))
+                                  (VBP (VBP sai) (CONJ or) (DOP do)))))
+          (BEP es)
+          (ADJP-PRD (ADJS best)))
+  (ID CMROLLEP-M24,86.367))
+</pre> </blockquote>
+
+<a name="adjp_comp">
+<h4>Complement of ADJ</h4>
+
+<p>
+See also <a href="syn-phrase.html#np_head_adjs">Superlative adjective as
+modifier of elided noun</a> and
+<a href="syn-phrase.html#np_adjs_plus_gen">Superlative adjective plus genitive</a>.
+
+<p>
+Adjectives can take NP, PP, or clausal complements.
+
+<a name="adjp_comp_np">
+<a name="adjp_like_etc">
+<h4>NP complement of ADJ</h4>
+
+<p> NP complements of adjectives are labeled bare <tt>NP</tt>
+(not <tt>NP-COM</tt>, as in the case of NP complements of nouns).  If
+the complement is clearly a genitive, this is indicated on the noun's
+POS tag, but not at the phrasal level.  Adjectives that take NP
+complements include the following items:
+
+<p>
+<blockquote> <pre>
+LIKE, NEAR, NEXT, NIGH, WORTH
+</pre> </blockquote>
+
+<p>
+<blockquote> <pre>
+( (ADJP (ADJ like)
+        (NP (PRO$ our) (NS friends))))
+
+( (ADJP (ADJ worth)
+        (NP (NUM ten) (NS shillings))))
+</pre> </blockquote>
+
+<blockquote style="background-color:#F5FFFA"><!--mideng-->
+<pre> 
+( (ADJP (ADJS nexte)
+        (NP (NP (D the) (N quene))
+            (CONJP (CONJ and)
+                   (NP (D the) (NS byschoppys)
+                       (RRC (ADVP-TMP (ADV a-fore))
+			    (VAN sayde))))))
+  (ID CMGREGOR-M4,139.579))
+
+( (ADJP (ADJS nest)
+        (NP (D +te) (ADJ hech+ge) (NPR heouene)))
+  (ID CMANCRIW-1-M1,II.208.2976))
+
+( (ADJP (ADVR so) (ADJ ny)
+        (NP (PRO$ oure) (N feyth)))
+  (ID CMMANDEV-M3,87.2158))
+
+( (ADJP (NP (PRO hire))                    &larr; very close to her
+	(ADV swi+de)
+	(ADJ neih))
+  (ID CMVICES1-M1,5.45))
+
+( (ADJP (NP (Q nocht))	       	           &larr; worth nothing
+        (ADJ wur+d))
+  (ID CMANCRIW-1-M1,II.105.1289))
+</pre> </blockquote>
+
+<p> In early texts, some adjectives (APPROPRIATE, FULL, OBEDIENT,
+PLEASING, etc.) that take PP complements in Modern English took NP
+complements (usually datives).  Like the complements of other
+adjectives, these are tagged as bare <tt>NP</tt>, whether they precede
+or follow the head.  Affected NPs are distinct; they are treated as
+separate constituents and labeled <tt>NP-OB2</tt>.
+
+<p>
+<blockquote style="background-color:#F5FFFA"><!--mideng-->
+<pre>
+( (ADJP (NP (PRO us))
+        (ADJ biheue))			&larr; appropriate, fitting
+  (ID CMTRINIT-MX1,201.2786))
+
+( (ADJP (NP (PRO it))			&larr; aware
+        (ADJ war))
+  (ID CMPETERB-M1,57.520))
+
+( (ADJP (NP (Q euch) (N$ godes))	&larr; full
+        (ADJ ful))
+  (ID CMMARGA-M1,63.137))
+
+( (ADJP (ADJ gredi)			&larr; greedy
+        (NP (D +tes) (N eses)))
+  (ID CMLAMBX1-MX1,123.1206))
+
+( (ADJP (ADJ ihersum)			&larr; obedient
+        (NP (PRO$ his) (N cunne)))
+  (ID CMLAMBX1-MX1,109.1018))
+
+( (ADJP (NP (PRO him))
+        (ADJ ibuhsum))			&larr; obedient
+  (ID CMLAMBX1-MX1,113.1078))
+
+( (ADJP (NP (NPR assur))
+        (ADJ iqueme))			&larr; pleasing
+  (ID CMANCRIW-1-M1,II.115.1451))
+</pre>
+</blockquote>
+
+<a name="adjp_alre_plus_sup">
+<h4>ALRE plus superlative</h4>
+
+In Middle English, the pre-head (plural) possessive quantifier ALRE
+occurs with superlative heads
+(<tt>ADJS</tt>, <tt>ADVS</tt>, <tt>QS</tt>) or the semantically
+superlative FIRST/LAST (<tt>ADV</tt>).  In texts from the first Middle
+English period (M1), ALRE in this construction is treated as a separate
+word.  It is tagged <tt>Q$</tt> and treated as a bare <tt>NP</tt>
+complement of the licensing adjective.
+
+<p>
+<blockquote style="background-color:#F5FFFA"><!--mideng-->
+<pre>
+( (ADJP (NP (Q$ alre))
+        (ADJS hest))
+  (ID CMANCRIW-1-M1,II.208.2978))
+
+( (ADVP (NP (Q$ alre))
+        (ADV earest))		    &larr; <a href="words.html#first">FIRST</a>/<a href="words.html#last">LAST</a> not tagged superlative
+  (ID CMANCRIW-1-M1,II.43.380))
+
+( (QP (NP (Q$ alre))
+      (QS meast))
+  (ID CMKATHE-M1,50.490))
+</pre> </blockquote>
+
+<p> The few cases in this period of ALRE written together with MOST are
+treated as compounds (<tt>Q$+QS</tt>).
+
+<p>
+<blockquote style="background-color:#F5FFFA"><!--mideng-->
+<pre>
+( (QP (Q$+QS alremest))
+  (ID CMLAMBX1-MX1,49.636))
+</pre> </blockquote>
+
+<p> In the later periods of Middle English, ALRE is treated as a prefix
+(see MED, s.v. <i>alder-</i>) forming part of
+a <a href="pos-tok.html#unitary">unitary</a> word that is tagged as a
+superlative (<tt>ADJS</tt>, <tt>ADVS</tt>, <tt>QS</tt>).
+
+<p>
+<blockquote style="background-color:#F5FFFA"><!--mideng-->
+<pre>
+( (NP-VOC (ADJS aldermy+gtfullichest))      &larr; later Middle English texts
+  (ID CMEARLPS-M2,54.2353))
+
+( (ADJP (ADJS althirhegeste))
+  (ID CMROLLTR-M24,1.19))
+
+( (ADJP (ADJS al+tire-beste))
+  (ID CMEDTHOR-M34,33.429))
+
+( (ADJP (ADJS al+ter_best))
+  (ID CMCLOUD-M3,79.362))
+
+( (ADJP-LOC (ADJS al+ter_next)
+            (NP (D +te) (N kyng)))
+  (ID CMBRUT3-M3,66.1971))
+</pre> </blockquote>
+
+<a name="adjp_comp_pp">
+<h4>PP complement of ADJ</h4>
+
+<p>
+<blockquote> <pre>
+( (ADJP (ADJ myghty)
+        (PP (P of)
+            (NP (NS men))))
+  (ID CMMALORY-M4,7.184))
+
+( (ADJP (ADJR fayrere)
+        (PP (P +ten)
+            (NP (D +te) (N sunne))))
+  (ID CMAELR3-M23,26.20))
+
+( (ADJP (ADJ ware)
+        (PP (P of)
+            (NP (PRO$ their) (N departyng))))
+  (ID CMMALORY-M4,2.19))
+
+( (ADJP (ADJ glad)
+        (PP (P of)
+            (NP (PRO$ their) (N comynge))))
+  (ID CMMALORY-M4,12.335))
+</pre> </blockquote>
+
+<a name="adjp_comp_clause">
+<h4>Clausal complement of ADJ</h4>
+
+<ul>
+
+<li> <a href="syn-sub.html#cp-tht">THAT complement</a> (<tt>CP-THT</tt>)
+
+<p>
+<blockquote> <pre>
+( (ADJP (ADJ glad)
+        (CP-THT (C that)
+                (IP-SUB (NP-SBJ (PRO$ hys) (NS knyghtes))
+                        (BED were)
+                        (ADJP-PRD (ADJ horsed))
+                        (ADVP (ADV agayne)))))
+  (ID CMMALORY-M4,23.724))
+
+( (ADJP (ADJ sory)
+        (CP-THT (C 0)
+                (IP-SUB (NP-SBJ (PRO he))
+                        (HVD had)
+                        (VBN displeased)
+                        (NP-OB1 (NPR kynge) (NPR Arthure)))))
+  (ID CMMALORY-M4,49.1633))
+</pre> </blockquote>
+
+<!--
+<li> <a href="syn-sub.html#cp-deg">Degree clause</a> (<tt>CP-DEG</tt>)
+
+<p>
+<blockquote> <pre>
+( (ADJP (ADVR <a href="words.html#as_deg">so</a>) (ADJ currageous)
+        (CP-DEG (C that)
+                (IP-SUB (NP-SBJ (PRO$ their) (NS enemyes))
+			(VBD (VBD shooke) (CONJ and) (VBD byverd))
+			(PP (P for)
+                            (NP (N egirnesse))))))
+  (ID CMMALORY-M4,23.725))
+
+( (ADJP (ADVR <a href="words.html#as_deg">so</a>) (ADJ blody)
+        (CP-DEG (C that)
+                (IP-SUB (PP (P by)
+                            (NP (PRO$ hys) (N shylde)))
+                        (NP-SBJ-1 (EX there))
+                        (MD myght)
+                        (NP-1 (Q no) (N man))
+                        (VB know)
+                        (NP-OB1 (PRO hym)))))
+  (ID CMMALORY-M4,26.816))
+
+( (ADJP (ADVR <a href="words.html#as_deg">so</a>) (ADJ necligent)
+        (CP-DEG (C that)
+                (IP-SUB (NP-SBJ (PRO they))
+                        (NEG ne)
+                        (VBP descharge)
+                        (NP-OB1 (PRO hem))
+                        (NEG nat)
+                        (PP (P by)
+                            (CODE &lt;P_298.C2&gt;)
+                            (NP (N tyme))))))
+  (ID CMCTPARS-M3,298.C2.429))
+</pre> </blockquote>
+-->
+
+<li> <a href="syn-sub.html#cp-cmp">Comparative clause</a> (<tt>CP-CMP</tt>)
+
+<p>
+<blockquote> <pre>
+( (ADJP (D +te) (ADJR schorter)
+        (CP-CMP (WADJP-1 0)
+                (C 0)
+                (IP-SUB (ADJP-PRD *T*-1)
+                        (NP-SBJ (PRO it))
+                        (BEP is))))
+  (ID CMCLOUD-M3,28.228))
+
+( (ADJP (D the) (ADJR richer)
+        (CP-CMP (WADJP-1 0)
+                (C that)
+                (IP-SUB (ADJP-PRD *T*-1)
+                        (NP-SBJ (PRO he))
+                        (BEP is))))
+  (ID CMCTMELI-M3,235.C1.680))
+
+( (ADJP (D the) (ADJR hyer)
+        (CP-CMP (WADJP-1 0)
+                (C that)
+                (IP-SUB (ADJP-PRD *T*-1)
+                        (NP-SBJ (PRO they))
+                        (BED were)
+                        (PP (P in)
+                            (NP (D this) (ADJ present) (N lyf))))))
+  (ID CMCTPARS-M3,292.C1.153))
+</pre> </blockquote>
+
+<li> <a href="syn-sub.html#cp-tmc">Tough movement complement</a> (<tt>CP-TMC</tt>)
+
+<p>
+<blockquote> <pre>
+( (ADJP (ADJ easie)
+	(CP-TMC (WNP-1 0)
+		(IP-INF (IP-INF (NP-OB1 *T*-1)
+			  	(TO to)
+				(VB mount))
+			(CONJP (CONJ and)
+			       (IP-INF (TO *)
+				       (VB get)
+				       (PP (RP vp)
+					   (P vpon)
+					   (NP *T*-1))))))
+	(PUNC ;))
+  (ID MARKHAM-1615-E2-H,1,71.11))
+</pre> </blockquote>
+
+<li> <a href="syn-sub.html#ip-inf">Infinitival complement</a> (<tt>IP-INF</tt>)
+
+<p>
+<blockquote> <pre>
+( (ADJP (ADJ redy)
+        (IP-INF (PP (P with)
+                    (NP (Q many) (NS knyghtes)))
+                (TO to)
+                (VB ryde)
+                (PP (P on)
+                    (NP (N huntynge)))))
+  (ID CMMALORY-M4,33.1036))
+
+( (ADJP (ADJ able)
+        (IP-INF (TO to)
+                (HV have)
+                (VBN macched)
+                (NP-OB1 (PRO us))))
+  (ID CMMALORY-M4,57.1908))
+
+( (ADJP (ADJ worthy)
+        (IP-INF (TO to)
+                (VB lye)
+                (PP (P within)
+                    (NP (D thys) (N+N chyrcheyarde)))))
+  (ID CMMALORY-M4,643.4030))
+</pre> </blockquote>
+
+</ul>
+
+<a name="adjp_mod">
+<h4>Modifier of ADJ</h4>
+
+Modifiers of adjectives include adverbs,
+<a href="syn-phrase.html#advp">adverb phrases</a>, quantifiers,
+<a href="syn-phrase.html#qp">quantifier phrases</a>, and 
+<a href="syn-const.html#np-msr">measure phrases</a>.
+
+<p>
+<blockquote> <pre>
+( (ADJP (ADV quite) (ADJ wise)))
+
+( (ADJP (ADV well) (ADJ aware)))
+
+( (ADJP (ADVR as) (ADJ longe)))
+
+( (ADJP (ADVR so) (ADJ noble)))
+
+( (ADJP (QR more) (ADJ hardy))
+
+( (ADJP (QS moste) (ADJS shamefullyste))
+  (ID CMMALORY-M4,43.1448))
+
+( (ADJP (NP-MSR (FP but) (Q halff) (D a) (N foote))
+        (ADJ brode))
+  (ID CMMALORY-M4,70.2381))
+
+( (ADJP (NP-MSR (NP (D a) (N fote))
+                (CONJP (CONJ &)
+                       (NP (D an) (NUM half))))
+        (ADJ long))
+  (ID CMMANDEV-M3,6.95))
+</pre> </blockquote>
+
+<blockquote style="background-color:#F5FFFA"><!--mideng-->
+<pre>
+( (ADJP (ADV wonderly) (ADJ wrothe))
+  (ID CMMALORY-M4,2.20))
+
+( (ADJP (ADV wood) (ADJ wrothe))
+  (ID CMMALORY-M4,26.798))
+
+( (ADJP (ADVP (ADV passynge) (ADV sore))
+        (ADJ seke))
+  (ID CMMALORY-M4,6.172))
+
+( (ADJP (ADVP (ADV ful) (ADV wel))
+        (ADJ worthy))
+  (ID CMCAPCHR-M4,249.4171))
+
+( (ADJP (ADVP (ADVR se) (ADV freoliche))
+        (ADJ feire))
+  (ID CMMARGA-M1,76.351))
+
+( (ADJP (NP-MSR (NUM a_+tousend)
+                (NS zy+te))			&larr; times
+	(ADJR worse))
+  (ID CMAYENBI-M2,265.2557))
+</pre> </blockquote>
+
+<a name="advp">
+<h3>Adverb phrase (<tt>ADVP</tt>)</h3>
+
+<ul>
+<li><a href="syn-phrase.html#advp_comp">Complement of ADV</a>
+    <ul>
+    <li><a href="syn-phrase.html#advp_comp_pp">PP complement of ADV</a>
+    <li><a href="syn-phrase.html#advp_comp_clause">Clausal complement of ADV</a>
+    </ul>
+<li><a href="syn-phrase.html#advp_mod">Modifier of ADV</a>
+<li>Treatment of individual words
+    <ul>
+    <li><a href="words.html#ago">AGO</a>
+    </ul>
+</ul>
+
+<hr>
+
+See also <a href="syn-const.html#rp">Adverbial particle</a>.
+
+<p> Adverb phrases (<tt>ADVP</tt>) consist of an adverb head, possibly
+accompanied by complements and/or modifiers.  We distinguish different
+types of adverb phrase (directional, locative, temporal), but only at
+the clausal level; see <a href="syn-const.html#advp">Clause-level
+constituents</a> for details.
+
+<p>
+<blockquote> <pre>
+( (ADVP (ADV suddenly)))
+
+( (ADVP (ADV wel))
+  (ID CMMALORY-M4,2.12))
+
+( (ADVP-DIR (ADV hither)))
+
+( (ADVP-LOC (ADV then)))
+
+( (ADVP-TMP (ADV then)))
+</pre> </blockquote>
+
+<a name="advp_comp">
+<a name="advp_comp_pp">
+
+<h4>Complement of ADV</h4>
+
+<h4>PP complement of ADV</h4>
+
+In general, the only adverbs that take complements are degree adverbs.
+See <a href="syn-sub.html#cp-cmp">Comparative clause</a> and
+<a href="syn-sub.html#cp-deg">Degree clause</a> for details.
+
+<p>
+<blockquote> <pre>
+( (ADVP (ADVR as)
+	(ADV soon)
+	(PP (P as)                                &larr; complement of AS, not SOON
+	    (CP-CMP (WADVP-1 0)
+		    (IP-SUB (ADVP-TMP *T*-1)
+			    (NP-SBJ (PRO we))
+			    (MD can))))))
+
+( (ADVP (ADVR so)
+	(ADV well)
+        (PP (P as)                                &larr; complement of SO, not WELL
+            (NP (PRO he))))
+  (ID CMMALORY-M4,17.535))
+
+( (ADVP (QR more)                                 &larr; complement of MORE, not OPENLY
+        (ADV opynly)
+        (PP (P than)
+            (CP-CMP (WADVP-1 0)
+                    (C 0)
+                    (IP-SUB (ADVP *T*-1)
+                            (NP-SBJ (PRO hit))
+                            (HVP hath)
+                            (BEN bene)
+                            (VAN shewed)
+                            (ADVP-LOC (ADV here))))))
+  (ID CMMALORY-M4,635.3781))
+</pre> </blockquote>
+
+<a name="advp_comp_clause">
+<h4>Clausal complement of ADV</h4>
+
+Again, the only adverbs that take clausal complements are degree
+adverbs.  See <a href="syn-sub.html#cp-cmp">Comparative clause</a>)
+and <a href="syn-sub.html#cp-deg">Degree clause</a> for detailed
+discussion.
+
+<p>
+<blockquote> <pre>
+( (ADVP (ADVR so)             
+	(ADV fersely)
+        (CP-DEG (C that)                                   &larr; complement of SO, not FIERCELY
+                (IP-SUB (NP-SBJ (D the) (NS strokis))
+                        (VBD $redounded)
+                        (ADVP (ADV agayne))
+                        (PP (P fro)
+                            (NP (NP (D the) (N woode))
+                                (CONJP (CONJ and)
+                                       (NP (D the) (N watir))))))))
+  (ID CMMALORY-M4,25.789))
+</pre> </blockquote>
+
+<a name="advp_mod">
+<h4>Modifier of ADV</h4>
+
+Modifiers of adverbs include other adverbs,
+<a href="syn-phrase.html#advp">adverb phrases</a>, quantifiers,
+<a href="syn-phrase.html#qp">quantifier phrases</a>, and
+<a href="syn-const.html#np-msr">measure phrases</a>.
+
+<p>
+<blockquote> <pre>
+( (ADVP (ADV full) (ADV well))
+  (ID CMMALORY-M4,16.511))
+
+( (ADVP (ADV passyinge) (ADV sore))
+  (ID CMMALORY-M4,6.172))
+
+( (ADVP (ADV ryght) (ADV so))
+  (ID CMMALORY-M4,15.449))
+
+( (ADVP (ADVR so) (ADV sodenly))
+  (ID CMMALORY-M4,2.20))
+
+( (ADVP (QR more) (ADV esily))
+  (ID CMMANDEV-M3,35.859))
+
+( (ADVP (QP (D +te) (QR more))
+        (ADV ble+telaker))
+  (ID CMAYENBI-M2,69.1284))
+
+( (ADVP (Q all) (ADV togydirs))
+  (ID CMMALORY-M4,27.837))
+
+( (ADVP (Q all) (ADV uttirly))
+  (ID CMMALORY-M4,191.2819))
+
+( (ADVP-TMP (ADV euermore) (ADV after))
+  (ID CMBRUT3-M3,65.1948))
+
+( (ADVP-TMP (NP-MSR (NUM ij) (NS dayes))
+            (ADV aftyr))
+  (ID CMGREGOR-M4,186.1353))
+
+( (ADVP (NP-MSR (NUM x) (N myle))
+        (ADV thens))
+  (ID CMKEMPE-M4,114.2626))
+
+( (ADVP (NP-MSR (NUM halffe))
+	(ADVR so)
+	(ADV sore))
+  (ID CMMALORY-M4,46.1511))
+</pre> </blockquote>
+
+<a name="frag">
+<h3>Fragment (<tt>FRAG</tt>)</h3>
+
+<tt>FRAG</tt> is a last resort for annotating material consisting of at
+least two constituents, for which there is not enough material to
+construct an IP, not even an <a href="syn-sub.html#ip-abs">absolute
+clause</a> (<tt>IP-ABS</tt>, <tt>IP-PPL-ABS</tt>).  Fragments that are
+direct speech are labeled <a href="syn-phrase.html#qtp"><tt>QTP</tt></a>
+rather than <tt>FRAG</tt>.
+
+<p>
+<blockquote>
+<pre>
+( (FRAG (INTJ No)
+	(PUNC ,)
+	(ADVP (ADV certainly))
+	(NP-TMP (NEG not) (N today))
+	(NP-ADV (D the) (N way)
+		(CP-REL (WADVP-1 0)
+			(C that)
+			(IP-SUB (ADVP *T*-1)
+				(NP-SBJ (PRO it@))
+				(BEP @'s)
+				(VAG pouring))))
+	(PUNC !)))
+</blockquote>
+</pre>
+
+<p>
+<blockquote style="background-color:#F5FFFA"><!--mideng-->
+<pre>
+( (FRAG (CONJ And)
+        (NP (Q no) (N wonder))
+        (PUNC ;))
+  (ID CMAELR3-M23,52.812))
+
+( (FRAG (INTJ Nay)
+        (PUNC ,)
+        (ADVP (ADV dredeles))
+        (PUNC ;))
+  (ID CMAELR3-M23,36.303))
+
+( (FRAG (PP (P In)
+            (NP (NPR Lente)))
+        (NP (ONE o) (N manere)
+            (PP (P of)
+                (NP (N potage))))
+        (NP-TMP (Q euery) (N day))
+        (PUNC ,)
+        (PP (P but)
+            (CP-ADV (C 0)
+                    (IP-SUB (NP-SBJ (N siknesse))
+                            (NP-OB1 (PRO it))
+                            (VBP make))))
+        (PUNC ;))
+  (ID CMAELR4-M4,9.211))
+
+( (FRAG (NP (NPR Aue))
+        (PUNC ;)
+        (LATIN (FW In) (FW conyertendo))
+        (PUNC ;)
+        (NP-MSR (NUM fif) (NS si+d+den))	&larr; five times
+        (PUNC .))
+  (ID CMANCRIW-1-M1,I.70.271))
+</pre> </blockquote>
+
+<a name="intjp">
+<h3>Interjection phrase (<tt>INTJP</tt>)</h3>
+
+Single words tagged as <tt>INTJ</tt> do not project an <tt>INTJP</tt>,
+even as clause-level constituents, except as noted below.
+
+<p>
+<blockquote> <pre>
+( (IP-IMP-SPE (PUNC ')
+              (INTJ A)				&larr; clause-level constituent, not part of NP-VOC
+              (PUNC ,)
+              (NP-VOC (NPR sir) (NPR Arthure))
+              (PUNC ,)
+              (PUNC ')
+              (IP-MAT-PRN (VBD seyde)
+                          (NP-SBJ (NP (NPR kynge) (NPR Ban))
+                                  (CONJP (CONJ and)
+                                         (NP (NPR kynge) (NPR Bors)))))
+              (PUNC ,)
+              (PUNC ')
+              (VBI blame)
+              (NP-OB1 (PRO hem))
+              (NEG nat)
+              (PUNC ,))
+  (ID CMMALORY-M4,27.840))
+
+( (IP-MAT-SPE (PUNC ')
+              (INTJ Nay)
+              (PUNC ,)
+              (PUNC ')
+              (IP-MAT-PRN (VBD seyde)
+                          (NP-SBJ (D the) (NS kyngis)))
+              (PUNC ,)
+              (PUNC ')
+              (NP-SBJ (PRO ye))
+              (MD shall)
+              (NEG nat)
+              (VB *)
+              (PP (P at)
+                  (NP (D thys) (N tyme)))
+              (PUNC ,))
+  (ID CMMALORY-M4,31.985))
+
+( (IP-MAT-SPE (PUNC ')
+              (INTJ Alas)
+              (PUNC !)
+              (PUNC ')
+              (IP-MAT-PRN (VBD seyde)
+                          (NP-SBJ (D the) (NUM eleven) (NS kyngis)))
+              (PUNC ,)
+              (PUNC ')
+              (ADVP-LOC (ADV here))
+	      (NP-SBJ=1 *exp*)
+              (BEP ys)
+              (NP=1 (N sorow)
+                    (PP (P uppon)
+                        (NP (N sorow))))
+              (PUNC ,))
+  (ID CMMALORY-M4,32.1004))
+</pre> </blockquote>
+
+<a name="intjp_what_the_devil">
+<p> The label <tt>INTJP</tt> is used in the following cases:
+
+<ul>
+
+<li> When an interjection makes up a separate token, as is commonly the
+case with the word AMEN at the end of sermons
+
+<p>
+<blockquote> <pre>
+( (INTJP (INTJ Amen)
+         (PUNC .))
+  (ID CMAELR3-M23,60.1033))
+</pre> </blockquote>
+
+<li> With consecutive interjections
+
+<p>
+<blockquote> <pre>
+( (INTJP (INTJ A) (INTJ ha)))
+
+( (INTJP (INTJ weila) (INTJ wei)))
+</pre> </blockquote>
+
+<li> When an interjection is a complement
+
+<p>
+<blockquote> <pre>
+( (PP (PP (P by)
+          (INTJP (INTJ yea)))
+      (CONJP (CONJ and)
+             (PP (P by)
+                 (INTJP (INTJ nay)))))
+  (ID PENNY-1686-E3-H,150.268))
+</pre> </blockquote>
+
+<a name="intjp_wh-word_as_intj">
+<li> When a word that is not tagged <tt>INTJ</tt> at the word level (see
+<a href="pos.html#other_intj">Interjection</a>) is used as an
+interjection, either alone or as part of a phrase
+
+<p>
+<table>
+<tr>
+<td valign=center><img src="caution.GIF">
+<td valign=center>PPs that are used as interjections (BY MY FAITH, etc.)
+are labeled as ordinary PPs and not surrounded by <tt>INTJP</tt>
+brackets, at least not consistently.
+</table>
+
+<p>
+<blockquote>
+<pre>
+( (CP-QUE-MAT (INTJP (WPRO What))
+	      (PUNC ,)
+	      (IP-SUB (BEP is)
+		      (NP-SBJ (PRO it))
+		      (ADJP-PRD (ADJ possible)))
+	      (PUNC ?)))
+
+( (IP-MAT (INTJP (WADV Why))
+	  (PUNC ,)
+	  (NP-SBJ (D that))
+	  (BEP is)
+	  (NEG not)
+	  (ADJP-PRD (ADJ possible))
+	  (PUNC !)))
+
+( (IP-MAT (QTP (INTJP (WD what) (D the) (NPR devil)))		&larr; WHAT forms part of interjection
+          (NP-SBJ (PRO he))
+	  (VBD exclaimed)
+	  (PUNC .)))
+
+( (CP-QUE-MAT (WNP-1 (WPRO what)				&larr; WHAT functions as ordinary wh- phrase
+                     (INTJP (D the) (NPR devil)))
+              (IP-SUB (NP-OB1 *T-1*)
+                      (DOD did)
+                      (NP-SBJ (PRO he))
+    	  	      (VB say))
+              (PUNC ?)))
+</pre>
+</blockquote>
+
+<p>
+<blockquote style="background-color:#F5FFFA"><!--mideng-->
+<pre>
+( (IP-IMP-SPE (INTJP (WPRO what) (ADJ good) (N lord))        &larr; not a true vocative
+              (VBI late)
+              (IP-SMC (NP-SBJ (PRO it))
+                      (ADJP-PRD (ADJ allone))))
+  (ID CMREYNAR-M4,12.215))
+
+( (IP-MAT (INTJP (INTJ O) (ADJ goode) (NPR God))             &larr; not a true vocative
+          (PUNC ,)
+          (ADVP (ADV wel))
+          (MD oghte)
+          (NP-SBJ (MAN man))
+          (HV have)
+          (NP-OB1 (N desdayn)
+                  (PP (P of)
+                      (NP (N synne)))))
+  (ID CMCTPARS-M3,290.C2.100))
+</pre> </blockquote>
+
+<li> When an interjection takes a complement, which can be an NP, PP, or
+clause (mostly restricted in Middle English)
+
+<p>
+<blockquote style="background-color:#F5FFFA"><!--mideng-->
+<pre>
+( (INTJP (INTJ Alas)
+         (PP (P to)
+             (NP (PRO me))))
+  (ID CMEARLPS-M2,156.6965))
+
+( (INTJP (INTJ Allas)
+         (NP (D +te) (N sorwe))
+         (PUNC !))
+  (ID CMBRUT3-M3,219.3922))
+
+( (INTJP (INTJ allas)
+         (CP-THT (C +tat)
+                 (IP-SUB (ADVP-TMP (ADV euer))
+                         (NP-SBJ (PRO he))
+                         (VBD come)
+                         (PP (P into)
+                             (NP (D +tat) (N Lande))))))
+  (ID CMBRUT3-M3,18.541))
+
+( (INTJP (INTJ Amen)
+         (PP (P for)
+             (NP (N cheryte)))
+         (PUNC .))
+  (ID CMGREGOR-M4,232.2429))
+
+( (INTJP (INTJ Farewel)
+         (PUNC ,)
+         (NP-VOC (ADJ goostly) (N freende))
+         (PUNC ,)
+         (PP (P in)
+             (NP (NP (NPR$ Goddes) (N blessing))
+                 (CONJP (CONJ &)
+                        (NP (PRO$ myne)))))
+         (PUNC !))
+  (ID CMCLOUD-M3,133.823))
+
+( (INTJP (INTJ fye)
+         (PP (P for)
+             (NP (N shame))))
+  (ID CMMALORY-M4,207.3407))
+
+( (INTJP (INTJ Fye)
+         (PP (P on)
+             (NP (PRO the))))
+  (ID CMMALORY-M4,207.3437))
+
+( (INTJP (INTJ Lo)
+         (NP (D +tis))
+         (PUNC ,))
+  (ID CMANCRIW-1-M1,I.50.102))
+
+( (INTJP (NP-VOC (N Womman))
+         (PUNC ,)
+         (INTJ lo)
+         (NP (PRO$ thy) (N sone)))
+  (ID CMAELR4-M4,21.643))
+
+( (INTJP (INTJ lo)
+         (ADVP-LOC (ADV her))
+         (NP (N preoue)
+             (PP (P of)
+                 (NP (Q ba+de))))
+         (PUNC .))
+  (ID CMANCRIW-1-M1,II.179.2497))
+
+( (INTJP (PP (P a+gein)
+             (NP (N misdede) (CONJ o+der) (N mis_sa+ge)))
+         (PUNC .)
+         (INTJ lo)
+         (ADVP-LOC (ADV her))
+         (ADVP-TMP (ADV anonden))
+         (NP (D +te) (ADJS beste) (N remedie)))
+  (ID CMANCRIW-1-M1,II.101.1215))
+
+( (INTJP (INTJ loo)
+         (PUNC ,)
+         (CP-QUE-SUB (WNP-1 (WPRO what))
+                     (C 0)
+                     (IP-SUB (NP-OB1 *T*-1)
+                             (VBP seith)
+                             (NP-SBJ (NPR Seint) (NPR Augustyn))))
+         (PUNC :))
+  (ID CMCTPARS-M3,308.C2.866))
+
+( (INTJP (INTJ Lo)
+         (CP-QUE-SUB (WADVP-1 (WADV howe) (ADV sone))
+                     (C 0)
+                     (IP-SUB (ADVP *T*-1)
+                             (NP-SBJ (PRO they))
+                             (MD couthe)
+                             (VB play)
+                             (NP-OB1 (D the) (NS nygardys))))
+         (PUNC !))
+  (ID CMGREGOR-M4,238.2601))
+
+( (INTJP (INTJ Walawa)
+         (NP (NP (D +tessere) (N lare))
+             (CONJP (CONJ and)
+                    (NP (D +desere) (N dade))))
+         (PUNC !))
+  (ID CMVICES1-M1,127.1568))
+
+( (IP-MAT (QTP (INTJP (INTJ wumme)
+		      (CP-THT-SPE (C +tt)
+				  (IP-SUB-SPE (NP-SBJ (PRO ich))
+					      (VBP libbe)))))
+	  (VBD q+d)
+          (NP-SBJ (PRO he))
+          (PUNC .))
+  (ID CMJULIA-M1,124.503))
+</pre> </blockquote>
+
+</ul>
+
+<a name="np">
+<h3>Noun phrase (<tt>NP</tt>)</h3>
+
+<ul>
+<li><a href="syn-phrase.html#np_head">Head of NP</a>
+    <ul>
+    <li><a href="syn-phrase.html#np_head_nom">Noun or pronoun as head of NP</a>
+    <li><a href="syn-phrase.html#np_head_one_or_other">ONE and OTHER as head of NP</a>
+    <li><a href="syn-phrase.html#np_compound_noun">Compound noun</a>
+    <li><a href="syn-phrase.html#np_head_elided">NP with elided head</a> (e.g., THE POOR, THE RICH)
+	<ul>
+	<li><a href="syn-phrase.html#np_head_adjr">Comparative adjective
+	as modifier of elided noun</a>
+	<li><a href="syn-phrase.html#np_head_adjs">Superlative adjective
+	as modifier of elided noun</a>
+	</ul>
+    </ul>
+<li><a href="syn-phrase.html#np_comp">Complement of N</a>
+    <ul>
+    <li><a href="syn-phrase.html#np_comp_np-com">NP complement of N</a> (<tt>NP-COM</tt>)
+	<ul>
+	<li><a href="syn-phrase.html#np_couple">COUPLE, HALF, MANNER,
+            MIDDLE, NEED, SIDE, WOE</a>
+	<li><a href="syn-phrase.html#np_kind">KIND</a>
+	<li><a href="syn-phrase.html#np_adjs_plus_gen">Superlative adjective plus genitive</a>
+	</ul>
+    <li>PP complement of N (see <a href="syn-phrase.html#np_mod_pp">PP modifier of N</a>)
+    <li><a href="syn-phrase.html#np_comp_clause">Clausal complement of N</a>
+    </ul>
+<li><a href="syn-phrase.html#np_mod">Modifier of N</a>
+    <ul>
+    <li><a href="syn-phrase.html#np_mod_adj">Adjectival modifier of N</a>
+    <li><a href="syn-phrase.html#np_mod_num">Number modifier of N</a>
+    <li><a href="syn-phrase.html#np_mod_q">Quantifier modifier of N</a>
+    <li><a href="syn-phrase.html#np_mod_pp">PP modifier of N</a>
+    <li><a href="syn-phrase.html#np_mod_poss">Genitive/possessive modifier of N</a>
+    <li><a href="syn-phrase.html#np_mod_msr">Measure phrase modifier of N</a>
+    <li><a href="syn-phrase.html#np_mod_rel">Relative clause</a>
+    <li><a href="syn-phrase.html#np_mod_rrc">Reduced relative clause</a>
+    <li><a href="syn-phrase.html#np_mod_prn">Appositive or parenthetical</a>
+    </ul>
+<li><a href="syn-phrase.html#np_gerund">Nominal versus mixed gerund</a>
+<li>Treatment of individual words
+    <ul>
+    <li><a href="words.html#while">(THE) WHILE</a>
+    </ul>
+</ul>
+
+<hr>
+
+<a name="np_head">
+<h4>Head of NP</h4>
+
+<a name="np_head_nom">
+<h4>Noun or pronoun as head of NP</h4>
+
+Noun phrases are canonically headed by an overt nominal element
+(<tt>N</tt>, <tt>NPR</tt>, <tt>PRO</tt>).
+
+<p>
+<blockquote> <pre>
+( (NP (N peace)))
+
+( (NP (NPR Arthur)))
+
+( (NP (PRO$ his) (N castle)))
+
+( (NP (D a) (ADJ fair) (N lady)))
+
+( (NP (PRO they)))
+</pre> </blockquote>
+
+<a name="np_head_one_or_other">
+<h4>ONE and OTHER as head of NP</h4>
+
+The words ONE and OTHER, which have their own tags, count as nominal
+elements and can head NPs.
+
+<p>
+<blockquote> <pre>
+( (NP (ONE one)))
+
+( (NP (D the) (ONE one)))
+
+( (NP (D the) (ADJ red) (ONES ones)))
+
+( (NP (D+OTHER another)))
+
+( (NP (Q many) (OTHERS others)))
+</pre> </blockquote>
+
+<a name="np_compound_noun">
+<h4>Compound noun</h4>
+
+An <tt>NP</tt> generally immediately dominates no more than one
+(non-genitive) <tt>N</tt> - namely, its head.  An exception is made for
+noun-noun compounds.  If the compound is written together as a single
+word, it is tagged <tt>N+N</tt> (in Middle English).  If it is written
+apart, both parts are labeled <tt>N</tt> but not grouped together
+separately.
+
+<p>
+<blockquote style="background-color:#F5FFFA"><!--mideng-->
+<pre>
+( (NP-SBJ (N somer) (N tyme))
+  (ID CMBRUT3-M3,106.3204))
+
+( (NP-OB1 (N knaue) (N child))
+  (ID CMLAMB1-M1,77.81))
+
+( (NP-OB1 (D +te) (N angel) (N message))
+  (ID CMAELR3-M23,39.380))
+
+( (NP-DIR (D the) (N est) (N lyne))
+  (ID CMASTRO-M3,667.C2.146))
+
+( (NP-SBJ (D +te) (N +tef) (N traitoure))
+  (ID CMBRUT3-M3,128.3854))
+
+( (NP-OB1 (D the) (N draught) (N brygge)
+              (PP (P of)
+                 (NP (NPR London))))
+  (ID CMGREGOR-M4,193.1488))
+
+( (NP-OB1 (D the) (ADJ harde) (N alebastir) (N boxe)
+              (PP (P of)
+                  (NP (PRO$ thyn) (N hert))))
+  (ID CMAELR4-M4,20.560))
+</pre> </blockquote>
+
+<p> For forms of address like SIR KNIGHT and for names (UTHER PENDRAGON,
+KING ARTHUR), see <a href="pos.html#noun_n_or_npr">Common noun or
+proper noun?</a>, particularly the section
+on <a href="pos.html#noun_by_form_n_n">noun-noun sequences</a>.
+  
+<p> Strings of two or more nouns making up a noun phrase can also
+be <a href="syn-conj.html#diagnostic_conjp">conjunction structures
+without an overt conjunction</a> (FRIENDS, ROMANS, COUNTRYMEN).
+
+<a name="np_head_elided">
+<h4>NP with elided head</h4>
+
+NPs without one of overt nominal elements mentioned above
+(<tt>N</tt>, <tt>NPR</tt>, <tt>ONE</tt>, <tt>OTHER</tt>,
+<tt>PRO</tt>)) are assumed to have an elided nominal head.  The elided
+head is not explicitly included in the annotation, but is implicit in
+the <tt>NP</tt> that it projects.  In other words, in our annotation
+system, demonstratives, adjectives, numbers, quantifiers, and possessive
+expressions always function as modifiers, not as heads, contrary to
+possible superficial appearances.
+
+<p>
+<blockquote> <pre>
+( (NP (D the) (ADJ poor)))
+
+( (NP (D the) (ADJ rich)))
+
+( (NP-MSR (ADJ long)))
+
+( (NP (ADJ enough)))
+
+( (NP (D that)))
+
+( (NP (NUM three)))
+
+( (NP (NPR$ John's))
+
+( (NP (PRO$ mine)))
+
+( (NP (Q many)))
+
+( (NP (ADJP (ADJ high) (CONJ and) (ADJ low)))
+
+( (NP (D the) (ADJ last)))
+
+( (NP (PRO$ your) (ADJS best)))
+
+( (NP (Q all) (D this)))
+
+( (NP (NP (D a) (ADJ fair) (N lady))
+      (CONJP (CONJ and)
+             (NP (D a)
+                 (ADJP (ADV passing) (ADJ wise))))))
+</pre> </blockquote>
+
+<a name="np_head_adjr">
+<h4>Comparative adjective as modifier of elided noun</h4>
+
+At the clausal level, comparative adjectives accompanied by a determiner
+are daughters of either <tt>NP</tt> or <tt>ADJP</tt>, depending on
+whether the containing phrase is functioning as a referring expression
+or as a predicate.  It is labeled <tt>NP</tt> when it functions as a
+noun phrase (subject, object of verb or preposition, etc.).  This
+includes cases where the phrase clearly picks out a particular entity,
+even if the phrase is the complement of a
+<a href="words.html#copular_verb">copular verb</a>.  Otherwise, the
+phrase is labeled <tt>ADJP</tt>
+(see <a href="syn-phrase.html#adjp_head_adjr">Comparative adjective as
+head of ADJP</a>).
+
+<p>
+<blockquote> <pre>
+( (IP-MAT (PP (P When)
+              (CP-ADV (C 0)
+                      (IP-SUB (NP-SBJ (ONE ane))
+                              (VBP metis)
+                              (NP-OB1 (D+OTHER a-no+tir)))))
+          (PUNC ,)
+          (NP-SBJ (D +te) (ADJR yunger))
+          (MD sal)
+          (NEG noht)
+          (VB sitte)
+          (PP (P bi)
+              (NP (PRO hir)))
+  (ID CMBENRUL-M3,41.1312))
+
+( (IP-MAT (CONJ and)
+          (NP-SBJ (D +te) (ADJR stronggyr))
+          (VBD eete)
+          (NP-OB1 (D +te) (CODE &lt;P_85&gt;) (ADJR wekir))
+          (PUNC .))
+  (ID CMSIEGE-M4,85.447))
+
+( (IP-SUB (NP-SBJ *T*-1)
+          (BED was)
+          (NP-PRD (D +te) (ADJR +gongyr)))		&larr; referring expression, not predicate
+  (ID CMMIRK-M34,93.2510))
+
+<b>Context:</b> When Esau was away, Jacob, who was the younger
+brother, by his mother's cunning advice, received his father's
+blessing.
+</pre> </blockquote>
+
+<a name="np_head_adjs">
+<h4>Superlative adjective as modifier of elided noun</h4>
+
+See also <a href="syn-phrase.html#np_adjs_plus_gen">Superlative adjective
+plus genitive</a>.
+
+<p>
+At the clausal level, superlative adjectives accompanied by a determiner
+are generally daughters of <tt>NP</tt>.  Under certain narrow
+conditions, they project <tt>ADJP</tt>
+(see <a href="syn-phrase.html#adjp_head_adjs">Superlative adjective as
+head of ADJP</a>).
+
+<p>
+Superlative adjectives with apparent complements generally function as
+referential expressions and are labeled <tt>NP</tt> at the phrasal
+label.  The complement is treated as a complement of the (elided) noun.
+
+<p>
+<blockquote> <pre>
+( (IP-MAT-SPE (NP-SBJ (D that))
+	      (BEP is)
+	      (NP-PRD (D the) (ADJS foulest))
+	      (PUNC ,))
+  (ID ARMIN-1608-E2-H,45.375))
+
+( (IP-MAT (NP-SBJ (PRO he))
+          (BEP is)
+          (NP-PRD (ADJS worst)			&larr; parallel to THE WORST <u>ONE</u> OF ALL
+                  (PP (P of)
+                      (NP (Q all))))))
+
+( (IP-MAT (CONJ and)
+          (ADVP (ADV so))
+          (NP-SBJ (D +tis) (N secte))
+          (BEP is)
+          (NP-PRD (ADJS best)			&larr; no determiner, but modified and referential
+                  (CP-REL (WNP-1 0)
+                          (C +tat)
+                          (IP-SUB (NP-OB1 *T*-1)
+                                  (NP-SBJ (Q any) (N man))
+                                  (MD may)
+                                  (HV haue)))))
+  (ID CMWYCSER-M3,265.698))
+</pre> </blockquote>
+
+<a name="np_comp">
+<h4>Complement of N</h4>
+
+<a name="np_comp_np-com">
+<h4>NP complement of N (<tt>NP-COM</tt>)</h4>
+
+See also <a href="syn-phrase.html#np_mod_msr">Measure phrase modifiers
+of N</a> and <a href="syn-phrase.html#qp_comp_np-com">NP complements of
+Q</a>.
+
+<p> Bare NP complements of nouns are labeled <tt>NP-COM</tt>.  This
+includes cases where a genitive NP in early texts corresponds to an OF
+phrase in later English.  The complement may precede or follow the head
+and consist of one word or several.
+
+<p>
+<tt>NP-COM</tt> continues to occur into Modern English, especially
+with <a href="words.html#aboard">ABOARD</a>,
+<a href="words.html#amid">AMID</a>, <a href="words.html#half">HALF</a>, and
+<a href="words.html#side">SIDE</a>.
+
+<p>
+<blockquote style="background-color:#F5FFFA"><!--mideng-->
+<pre>
+( (NP (N gewittnysse)
+      (NP-COM (NP (PRO$ hire) (N$ m+age+dhades))
+              (CONJP (CONJ &)
+                     (NP (PRO$ hire) (N$ eadmodnysse)))))
+  (ID CMKENTHO-M1,135.29))
+
+( (NP (N m+aigne)
+      (NP-COM (ADJ unw+ammes) (N$ m+age+dhades)))
+  (ID CMKENTHO-M1,134.22))
+
+( (NP (N moder)
+      (NP-COM (NP-COM (D +te) (ADJ ilke) (N$ zodes))
+              (PUNC /)
+              (CONJP (CONJ and)
+                     (NP-COM (PRO$ oure) (NPR$ lhordes)
+                             (NP-PRN (NPR iesu) (NPR$ cristes))))))
+  (ID CMAYENBI-M2,266.2603))
+
+( (NP (Q sum) (N d+al)
+      (NP-COM (PRO$ heora) (N$ gewilles)))
+  (ID CMKENTHO-M1,143.224))
+
+( (NP-TMP (D +t+as) (ADJ formeste) (N d+a+ges)
+          (NP-COM (D +t+are) (N$ wuca)))
+  (ID CMKENTHO-M1,144.258))
+</pre> </blockquote>
+
+<a name="np_couple">
+<a name="np_half">
+<a name="np_manner">
+<a name="np_mid">
+<a name="np_side">
+<h4>COUPLE, HALF, MANNER, MID, NEED, SIDE, WOE</h4>
+
+<tt>NP-COM</tt> is always used in connection with NPs occurring with the
+following nouns, even when the NP is genitive in form.  See
+also <a href="syn-phrase.html#np_kind">KIND</a>.
+
+<blockquote
+<pre>
+COUPLE, HALF, MANNER, MID (and variants), NEED, SIDE, WOE
+</pre>
+</blockquote>
+
+<p>
+<blockquote style="background-color:#F5FFFA"><!--mideng-->
+<pre>
+( (NP (NUM thirty) (N coupyl)
+      (NP-COM (NS houndes)))
+  (ID CMMALORY-M4,33.1049))
+
+( (NP (D this) (N half)
+      (NP-COM (D the) (N see)))
+  (ID CMMANDEV-M3,13.268))
+
+( (NP (Q no) (N maner)
+      (NP-COM (N harm)))
+  (ID CMMANDEV-M3,15.331))
+
+( (NP (N myddis)
+      (NP-COM (D the) (N shelde)))
+  (ID CMMALORY-M4,39.1287))
+
+( (NP (Q nan) (N neod)
+      (NP-COM (N medicine)))
+  (ID CMANCRIW-1-M1,II.136.1803))
+
+( (NP (D this) (N syde)
+      (NP-COM (NPR Trente) (N watir)))
+  (ID CMMALORY-M4,19.579))
+
+( (IP-SUB (NP-SBJ (N wa)				&larr; WOE
+                  (NP-COM *ICH*-1))
+          (BEP bi+d)
+          (NP-OB1 (PRO him))
+          (NP-COM-1 (PRO$ hise) (N$ liues)))
+  (ID CMANCRIW-1-M1,II.142.1903))
+</pre> </blockquote>
+
+<a name="np_kind">
+<h4>KIND</h4>
+
+The word KIND poses special difficulties because the structures
+containing it underwent reanalysis.  In early texts, KIND is the head of
+a genitive NP modifying a noun.
+
+<p>
+<blockquote style="background-color:#F5FFFA"><!--mideng-->
+<pre>
+( (NP (NP-COM (Q sumes) (N$ kennes))	&larr; FISH OF SOME KIND
+      (N fisc)))
+</pre> </blockquote>
+
+<p> KIND was either singular CUNNES, etc. or plural CUNNE, etc.  Some
+texts, such as the Ormulum and the Katherine Group, maintain this
+distinction faithfully, while others, such as Ancrene Riwle and the
+Trinity Homilies are less consistent, either using both CUNNES and CUNNE
+in the same contexts, or not following any easily discernable pattern.
+The Lambeth Homilies seem to use the singular form in all contexts,
+whether singular or plural.  Therefore, in texts from the first Middle
+English period (M1), KIND is marked as singular or plural by form rather
+than by context.
+
+<p>
+<blockquote style="background-color:#F5FFFA"><!--mideng-->
+<pre>
+( (NP (NP-COM (Q naness) (N$ kinness))	&larr; early texts
+      (N shaffte))
+  (ID CMORM-M1,DED.L257.54))
+
+( (NP (NP-COM (Q alle)  (NS$ kinne))
+      (N wise))
+  (ID CMORM-M1,I,27.323))
+
+( (NP (NP-COM (NUM ni+ghenn) (NS$ kinne))
+      (N +teode))
+  (ID CMORM-M1,I,34.375))
+
+( (NP (NP-COM (NUM +treo) (N$ cunes))
+      (NS wepnes))
+  (ID CMANCRIW-1-M1,II.51.461))
+
+( (NP (NP-COM (D +Dese) (NUM fower) (NS$ kinne))
+      (NS teares))
+  (ID CMTRINIT-MX1,151.2019))
+
+( (NP (NP-COM (NUM Fuwer) (N$ kinnes))
+      (NS men))
+  (ID CMTRINIT-MX1,123.1646))
+</pre> </blockquote>
+
+<p> This construction is later reanalyzed, so that FISH OF SOME KIND
+becomes SOME KIND(S) (OF) FISH.  In texts from later periods of Middle
+English, we continue to treat the few examples of KIND that occur
+without OF as heads with an <tt>NP-COM</tt> complement.
+
+<p>
+<blockquote> <pre>
+( (NP (Q some) (NS kinds)				&larr; later texts
+      (NP-COM (N fish))))
+
+( (NP (Q no) (N kynne)
+      (NP-COM (N vertew)))
+  (ID CMWYCSER-M3,370.2575))
+
+( (NP (Q no) (N kynne)
+      (NP-COM (N +ting))
+      (PP (P but)
+          (NP (PRO hym))))
+  (ID CMWYCSER-M3,370.2590))
+</pre> </blockquote>
+
+<a name="np_adjs_plus_gen">
+<h4>Superlative adjective plus genitive</h4>
+
+In early Middle English texts, superlative adjectives modifying a noun
+(which may be elided) can occur with a genitive NP.  The genitive NP is
+treated as a complement of the head noun (not of the superlative
+adjective) and labeled <tt>NP-COM</tt>.
+
+<p>
+<blockquote style="background-color:#F5FFFA"><!--mideng-->
+<pre>
+( (NP (D +te)
+      (NP-COM (Q$ alre))
+      (ADJS unwur+teste)
+      (N wig))
+  (ID CMTRINIT-MX1,89.1185))
+
+( (NP (ADJS hegest)
+      (NP-COM (Q$ alre))
+      (N lor+tew)
+      (PP (P after)
+          (NP (PRO$ ure) (NPR helende)
+              (NP-PRN (N seluen)))))
+  (ID CMTRINIT-MX1,153.2043))
+
+( (NP (D +te)
+      (NP-COM (Q$ alre))
+      (ADJS wiseste)
+      (CP-REL (WNP-4 0)
+              (C +te)
+              (IP-SUB (NP-SBJ *T*-4)
+                      (VBP wune+d)
+                      (PP (P bi)
+                          (NP (N westen))))))
+  (ID CMKATHE-M1,28.141))
+</pre> </blockquote>
+
+<a name="np_comp_clause">
+<h4>Clausal complement of N</h4>
+
+Nouns can take clausal complements (<tt>CP-THT</tt>, <tt>IP-INF</tt>,
+etc.) (see <a href="syn-sub.html">Types of subordinate clauses</a> for
+details).  Complements of <a href="words.html#case">CASE</a> are
+labeled <tt>CP-THT</tt>.  In connection
+with <a href="words.html#forasmuch">FORASMUCH</a> and similar words
+(INASMUCH, INSOMUCH), clauses that were originally degree complements
+are labeled as adverbial clauses (<tt>CP-ADV</tt>).
+
+<a name="np_mod">
+<h4>Modifier of N</h4>
+
+NPs are modified by adjectives and adjective phrases (<tt>ADJ</tt>,
+<tt>ADJP</tt>), numbers and number phrases
+(<tt>NUM</tt>, <tt>NUMP</tt>), quantifiers and quantifier phrases
+(<tt>Q</tt>, <tt>QP</tt>), prepositional phrases (<tt>PP</tt>),
+genitives and possessives (<tt>N$</tt>, <tt>PRO$</tt>, <tt>NP-POS</tt>),
+measure noun phrases (<tt>NP-MSR</tt>), ordinary and reduced relative
+clauses (<tt>CP-REL</tt>, <tt>RRC</tt>), and appositives and
+parentheticals (<tt>NP-PRN</tt>).
+
+<a name="np_mod_adj">
+<h4>Adjectival modifier of N</h4>
+
+Postnominal adjectives are always surrounded by <tt>ADJP</tt> brackets,
+even when the adjective a single word (HEIRS MALES, POUND STERLING).
+
+<p> For the treatment of offices containing adjectives (ATTORNEY
+GENERAL, LORD CHIEF JUSTICE, LORD HIGH ADMIRAL, and the like), see
+<a href="pos.html#noun_proper">Proper nouns</a>, especially the
+sections on <a href="pos.html#noun_by_form_n_n">N + N sequences</a>
+and <a href="pos.html#noun_by_referent_office">offices</a>.
+
+<p>
+<blockquote> <pre>
+( (NP (ADJ solitarye) (N lyf))
+  (ID CMAELR3-M23,26.5))
+
+( (NP (D a)
+      (ADJP (ADV passyng) (ADJ good))
+      (N woman))
+  (ID CMMALORY-M4,2.15))
+
+( (NP (NPR God)
+      (ADJP (ADJ almyghty)))		&larr; posthead modifier treated as phrase
+  (ID CMMIRK-M34,126.3381))
+
+( (NP (D +te) (NUM fyue) (NS wondys)
+      (ADJP (ADJ principale))
+      (PP (P of)
+          (NP (PRO$ hys) (N body))))
+  (ID CMMIRK-M34,126.3390))
+</pre> </blockquote>
+
+<a name="np_mod_num">
+<h4>Number modifier of N</h4>
+
+NUM(P), like Q(P), is not further specified as a
+<a href="syn-phrase.html#np_mod_msr">measure phrase</a> at the NP level.
+
+<p>
+<blockquote> <pre>
+( (NP (D the) (NUM four) (NS Evangelistes))
+  (ID CMMALORY-M4,4.73))
+
+( (NP (NS lotess)
+      (NUMP (NUM fowwre_&_twennti+g)))		&larr; posthead modifier treated as phrase
+  (ID CMORM-M1,I,14.239))
+</pre> </blockquote>
+
+<a name="np_mod_q">
+<h4>Quantifier modifier of N</h4>
+
+Q(P), like NUM(P), is not further specified as a
+<a href="syn-phrase.html#np_mod_msr">measure phrase</a> at the NP level.
+
+<p>
+<blockquote> <pre>
+( (NP (Q all) (NPR Englond))
+  (ID CMMALORY-M4,2.6))
+
+( (NP (QP (ADV ny) (Q al))
+      (D +te)
+      (N cuntre)
+      (PP (P aboute)
+          (NP (NPR Rome))))
+  (ID CMCAPCHR-M4,85.1599))
+
+( (NP (QP (ADVR to) (Q mech))
+      (N wyn))
+  (ID CMKEMPE-M4,69.1564))
+
+( (NP (PRO hem)
+      (QP (Q alle)))			&larr; posthead modifier treated as phrase
+  (ID CMAELR3-M23,42.459))
+
+( (NP (N fruyt)
+      (QP (ADVR as)
+	  (Q mony)			&larr; no NP-MSR; PP is complement of Q
+          (PP (P as)
+              (CP-CMP (WQP-1 0)
+                      (C 0)
+                      (IP-SUB (NP-SBJ-2 *exp*)
+                              (BED wer)
+                              (NP-2 (QP *T*-1)
+                                    (NS sterres)
+                                    (PP (P of)
+                                        (NP (NPR Heuen)))))))))
+  (ID CMMIRK-M34,77.2054))
+</pre> </blockquote>
+
+<a name="np_mod_pp">
+<h4>PP modifier of N</h4>
+
+Our annotation scheme makes no distiction between complements and
+modifiers at the NP level, and the following discussion extends to PP
+complements of N.
+
+<p>
+<blockquote> <pre>
+( (NP (N kynge)
+      (PP (P of)
+          (NP (Q all) (NPR Englond))))
+  (ID CMMALORY-M4,2.6))
+
+( (NP (D the) (NS dayes)
+      (PP (P of)
+          (NP (NPR Uther) (NPR Pendragon))))
+  (ID CMMALORY-M4,2.6))
+
+( (NP (NP (D the) (NPR Resurreccion))
+      (CONJP (CONJ and)
+             (NP (D the) (NPR Passion)))
+      (PP (P of)						&larr; default high attachment
+          (NP (PRO$ oure) (N Lorde)
+              (NP-PRN (NPR Jesu) (NPR Cryste)))))
+  (ID CMMALORY-M4,666.4834))
+
+( (NP (NP (D a) (ADJ ryche) (N bedde))
+      (CONJP (CONJ and)
+             (NP (D a) (ADJ fayre)))
+      (PUNC ,)
+      (PP (P as)
+          (PP (P of)
+              (NP (N cloth)
+                  (PP (P of)
+                      (NP (N sylke) (CONJ and) (N golde)))))))
+  (ID CMMALORY-M4,660.4610))
+</pre> </blockquote>
+
+<a name="np_mod_poss">
+<h4>Genitive/possessive modifier of N</h4>
+
+<p>
+<table>
+<tr>
+<td valign=center><img src="caution.GIF">
+<td valign=center>Not all genitive/possessive dependents of N are treated
+as modifiers.  See <a href="syn-phrase.html#np_comp_np-com">Complements
+of N</a> for details.
+</table>
+
+<p>
+<blockquote> <pre>
+( (NP (PRO$ his) (N wife)))
+
+( (NP (NPR$ God's) (N voice))
+
+( (NP (NP-POS (D a) (N$ beggars))
+      (N array)))
+
+( (NP (NP-POS (NPR King) (NPR$ Uthers))
+      (NS men)))
+
+( (NP (NS men)
+      (PP (P of)
+          (NP (PRO$ his)))))                               &larr; one-word possessive doesn't project <tt>NP-POS</tt>
+
+( (NP (NS men)
+      (PP (P of)
+          (NP (NP-POS (NPR King) (NPR$ Uthers))))))        &larr; multi-word possessive projects <tt>NP-POS</tt>
+</pre> </blockquote>
+
+<p> It is possible for a genitive to form a compound noun with a
+following noun (rather than forming a constituent with preceding
+material).  As in the case of ordinary compound nouns, the constituent
+structure is not explicitly indicated in the annotation in these cases.
+
+<p>
+<blockquote style="background-color:#F5FFFA"><!--mideng-->
+<pre>
+( (NP (Q euch) (N$ worldes) (N sauur))			&larr; each taste of the world, NOT the taste of each world
+  (ID CMANCRIW-1-M1,II.82.979))			          
+
+( (NP (D +Teose) (N$ heorte) (NS wunden))		&larr; these wounds of the heart
+  (ID CMANCRIW-1-M1,II.201.2868))		          
+
+( (NP (SUCH such) (N$ worldys) (N murthe))	        &larr; such worldly mirth
+  (ID CMMIRK-M34,64.1739))
+
+( (NP (Q alle) (OTHER o+ture) (N$ monnes) (NS wittes))	&larr; all other human wits
+  (ID CMEDVERN-M3,260.877))
+</pre> </blockquote>
+
+<p> Note the difference between the following two structures:
+
+<p>
+<blockquote style="background-color:#F5FFFA"><!--mideng-->
+<pre>
+( (NP (PRO$ hire) (N$ meidene) (N wombe))		&larr; her [maiden's womb] (= her virgin womb)
+  (ID CMANCRIW-1-M1,II.62.634))
+
+( (NP (NP-POS (PRO$ hire) (N$ meidene))		        &larr; [her maiden's] womb (= the womb of her maiden)
+      (N wombe)))
+</pre> </blockquote>
+
+<a name="np_poss_clitic">
+<p> The following examples illustrate our treatment of cases with the
+possessive clitic ('S, S).  See <a href="pos.html#noun_dollar">Dollar
+tag</a> for the conventions governing the splitting of the dollar tag.
+
+<p>
+<blockquote> <pre>
+( (NP (NP-POS (NPR Peter)
+              ($ his))
+      (N peny)))
+
+( (NP (NP-POS (D the) (N Lord)
+              (PP (P of)
+                  (NP (NPR Bodmin)))
+              ($ his))                                  &larr; clitic HIS
+      (N hat)))
+
+( (NP (NP-POS (D the) (N Lord)
+              (PP (P of)
+                  (NP (NPR Bodmin@)))
+              ($ @'s / @s))                             &larr; clitic with or without apostrophe
+      (N hat)))
+
+( (NP (NP-POS (D the) (N Lord)
+              (PP (P of)
+                  (NP (NPR Bodmin@)))
+              ($ @ys))                                  &larr; variant spelling
+      (N hat)))
+
+( (NP (NP-POS (NPR God)
+              (ADJP (ADJ almighty@))
+              ($ @'s / @s))                             &larr; clitic with or without apostrophe
+      (N mercy)))
+</pre> </blockquote>
+
+<a name="np_mod_msr">
+<h4>Measure phrase modifier of N</h4>
+
+Measure phrase modifiers of N that are themselves headed by <tt>N</tt>
+(rather than by <tt>NUM</tt> or <tt>Q</tt>) are bracketed as
+<tt>NP-MSR</tt>, even though they are not at the sentence level.  See
+also the discussion of <a href="syn-const.html#np-msr">sentence-level
+measure phrases</a>.
+
+<p>
+<blockquote> <pre>
+( (NP (NP-MSR (NUM fyftene) (NS dayes))
+      (N journey))
+  (ID CMMALORY-M4,62.2091))
+
+( (NP-TMP (NUM twice)
+          (NP-MSR (D a) (N week))))
+
+( (NP (NUM fifty_thousand)
+      (NS pounds)
+      (NP-MSR (D a) (N year))))
+
+( (NP (N sugar)
+      (NP-MSR (NUM five) (NS pounds))))
+
+( (NP (NUM five) (NS pounds)			&larr; <tt><a href="syn-phrase.html#np_comp_np-com">NP-COM</a></tt> with inverse word order
+      (NP-COM (N sugar))))
+</pre> </blockquote>
+
+<a name="np_mod_rel">
+<h4>Relative clause</h4>
+
+This section focuses on the relation of relative clauses to the head
+they modify.  The internal structure of relative clauses is discussed
+under "Relative clause" in <a href="syn-sub.html#cp-rel">Types of
+subordinate clauses</a>.
+
+<p>
+<blockquote> <pre>
+( (NP (D the) (ADJS byggest) (N castell)
+      (CP-REL (WNP-1 0)
+              (C that)
+              (IP-SUB (NP-OB1 *T*-1)
+                      (NP-SBJ (PRO he))
+                      (HVP hath))))
+  (ID CMMALORY-M4,2.32))
+
+( (NP (PRO he)
+      (CP-REL (WNP-3 0)
+              (C that)
+              (IP-SUB (NP-SBJ *T*-3)
+                      (MD shal)
+                      (BE be)
+                      (NP-PRD (ADJ rightwys) (N kyng)
+                              (PP (P of)
+                                  (NP (D this) (N land)))))))
+  (ID CMMALORY-M4,9.253))
+
+( (NP (D the) (N castel)
+      (PP (P of)
+          (NP (NPR Terrabyl)))
+      (PUNC ,)
+      (CP-REL (WNP-1 (D the) (WPRO whiche))
+              (C 0)
+              (IP-SUB (NP-SBJ *T*-1)
+                      (HVD had)
+                      (NP-OB1 (Q many) (NS yssues)
+                              (CONJP (CONJ and)
+                                     (NX (NS posternes)))
+			      (RP oute)))))
+  (ID CMMALORY-M4,3.36))
+
+( (NP (Q all) (D the) (NS lordes)
+      (CONJP (CONJ and)
+             (NX (NS comyns)))
+      (CP-REL (WNP-1 0)
+              (C that)
+              (IP-SUB (NP-SBJ *T*-1)
+                      (BED were)
+                      (ADVP-LOC (ADV there)))))
+  (ID CMMALORY-M4,11.303))
+
+( (NP (NP (D the) (N Knyght)
+          (PP (P with)
+              (NP (D the) (NUM Two) (NS Swerdis))))
+      (CONJP (CONJ and)
+             (NP (PRO$ hys) (N brothir)))
+      (PUNC ,)
+      (CP-REL (WNP-1 (WPRO which))
+     	      (C 0)
+              (IP-SUB (NP-SBJ *T*-1)
+                      (BEP ar)
+                      (NP-PRD (NUM two) (ADJ mervayles) (NS knyghtes)
+                              (PP (P of)
+                                  (NP (N prouesse)))))))
+  (ID CMMALORY-M4,56.1873))
+</pre> </blockquote>
+
+<a name="np_mod_rrc">
+<h4>Reduced relative clause</h4>
+
+This section focuses on the relation of reduced relative clauses to the
+head they modify.  The internal structure of reduced relative clauses is
+discussed under "Reduced relative clause"
+in <a href="syn-sub.html#rrc">Types of subordinate clauses</a>.
+
+<p>
+<table>
+<tr>
+<td valign=center><img src="caution.GIF">
+<td valign=center>Reduced relatives (<tt>RRC</tt>) headed by participles
+are not always easy to distinguish from
+<a href="syn-sub.html#ip-ppl">participial clauses</a> (<tt>IP-PPL</tt>).
+It is wise in searches for one category to include the other.
+</table>
+
+<p>
+<blockquote> <pre>
+( (NP (D the) (N child)
+      (RRC (VAN bound)
+           (PP (P in)
+               (NP (D a) (N cloth)
+                   (PP (P of)
+                       (NP (N gold)))))))
+  (ID CMMALORY-M4,6.149))
+
+( (NP (D a) (N boye)
+      (RRC (PP (P of)
+               (NP (Q no) (ADJ hyghe) (N blood)))
+           (VAN borne)))
+  (ID CMMALORY-M4,10.284))
+
+( (NP-OB1 (NS messyngers)
+          (PP (P unto)
+              (NP (NPR kyng) (NPR Ban)
+                  (CONJP (CONJ and)
+                         (NX (NPR Bors)))))
+          (RRC (VAN isente)
+               (PP (P frome)
+                   (NP (NPR kynge) (NPR Arthure)))))
+  (ID CMMALORY-M4,15.459))
+</pre> </blockquote>
+
+<a name="np_mod_prn">
+<h4>Appositive or parenthetical</h4>
+
+<p> Noun phrases of the type THE LORD DAWKINS, MILADY DELAWARE are
+treated by default as
+<a href="pos.html#noun_maximize_internal_structure">appositive
+structures</a>.
+
+<p> For examples of ordinary appositives and parentheticals in NP, see
+the section on clause-level <a href="syn-const.html#prn">appositives and
+parentheticals</a>.
+
+<a name="np_gerund">
+<h4>Nominal versus mixed gerund</h4>
+
+Gerunds in English were originally nominal, and bare gerunds without
+complements are treated as nouns by default (including in the <nobr>A
+HUNTING</nobr> construction).
+
+<p>
+<blockquote> <pre>
+( (ADJP-PRD (ADJ redy)
+	    (IP-INF (PP (P with)
+			(NP (Q many) (NS knyghtes)))
+		    (TO to)
+   	   	    (VB ryde)
+		    (PP (P on)
+			(NP (N huntynge)))))
+  (ID CMMALORY-M4,33.1036))
+
+( (IP-INF-PRP (TO to)
+	      (VB goe)
+	      (PP (P on)
+		  (NP (N huntinge)))
+   	      (NP-MSR (PP (P from)
+   			  (NP (N morninge)))
+		      (PP (P to)
+			  (NP (N nighte))))))
+  (ID FORMAN-1602-E2-H,12.271))
+
+( (IP-MAT (PP (P+N A-hunting))
+          (NP-SBJ (PRO we))
+          (MD will)
+          (VB go)))
+</pre> </blockquote>
+
+<p> When gerunds take complements, these are originally PPs, in keeping
+with the nominal origin of the construction.  Over time, English
+develops mixed gerunds, with characteristics of both noun phrases (they
+are introduced by a determiner or possessive pronoun and can be modified
+by adjectives) and participial clauses (the gerund takes an NP rather
+than a PP complement).  The following examples illustrate the difference
+between nominal and mixed gerunds.  In doubtful cases (for instance,
+when the gerund takes a PP complement), the default is nominal.  For
+purely verbal gerunds, see <a href="syn-sub.html#ip-ppl">Participial
+clause</a>.
+
+<p>
+<blockquote> <pre>
+<b>Nominal</b>					<b>Mixed</b>
+
+(NP (D the)				(NP (D the)
+    (N hunting)				    (IP-PPL (VAG hunting)
+    (PP (P of)					    (NP-OB1 (NS deer))))
+        (NP (NS deer))))
+
+(NP (PRO$ their)			(NP (PRO$ their)
+    (ADJ joyous)			    (ADJ joyous)
+    (N singing)				    (IP-PPL (VAG singing)
+    (PP (P of)					    (NP-OB1 (NS hymns))))
+        (NP (NS hymns))))
+
+					(NP (PRO$ their)
+					    (IP-PPL (ADVP (ADV joyously))
+						    (VAG singing)
+						    (NP-OB1 (NS hymns))))
+
+(NP (PRO$ his)
+    (N speaking)			&larr; nominal by default
+    (PP (P to)
+        (NP (D the) (N lady))))
+</pre> </blockquote>
+
+<a name="nump">
+<h3>Number phrase (<tt>NUMP</tt>)</h3>
+
+<!--
+<p>
+This section focuses on the internal structure of <tt>NUMP</tt>.  For
+the integration of number phrases in the larger clausal structure,
+see <a href="syn-phrase.html#np_head_elided">Noun with elided head</a>
+and <a href="syn-const.html#np-msr">Measure phrase</a>.  
+-->
+
+<p> Ordinary numbers are treated
+as <a href="pos-tok.html#unitary">unitary items</a>.  <tt>NUMP</tt> is
+added only if the number is modified or conjoined.
+
+<p>
+<blockquote> <pre>
+( (NP (NUM five_hundred)
+      (NS cases)))
+
+( (NP (NUM a_thousand)
+      (NS cases)))
+
+( (NP (NUM a_two)
+      (NS miles)))
+
+( (NP (NUMP (NEG not) (ADV quite) (NUM sixty_five))
+      (NS cases)))
+
+( (NP (NUMP (ADV fully) (NUM five_and_sixty))
+      (NS cases)))
+
+( (NUMP (PP (P at)
+  	    (QP (QS least)))
+        (NUM a_thousand)))
+
+( (NUMP (NUM two) (CONJ or) (NUM three)))
+
+( (NUMP (NUM two) (CONJ or) (NUM three_hundred)))     &larr; elision
+
+( (NUMP (ADV approximately) (NUM fifty)
+	(CONJP (CONJ or)
+	       (NUMX (NUM sixty)))))
+
+( (NUMP (QP (ADVR swo (Q mani+ge))
+	(NUM hundred))
+  (ID CMVICES1-M1,115.1394))
+
+( (NUMP (NUM fowr_+tusent)
+	(ADVP (ADV fulle)))	
+  (ID CMKATHE-M1,45.403))	
+</pre> </blockquote>
+
+<p> When directly modifying numbers, the following words are
+tagged <tt>ADV</tt>:
+
+<p>
+<blockquote>
+<pre>
+ABOUT, ABOVE, NEAR, NIGH, OVER, PASSING, PAST
+</pre>
+</blockquote>
+
+<p>
+<blockquote> <pre>
+( (NUMP (ADV about) (NUM five)))
+
+( (NUMP (ADV over) (NUM six)))
+</pre>
+</blockquote>
+
+<a name="nump_special">
+<h4>Special cases</h4>
+
+<a name="nump_times">
+<p>
+For the TIMES construction (THREE TIMES FIVE),
+see <a href="words.html#times">TIMES</a>.
+
+<p>
+In special cases, <tt>NUMP</tt> is added around phrases that function as
+number phrases even though the phrase is not headed by <tt>NUM</tt>.  As
+far as possible, such exocentric phrases receive their normal structure,
+around which <tt>NUMP</tt> is then added.  (This is analogous to our
+treatment of free relative clauses.)  The following examples further
+include containing NPs for clarity.
+
+<p>
+<blockquote> <pre>
+( (NP (NUMP (ADJP (ADJR better)
+		  (PP (P then)
+		      (NP (NUM forty)))))
+      (NS instances)))                          &larr; noun attaches high
+
+( (NP (NUMP (ADJP (ADJ nigh)			&larr; ADJ (not ADV) because NIGH 
+		  (PP (P upon)                    does not directly modify NUM
+		      (NP (NUM a_thousand)))))
+      (NS workers)))
+
+( (NP (NUMP (PP (P above)
+ 		(NP (D the) (N number)
+		    (PP (P of)
+			(NP (NUM two_thousand))))))
+      (NS sheep)))
+
+( (NP (NUMP (PP (P betwene)
+                (NP (NUMP (NUM thirty) (CONJ and) (NUM forty)))))
+      (NS persons)))
+
+( (NP (NUMP (PP (P between)
+		(NP (NUMP (NUM 4) (CONJ and) (NUM 5_100@)))))
+      (NS @=li=)
+      (ADVP (ADV yearly))))
+
+( (NP (NUMP (PP (P from)
+		(NP (NUM thirty)))
+            (PP (P to)
+                (NP (NUM forty))))
+      (NS persons)))
+
+( (NP (NUMP (NP (NUM thirty))
+            (PP (P to)
+                (NP (NUM forty))))
+      (NS persons)))
+
+( (NP (NUMP (PP (P toward)
+                (NP (NUM 1500@))))
+      (NS @=li=)))
+
+</pre> </blockquote>
+
+<p>
+Potential cases with comparative quantifiers (<tt>QR</tt>) are not
+treated as exocentric.  The comparative quantifier is treated as
+modifying a silent noun.
+
+<p>
+<blockquote> <pre>
+( (NP (QR more)                              &larr; like this
+      (PP (P than)
+	  (NP (NUM fifty) (NS pounds)))))    &larr; noun attaches low
+
+( (NP (QP (QR more)                          &larr; not like this
+	  (PP (P than)
+	      (NP (NUM fifty))))
+      (NS pounds)))
+
+( (NP (NUMP (QP (QR more)                    &larr; also not like this
+	        (PP (P than)
+   		    (NP (NUM fifty)))))
+      (NS pounds)))
+
+( (NP (QR more)
+      (PP (P than)
+	  (NP (NUM twise)                   &larr; TWICE modifies SEVEN
+	      (NUM seven)))))
+
+( (NP (QP (Q no)                            &larr; QP because NO modifies FEWER
+	  (QR fewer))
+      (PP (P than)
+          (NP (NUM 280)))))
+</pre> </blockquote>
+
+<a name="pp">
+<h3>Prepositional phrase (<tt>PP</tt>)</h3>
+
+<ul>
+<li><a href="syn-phrase.html#pp_comp">Complement of P</a>
+	<ul>
+	<li><a href="syn-phrase.html#pp_comp_np">NP complement of P</a>
+		<ul>
+		<li><a href="syn-phrase.html#pp_pre-head_comp">Pre-head complement of P</a>
+		</ul>
+	<li><a href="syn-phrase.html#pp_comp_clause">Clausal complement of P</a>
+		<ul>
+		<li><a href="syn-phrase.html#pp_forthan">FORTHAN, FORTHI and the like plus clause or NP
+		<li><a href="syn-phrase.html#pp_forwhi">FORWHI plus clause
+		</ul>
+	<li><a href="syn-phrase.html#pp_comp_adjp">ADJP complement of P</a>
+	<li><a href="syn-phrase.html#pp_comp_advp">ADVP complement of P</a>
+	<li><a href="syn-phrase.html#pp_comp_pp">PP complement of P</a>
+	</ul>
+<li><a href="syn-phrase.html#pp_mod">Modifier of P</a>
+<li><a href="syn-phrase.html#pp_spec">Specifier of P</a>
+  	    <ul>
+	    <li><a href="syn-phrase.html#pp_movement_to_spec">Movement to Spec(PP)</a>
+            <li><a href="syn-phrase.html#pp_np-dps">Dative of possession</a> (NP-DPS)
+            </ul>
+	</ul>
+<li>Treatment of individual words
+	<ul>
+	<li><a href="words.html#because">BECAUSE</a>
+	<li><a href="words.html#for">FOR (preposition)</a>
+	<li><a href="words.html#forasmuch">FORASMUCH</a> (also INASMUCH, INSOMUCH)
+	<li><a href="words.html#so_that">SO THAT</a>
+	</ul>
+</ul>
+
+<hr>
+
+<a name="pp_comp">
+<h4>Complement of P</h4>
+
+PPs are headed by prepositions and take complements of various
+categories (most commonly <tt>NP</tt> or <tt>CP</tt>).  Since most
+subordinating conjunctions are treated as <tt>P</tt> in our system, most
+subordinate clauses are labeled <tt>PP</tt>.
+See <a href="syn-phrase.html#pp_comp_clause">below</a> for examples.
+
+<a name="pp_comp_np">
+<h4>NP complement of P</h4>
+
+<p>
+<blockquote> <pre>
+( (PP (P for)
+      (NP (NUM thre) (NS causes)))
+  (ID CMASTRO-M3,662.C1.8))
+
+( (PP (P to)
+      (NP (D the) (ADJ rightfulle) (NS praiers)
+          (PP (P of)
+              (NP (PRO$ his) (N frend)))))
+  (ID CMASTRO-M3,662.C1.7))
+
+( (PP (P by)
+      (NP (N mediacioun)
+          (PP (P of)
+              (NP (D this) (ADJ litel) (N tretys)))))
+  (ID CMASTRO-M3,662.C1.7))
+
+( (PP (P fro)
+      (NP (PRO vs)))
+  (ID CMWYCSER-M3,I,647.3905))
+
+( (PP (P Thoro)
+      (NP (D +tat)))
+  (ID CMBENRUL-M3,43.1347))
+</pre> </blockquote>
+
+<a name="pp_pre-head_comp">
+<h4>Pre-head complement of P</h4>
+
+Complements of prepositions can precede the head.  This is the canonical
+order for the R-pronouns <a href="words.html#there">THERE and WHERE</a>,
+and in early texts, it is not infrequent with personal pronouns,
+demonstratives, and even full
+NPS.  <a href="syn-const.html#movement_out_of_pp">Movement out of PP</a>
+is indicated only if the word order makes it necessary.
+
+<p>
+<blockquote style="background-color:#F5FFFA"><!--mideng-->
+<pre>
+( (PP (NP (PRO ham))				&larr; pronoun
+      (P towart))
+  (ID CMANCRIW-1-M1,II.74.851))
+
+( (PP (NP (PRO us))
+      (P fra))
+  (ID CMBENRUL-M3,3.80))
+
+( (PP (NP (PRO us))
+      (P inwi+d))
+  (ID CMHALI-M1,139.148))
+
+( (PP (NP (D +tat))				&larr; demonstrative
+      (P to))
+  (ID CMTRINIT-MX1,137.1837))
+
+( (PP (NP (D +dat))
+      (P after))
+  (ID CMVICES1-M1,109.1299))
+
+( (PP (NP (Q All) (N+N wimmannkinn))		&larr; full NP
+      (P bitwenenn))
+  (ID CMORM-M1,I,86.764))
+
+( (PP (NP (NPR Godd))
+      (P onn+g+aness))
+  (ID CMORM-M1,I,178.1463))
+
+( (PP (NP (Q all) (OTHERS othyr))
+      (P wyth))
+  (ID CMMIRK-M34,61.1666))
+</pre> </blockquote>
+
+<a name="pp_comp_clause">
+<h4>Clausal complement of P</h4>
+
+Clausal complements of prepositions are most common with
+<a href="syn-sub.html#cp-adv">adverbial clauses</a> (<tt>CP-ADV</tt>)
+and <a href="syn-sub.html#cp-cmp">comparative clauses</a>
+(<tt>CP-CMP</tt>), but other types of CP complements are possible,
+notably in elision contexts and after SUCH AS.  In contrast to modern
+English, the <tt>C</tt> head of such clauses was not necessarily silent
+in such clauses; see <a href="syn-intro.html#non-wh_cp">Non-wh CPs</a>
+for examples.
+
+<p> As a subordinating conjunction, the word AS takes clausal
+complements.  There are many subtypes; see <a href="syn-sub.html">Types
+of subordinate clauses</a>.
+
+<p> <a href="words.html#if"><tt>IF</tt></a>
+and <a href="words.html#when"><tt>WHEN</tt></a> can head adverbial
+subordinate clauses (<tt>CP-ADV</tt>) or indirect questions
+(<tt>CP-QUE-SUB</tt>).  Follow the links for each word for details.
+
+<p>
+<blockquote> <pre>
+( (PP (P after / before / until)
+      (CP-ADV (C 0)
+	      (IP-SUB (NP-SBJ (D the) (N water))
+		      (VBP freezes)))))
+
+( (PP (P while)
+      (CP-ADV (C 0)
+	      (IP-SUB (NP-SBJ (D the) (N pie))
+		      (BEP is)
+		      (VAG baking)))))
+</pre> </blockquote>
+
+<p>
+<blockquote style="background-color:#F5FFFA"><!--mideng-->
+<pre>
+( (PP (P or)                                        &larr; OR = ERE = BEFORE
+      (CP-ADV (C 0)
+              (IP-SUB (ADVP-TMP (ADV ever))
+                      (NP-SBJ (D the) (N kynge))
+                      (VBD cam)
+                      (PP (P at)
+                          (NP (D the) (N castel)
+                              (PP (P of)
+                                  (NP (NPR Tyntigail))))))))
+  (ID CMMALORY-M4,4.90))
+
+( (PP (P though)
+      (CP-ADV (C 0)
+              (IP-SUB (NP-SBJ (PRO ye))
+                      (VBP ryde)
+                      (PP (P on)
+                          (NP (D an) (N+N hors-lyttar))))))
+  (ID CMMALORY-M4,6.160))
+
+( (PP (P tyll)
+      (CP-ADV (C 0)
+              (IP-SUB (NP-SBJ (PRO I))
+                      (VBP come)
+                      (PP (P to)
+                          (NP (PRO yow))))))
+  (ID CMMALORY-M4,4.85))
+
+( (PP (P whan)
+      (CP-ADV (C 0)
+              (IP-SUB (NP-SBJ (NP (D the) (N duke))
+                              (CONJP (CONJ and)
+                                     (NP (PRO$ his) (N wyf))))
+                      (BED were)
+                      (VBN comyn)
+                      (PP (P unto)
+                          (NP (D the) (N kynge))))))
+  (ID CMMALORY-M4,2.11))
+</pre> </blockquote>
+
+<p> Prepositions can also take IP complements.
+
+<p>
+<blockquote> <pre>
+( (IP-MAT (NP-SBJ (D The) (N play))
+	  (BEP is)
+	  (PP (P about)
+	      (IP-INF (TO to)
+		      (VB start)))
+	  (PUNC .)))
+
+( (PP (P except)
+      (IP-PPL (VAG concerning)
+	      (NP-OB1 (ADJ holy) (NS images)))))
+</pre> </blockquote>
+
+<a name="pp_forthan">
+<h4>FORTHAN, FORTHI, and the like with demonstrative plus clause or NP</h4>
+
+FOR +TAN, FOR +TAT, FOR +TI, IN +TAT, WI+T +TON, ER +TANNE, and the like
+are often used in Middle English to introduce adverbial clauses.  These
+clauses presumably originated as THAT complements of the demonstrative
+heading the NP, but their overall function is adverbial, and they are
+therefore labeled <tt>CP-ADV</tt>.  The demonstrative is labeled
+<tt>D</tt>, but is not surrounded by <tt>NP</tt> brackets (unlike our
+treatment of <a href="words.html#because">BECAUSE</a>).
+
+<p>
+<blockquote style="background-color:#F5FFFA"><!--mideng-->
+<pre>
+( (IP-MAT (CONJ And)
+	  (PP (P for)
+	      (D +ti)
+              (CP-ADV (C +tat)
+                      (IP-SUB (NP-SBJ (PRO it))
+                              (BEP es)
+                              (NP-PRD (N vice)
+                                      (PP (P of)
+                                          (NP (N propirte)))))))
+          (PUNC ,)
+          (MD sal)
+          (NP-SBJ (PRO it))
+          (BE be)
+          (VAN scorn)
+          (PP (P als)
+              (NP (N +tifte)))
+          (PUNC .))
+  (ID CMBENRUL-M3,36.1179))
+
+( (IP-MAT (NP-SBJ (PRO We))
+          (BEP ben)
+          (VAN tau+gt)
+	  (PP (P in)
+	      (D +tat)
+              (CP-ADV (C +tat)
+                      (IP-SUB (NP-SBJ (PRO we))
+                              (VBP seon)
+                              (PP (P in)
+                                  (NP (SUCH suche) (NS creatures)))
+                              (NP-OB1 (D +te) (ADJ wonder) (NS werkes)
+                                      (PP (P of)
+                                          (NP (PRO$ vre) (N Creatour)))))))
+          (PUNC ;))
+  (ID CMEDVERN-M3,245.219))
+
+( (IP-MAT-1 (PP (P al-though)
+                (CP-ADV (C 0)
+                        (IP-SUB (NP-SBJ (PRO$ her) (N communicacion)
+                                        (PP (P atte)
+                                            (NP (N begynnynge))))
+                                (BEP be)
+                                (PP (P of)
+                                    (NP (NP (N sadnes))
+                                        (CONJP (CONJ and)
+                                               (NP (ADJ vertuous) (N lyuynge))))))))
+            (PUNC ,)
+	    (PP (P er)
+		(D than)
+                (CP-ADV (C 0)
+                        (IP-SUB (NP-SBJ (PRO thei))
+                                (VBP departe))))
+            (NP-SBJ (ADJ worldly) (N daliaunce))
+            (MD shal)
+            (BE be)
+            (VAN shewed)
+            (ADVP-DIR (ADV furthe)))
+  (ID CMAELR4-M4,3.63))
+</pre> </blockquote>
+
+<p> In elision contexts like the following, the preposition plus
+demonstrative combination is treated as taking an NP complement.
+
+<p>
+<blockquote style="background-color:#F5FFFA"><!--mideng-->
+<pre>
+( (CP-THT (C +tat)
+          (IP-SUB (NP-SBJ (N mede))
+                  (MD xuld)
+                  (VB spede)
+  		  (PP (P er)
+		      (D +tan)
+                      (NP (N trewth))))
+          (PUNC .))
+  (ID CMKEMPE-M4,59.1327))
+</pre> </blockquote>
+
+<a name="pp_less_than">
+In <i>The Book of Margery Kempe</i>, LES +TAN in the meaning UNLESS is
+treated the same way.
+
+<p>
+<blockquote style="background-color:#F5FFFA"><!--mideng-->
+<pre>
+( (IP-SUB (NP-SBJ (D +te) (N+N reedspyr)
+                  (CP-REL (WNP-1 (WPRO whech))
+                          (C 0)
+                          (IP-SUB (NP-SBJ *T*-1)
+                                  (VBP boweth)
+                                  (PP (P wyth)
+                                      (NP (Q euery) (N wynd))))))
+          (ADVP-TMP (ADV neuyr))
+          (BEP is)
+          (ADJP-PRD (ADJ stable))
+	  (PP (P les)
+	      (D +tan)
+              (CP-ADV (C 0)
+                      (IP-SUB (NP-SBJ (Q no) (N wynd))
+                              (VBP bloweth)))))
+  (ID CMKEMPE-M4,1.6))
+</pre> </blockquote>
+
+<a name="pp_forwhi">
+<h4>FORWHI plus clause</h4>
+
+FORWHI introducing an adverbial clause is treated analogously to the
+case of <a href="syn-phrase.html#pp_forthan">FOR +TI</a> just discussed.
+
+<p>
+<blockquote style="background-color:#F5FFFA"><!--mideng-->
+<pre>
+( (IP-MAT-SPE (CONJ and)
+              (NP-SBJ-1 (PRO$ +goure) (NS hondis))
+              (BEP be)
+              (NEG not)
+              (VAN maad)
+              (IP-SMC (NP-SBJ *-1)
+                      (ADJP-PRD (ADJ vnstedfast)))
+              (PUNC ,)
+	      (PP (P for)
+		  (WADV whi)
+                  (CP-ADV (C 0)
+                          (IP-SUB (NP-SBJ (N mede))
+                                  (MD schal)
+                                  (BE be)
+                                  (PP (P to)
+                                      (NP (PRO$ +goure) (N werk))))))
+              (PUNC .))
+  (ID CMPURVEY-M3,I,22.1040))
+
+( (PP (P+WADV forwhi)
+      (CP-ADV (C 0)
+              (IP-SUB (NP-SBJ (NPR Jesabel)
+                              (NP-PRN (PRO$ his) (N wijf)))
+                      (VBD excitide)
+                      (NP-OB1 (PRO him)))))
+  (ID CMPURVEY-M3,I,14.602))
+</pre> </blockquote>
+
+<a name="pp_comp_adjp">
+<h4>ADJP complement of P</h4>
+
+The following expressions are treated as taking <tt>ADJP</tt> complements
+(the representation is not necessarily the linguistically correct analysis).
+<p>
+<blockquote>
+<pre>
+ASUNDER,
+AT BEST, FARTHEST, FULL, LARGE, PRESENT, UTMOST,
+BEFORE / ERE LONG,
+BY FAR,
+FOR CERTAIN, PRESENT, SURE,
+IN BRIEF, CHIEF, COMMON, FULL, FUTURE, GENERAL, ORDINARY, PARTICULAR, PRESENT, PRIVATE, PUBLIC, SHORT, (E)SPECIAL, VAIN
+OF CERTAIN, LATE, NEW, OLD
+ON INSTANT
+</pre>
+</blockquote>
+
+<a name="pp_at_quiet">
+<a name="pp_in_earnest">
+<p>
+<blockquote> <pre>
+( (PP (P at)
+      (ADJP (ADJS best))))
+
+( (PP (P in)
+      (ADJP (ADJ common))))
+
+( (PP (P in)
+      (NP (N earnest))))		&larr; NP, not ADJP
+
+( (PP (P at/in)
+      (NP (N quiet))))			&larr; NP, not ADJP
+</pre> </blockquote>
+
+<a name="pp_comp_advp">
+<h4>ADVP complement of P</h4>
+
+<p>
+<blockquote> <pre>
+( (PP (P at)
+      (ADVP (ADV once)))
+
+( (PP (P for)
+      (ADVP (ADV ever)))
+
+( (PP (P from)
+      (ADVP (ADV above)))
+
+( (PP (P in)
+      (ADVP (ADV there)))
+
+( (PP (P than)
+      (ADVP (ADV ever) (ADV before)))
+</pre> </blockquote>
+
+<a name="pp_comp_pp">
+<h4>PP complement of P</h4>
+
+<p>
+<blockquote> <pre>
+( (PP (P except)
+      (PP (P with)
+	  (NP (D a) (N hammer)))))
+
+( (PP (P except)
+      (PP (P if)
+	  (CP-ADV (C 0)
+		  (IP-SUB (NP-SBJ (PRO you))
+			  (VBP use)
+			  (NP-OB1 (D a) (N hammer)))))))
+</pre> </blockquote>
+
+<a name="pp_mod">
+<h4>Modifier of P</h4>
+
+For phrases of the type TWENTY MILES FROM LONDON,
+see <a href="syn-phrase.html#adjp_head_silent">Silent head of ADJP</a>.
+
+<p>
+Items immediately preceding P, such as adverbs, particles, and
+<a href="syn-const.html#np-msr">measure phrases</a> are treated as
+sisters of the head.
+
+<p>
+<blockquote> <pre>
+( (PP (ADV almost)
+      (P to)
+      (NP (D the) (ADJ bitter) (N death))))
+
+( (PP (ADV completely)
+      (P at)
+      (NP (N ease))))
+
+( (PP (RP out)
+      (P of)
+      (NP (NS bounds))))
+</pre> </blockquote>
+
+<p>
+<blockquote style="background-color:#F5FFFA"><!--mideng-->
+<pre>
+( (PP (ADV lyke)				&larr; adverb
+      (P unto)
+      (NP (D the) (ADJ thirde) (N knyght)))
+  (ID CMMALORY-M4,181.2436))
+
+( (PP (ADV so)
+      (P as)
+      (CP-ADV (WADVP-1 0)
+              (C 0)
+              (IP-SUB (ADVP *T*-1)
+                      (NP-SBJ (PRO ye))
+                      (VBP doo))))
+  (ID CMMALORY-M4,6.159))
+
+( (PP (ADV nomeliche)
+      (P +gef)
+      (CP-ADV (C 0)
+              (IP-SUB (NP-SBJ (PRO he))
+                      (BEP is)
+                      (ADJP-PRD (ADJ priue)
+                                (PP (P wi+d)
+                                    (NP (PRO$ his) (N lauerd)))))))
+  (ID CMANCRIW-1-M1,II.144.1932))
+
+( (PP (ADV Aure)
+      (P se+d+den)
+      (CP-ADV (C 0)
+              (IP-SUB (NP-SBJ (D +te) (ADJ ealde) (NS tilie))
+                      (ADVP-DIR (ADV henne))
+                      (VBD wenden))))
+  (ID CMTRINIT-MX1,161.2167))
+
+( (IP-MAT (CONJ and)
+          (PP (P at)
+		(NP (NUM two) (NS strokys)))
+          (NP-SBJ (PRO he))
+          (VBD strake)
+          (NP-OB1 (PRO hem))
+          (PP (RP downe)                        &larr; particle
+      	      (P to)
+	      (NP (D the) (N erthe)))
+          (PUNC .))
+  (ID CMMALORY-M4,200.3143))
+
+( (PP (ADV clene)				&larr; adverb
+      (RP oute)					&larr; adverbial particle
+      (P of)
+      (NP (D the) (N sadyll)))
+  (ID CMMALORY-M4,182.2488))
+
+( (PP (FP even)					&larr; focus particle
+      (P unto)
+      (NP (NPR London)))
+  (ID CMMALORY-M4,7.188))
+
+( (PP (FP onlyche)
+      (P of)
+      (NP (D +te) (ADJ liberal) (N +gyft)
+          (PP (P of)
+              (NP (D +te) (N grace)
+                  (PP (P of)
+                      (NP (NPR God)))))))
+  (ID CMAELR3-M23,29.91))
+
+( (PP (NP-MSR (QR more)				&larr; measure phrase
+              (PP (P than)
+                  (NP (NUM thre) (NS houres))))
+      (P after)
+      (NP (PRO$ his) (N deth)))
+  (ID CMMALORY-M4,4.91))
+</pre> </blockquote>
+
+<a name="pp_spec">
+
+<a name="pp_movement_to_spec">
+<h4>Movement to Spec(PP)</h4>
+
+In subordinate clauses, fronted elements can occupy Spec(PP), the
+position immediately preceding the subordinating conjunction.  The
+specifier position is not explicitly indicated in our annotation system
+for any phrasal category, so these elements simply appear within the PP
+in pre-head position.  Such fronted constituents are coindexed with an
+<tt>*ICH*</tt> trace or with a resumptive (<tt>-RSP</tt>) phrase.  For
+analogous cases of fronting in subordinate clauses that are introduced
+by a complementizer,
+see <a href="syn-sub.html#non-wh_phrase_in_spec_cp">Non-wh phrase in
+Spec(CP)</a>.
+
+<p>
+<blockquote> <pre>
+( (PP (ADJP-1 (ADJ unbelievable))
+      (P though)
+      (CP-ADV (C 0)
+              (IP-SUB (ADJP-PRD *ICH*-1)
+                      (NP-SBJ (PRO it))
+                      (VBP sounds)))))
+</pre> </blockquote>
+
+<p>
+<blockquote style="background-color:#F5FFFA"><!--mideng-->
+<pre>
+( (PP (PP-1 (P in)
+            (NP (NPR$ godis) (N trouht)))
+      (P yef)
+      (CP-ADV (C 0)
+              (IP-SUB (PP *ICH*-1)
+                      (NP-SBJ (PRO +tu))
+                      (NP-OB1 (PRO it))
+                      (VBP se))))
+  (ID CMBENRUL-M3,4.89))
+
+( (PP (NP-1 (PRO$ hir) (N mastiresse))
+      (P +toz)
+      (CP-ADV (C 0)
+              (IP-SUB (NP-PRD *ICH*-1)
+                      (NP-SBJ (PRO scho))
+                      (BED ware))))
+  (ID CMBENRUL-M3,10.325))
+</pre> </blockquote>
+
+<a name="pp_np-dps">
+<h4>Dative of possession (NP-DPS)</h4>
+
+In the early Middle English texts, there appear to be a few cases of the
+dative of possession.  The clear cases always immediately precede a
+preposition with the "possessed" NP as the object of the preposition.
+In such cases, the dative is labeled <tt>NP-DPS</tt> and treated as the
+specifier of the PP.  Potential datives of possession in other positions
+are labeled <a href="syn-const.html#np-ob1_and_np-ob2"><tt>NP-OB2</tt></a>.
+
+<p>
+<blockquote style="background-color:#F5FFFA"><!--mideng-->
+<pre>
+( (IP-SUB (NP-SBJ (PRO he))
+          (VBP falle)
+          (PP (NP-DPS (NPR defle))
+              (P to)
+              (NP (N honde))))
+  (ID CMTRINIT-MX1,11.130))
+
+( (IP-MAT (LB |)
+          (NP-SBJ (PRO +Te+g+g)
+                  (QP (Q alle)))
+          (VBD sungenn)
+          (NP-OB1 (D +anne) (N sang))
+          (LB |)
+          (LB |)
+          (PP (NP-DPS (NPR Drihhtin))
+	      (P to)
+	      (NP (N lofe) (CONJ &) (N wurr+te)))
+          (PUNC ,)
+          (LB |))
+  (ID CMORM-M1,I,116.1006))
+
+( (IP-MAT (CONJ and)
+          (NP-SBJ *con*)
+          (VBD strehiten)
+          (PP (P under)
+	      (NP (NP-POS (D +ta) (N$ assa))
+                  (NS fet)))
+          (ADVP-LOC (CP-FRL (WADVP-1 (ADV +ter))
+                            (C 0)
+                            (IP-SUB (ADVP-LOC *T*-1)
+                                    (NP-SBJ (NPR drihten))
+                                    (VBD rad)
+                                    (PP (P inne)
+                                        (NP (D +te) (CODE &lt;P_5&gt;) (N weye))))))
+          (PUNC .)
+          (PP (NP-DPS (PRO him))
+	      (P to)
+	      (NP (N luue) (CONJ and) (N heri+ginge))))
+  (ID CMLAMBX1-MX1,5.24))
+</pre> </blockquote>
+
+<a name="qp">
+<h3>Quantifier phrase (<tt>QP</tt>)</h3>
+
+<ul>
+<li><a href="syn-phrase.html#qp_comp">Complement of Q</a>
+   <ul>
+   <li><a href="syn-phrase.html#qp_comp_np-com">NP complement of Q</a> (<tt>NP-COM</tt>)
+   </ul>
+<li><a href="syn-phrase.html#qp_mod">Modifier of Q</a>
+<li>Treatment of individual words
+    <ul>
+    <li><a href="differences.html#much">(THE) LESS</a>
+    <li><a href="differences.html#much">(THE) MORE</a>
+    </ul>
+</ul>
+
+<hr>
+
+<p> This section focuses on the internal structure of <tt>QP</tt>.  For the
+integration of Q(P) into the larger clausal structure, see
+<a href="syn-const.html#floated_q">Floated
+quantifier</a>, <a href="syn-const.html#np-msr">Measure phrase</a>,
+and <a href="syn-phrase.html#np_head_elided">Noun phrase with elided head</a>.
+
+<p> When ALL or BOTH precede a determiner or possessive pronoun, the
+quantifier is treated as a modifier of the (possibly implicit) head of
+the entire noun phrase.
+
+<p>
+<blockquote> <pre>
+( (NP (Q all) (D this)))
+
+( (NP (Q all) (D the) (N time)))
+
+( (NP (Q all) (PRO$ mine)))
+
+( (NP (Q both) (PRO$ your) (NS children)))
+</pre> </blockquote>
+
+<a name="qp_comp">
+<a name="qp_comp_np-com">
+<h4>Complement of Q</h4>
+
+<h4>NP complement of Q (<tt>NP-COM</tt>)</h4>
+
+In early Middle English texts, quantifiers often take genitive NP
+complements, and bare NP complements continue to be possible into Modern
+English (especially in the statutes).  Such complements are
+labeled <tt>NP-COM</tt>.
+
+<blockquote style="background-color:#F5FFFA"><!--mideng-->
+<pre> 
+( (NP-OB1 (Q nan)
+          (NP-COM (D +ter) (NS$ +tinge)
+                  (CP-REL (WNP-2 0)
+                          (C +te)
+                          (IP-SUB (NP-OB1 *T*-2)
+                                  (NP-SBJ (PRO he))
+                                  (VB leten)
+                                  (MD solde)))))
+  (ID CMTRINIT-MX1,219.3049))
+
+( (NP-OB1 (Q summe)
+          (NP-COM (PRO$ +tine) (NS$ sunna)))
+  (ID CMLAMBX1-MX1,37.467))
+</pre> </blockquote>
+
+<p> In Middle English, "light" complements (that is, pronouns or single
+words) commonly precede the quantifier.
+
+<p>
+<blockquote style="background-color:#F5FFFA"><!--mideng-->
+<pre>
+( (NP (NP-POS (NP-COM (PRO$ ure))       &larr; head of all of us
+		(Q$ alre))
+      N heaued))
+  (ID CMVICES1-M1,131.1636))
+
+( (NP (NP-COM (PRO$ heor))		&larr; each of them
+      (Q $elc))
+  (ID CMLAMBX1-MX1,89.744))
+
+( (NP (NP-COM (PRO$ inker))		&larr; either of us
+      (Q ei+ter))
+  (ID CMHALI-M1,151.324))
+
+( (NP (NP-COM (PRO$ here))	        &larr; every[one] of them
+      (Q euerich))
+  (ID CMKENTSE-M2,220.181))
+
+( (NP (NP-COM (PRO$ ouwer))		&larr; neither of you
+      (Q nou+der))
+  (ID CMANCRIW-1-M1,II.43.374))
+
+( (NP (NP-COM (PRO$ heore))		&larr; none of them
+      (Q nan))
+  (ID CMLAMBX1-MX1,93.817))
+</pre> </blockquote>
+
+<a name="qp_mod">
+<h4>Modifier of Q</h4>
+
+For modifiers of Q that are labeled
+<tt>NP-MSR</tt>, see <a href="syn-const.html#np-msr">Measure phrase</a>.
+
+<p> The most common modifiers of Q are the degree modifiers
+<a href="words.html#as_deg">AS</a>, <a href="words.html#as_deg">SO</a>,
+<a href="words.html#too">TOO</a>, and in some texts
+<a href="words.html#over">OVER</a>, all of which are
+tagged <tt>ADVR</tt> when so used.  Other (non-comparative) modifiers
+(FULL, RIGHT, SWI+DE, THUS, and the like) are tagged <tt>ADV</tt>.
+Non-adverbial modifiers include other quantifiers, numbers, BUT (as
+focus particle), NOT, THAT and THIS.
+
+<p>
+<blockquote> <pre>
+( (QP (ADV very) (Q much)))
+
+( (QP (ADVR as / so / too) (Q much)))
+  
+( (QP (D this / that) (Q many)))
+
+( (QP (NEG not) (Q many)))
+
+( (QP (NUM two) (QR more)))
+
+( (QP (Q many) (QR more)))
+
+( (QP (D the) (QR more)))
+</pre> </blockquote>  
+
+<p>
+<blockquote style="background-color:#F5FFFA"><!--mideng-->
+<pre>
+( (QP (ADV euer) (Q either))		&larr; ADV
+  (ID CMPURVEY-M3,I,53.2156))
+
+( (QP (ADV eauer) (Q eani))
+  (ID CMMARGA-M1,72.277))
+
+( (QP (ADV full) (Q many))
+  (ID CMMANDEV-M3,33.814))
+
+( (QP (ADV nyghe) (Q halfe))
+  (ID CMMALORY-M4,190.2773))
+
+( (QP (ADV right) (Q noght))
+  (ID CMMANDEV-M3,88.2197))
+
+( (QP (ADV swi+de) (Q monie))
+  (ID CMMARGA-M1,92.605))
+
+( (QP (ADV wel) (QR mo))
+  (ID CMMANDEV-M3,23.569))
+
+( (QP (ADV+ADV well-nyghe) (Q all))
+  (ID CMMALORY-M4,643.4040))
+
+( (QP (ADVR ouyr) (Q fewe))		&larr; ADVR
+  (ID CMCAPCHR-M4,127.2931))
+
+( (QP (Q many) (QR moo))		&larr; Q
+  (ID CMMALORY-M4,10.290))
+
+( (QP (Q much) (QR more))
+  (ID CMMALORY-M4,635.3797))
+
+( (QP (Q no) (QR more))
+  (ID CMAELR4-M4,6.163))
+
+( (QP (D +tet) (Q lutle))		&larr; other categories
+  (ID CMMARGA-M1,79.382))
+
+( (QP (D +tis) (Q lutle))
+  (ID CMSAWLES-M1,185.269))
+
+( (QP (FP but) (Q luytel))
+  (ID CMEDVERN-M3,256.691))
+
+( (QP (NEG Not) (Q many))
+  (ID CMCAPCHR-M4,149.3485))
+
+( (QP (NUM xxxv) (QR moo))
+  (ID CMGREGOR-M4,160.760))
+
+( (QP (SUCH suche) (QR moo))
+  (ID CMPURVEY-M3,I,47.1985))
+</pre> </blockquote>
+
+<p> More than one modifier is uncommon, but possible in constructions
+including <nobr>ALL TOO/SO ...</nobr> and <nobr>(N)EVER SO ...</nobr>,
+among others.  All of these constructions are left flat.  Cf.
+<a href="words.html#ever">EVER</a> THE BETTER,
+<a href="words.html#never">NEVER</a> A PENNY, which are also given flat
+structures.
+
+<p>
+<blockquote style="background-color:#F5FFFA"><!--mideng-->
+<pre>
+( (QP (Q al) (ADVR to) (Q litel))
+  (ID CMCTPARS-M3,319.C1.1331))
+
+( (QP (Q al) (ADVR to) (Q muche))
+  (ID CMHALI-M1,133.78))
+
+( (QP (ADV aure) (ADVR to) (Q fele))
+  (ID CMVICES1-M1,125.1547))
+
+( (QP (ADV euere) (D the) (QR mo)
+      (PP (P of)
+          (NP (ADJ smale) (NS fracciouns))))
+  (ID CMEQUATO-M3,18.3))
+
+( (QP (ADV never) (ADVR so) (Q much))
+  (ID CMMALORY-M4,658.4555))
+
+( (QP (FP for+de) (ADVR swo) (Q michel)
+      (PP (P a)
+          (NP (Q sume) (N wise))))
+  (ID CMTRINIT-MX1,133.1776))
+
+( (QP (ADV fully) (ADVR as) (Q myche))
+  (ID CMWYCSER-M3,382.2810))
+
+( (QP (NEG Noghte) (ADVR so) (Q mekill))
+  (ID CMGAYTRY-M34,1.9))
+</pre> </blockquote>
+
+<p> Quantifiers can be modified by phrases.  Multi-word modifiers of
+quantifiers that are themselves headed by <tt>Q</tt> are
+labeled <tt>QP</tt>.
+
+<p>
+<blockquote> <pre>
+( (QP (QP (ADV hardly) (Q any))
+      (QR more)))
+
+( (QP (QP (ADV very) (Q much))
+      (QR more)))
+
+( (QP (QP (D that) (Q many))
+      (QR more)))
+</pre> </blockquote>
+
+<a name="wh_phrase">
+<h3>Wh- phrase</h3>
+
+<ul>
+<li><a href="syn-phrase.html#wadjp">WADJP</a>
+<li><a href="syn-phrase.html#wadvp">WADVP</a>
+<li><a href="syn-phrase.html#wnp">WNP</a>
+<li><a href="syn-phrase.html#wpp">WPP</a>
+<li><a href="syn-phrase.html#wqp">WQP</a>
+</ul>
+
+<hr>
+
+<p> In general, the internal structure of wh- phrases is analogous to
+that of their non-wh counterparts, except that wh- phrases can consist
+of <tt>0</tt> (zero), indicating an empty operator.  Also, in general,
+wh- phrase labels do not have dash tags.  The relevant information is
+expressed on the wh- phrase's trace.  Exceptions occur
+in <a href="syn-empty.html#pied_piping">pied-piping</a> contexts, where
+wh- phrases are not always associated with traces.
+
+<a name="wadjp">
+<h4>WADJP</h4>
+
+A WADJP consists of an adjective modified by HOW (and possibly other
+dependents) or of an empty operator <tt>(WADJP 0)</tt> (only in
+comparatives).
+
+<p>
+<blockquote> <pre>
+( (WADJP (WADV how)
+	 (ADJ lucky)))
+
+( (WADJP (WADV how)
+	 (ADJ pleased)
+	 (PP (P with)
+	     (NP (D the) (N result)))))
+      
+( (ADJP (QR more)
+	(ADJ pleased)
+	(CP-CMP (WADJP-1 0)
+		(IP-SUB (ADJP-PRD *T*-1)
+			(NP-SBJ (PRO we))
+			(HVP have)
+			(ADVP-TMP (ADV ever))
+			(BEN been)))))
+</pre> </blockquote>
+
+<!--
+( (CP-QUE-SUB (WADJP-3 (WADV hou) (ADJ seruisable))	&larr; ADJ modified by HOW
+	      (C 0)
+	      (IP-SUB (ADJP-PRD *T*-3)
+		      (NP-SBJ (PRO he))	  
+		      (BED was)		  
+		      (PP (P to)		  
+			  (NP (PRO$ his) (N moder)))))
+  (ID CMAELR3-M23,41.440))	      
+
+( (CP-QUE-SUB (WADJP-4 (WADV how) (ADJ swete)
+		       (CONJP (CONJ and)
+			      (ADJX (ADJ gracious))))
+	      (C 0)
+	      (IP-SUB (ADJP-PRD *T*-4)
+		      (NP-SBJ (PRO he))
+		      (BED was)
+		      (PP (P to)
+			  (NP (PRO$ his) (N nursche)))))
+  (ID CMAELR3-M23,41.440))
+
+( (ADJP (QR more)
+	(ADJ welcom)	   
+	(PP (P than)	   
+	    (CP-CMP (WADJP-1 0)			&larr; empty operator in comparative
+		    (C 0)
+		    (IP-SUB (ADJP-PRD *T*-1)
+			    (NP-SBJ (PRO they))	  
+			    (BED were)		  
+			    (ADVP-TMP (ADV tofore))))))
+  (ID CMMALORY-M4,16.490))	     
+
+( (ADJP (ADVR so)
+	(ADJ slepy)
+	(PP (P as)
+	    (CP-CMP (WADJP-1 0)
+		    (C 0)
+		    (IP-SUB (ADJP-PRD *T*-1)
+			    (NP-SBJ (PRO I))
+			    (BEP am)
+			    (ADVP-TMP (ADV nowe))))))
+  (ID CMMALORY-M4,180.2423))
+
+( (ADJP (Q muche)
+	(ADJR bygger)	   
+	(PP (P than)	   
+	    (CP-CMP (WADJP-2 0)
+		    (C 0)		     
+		    (IP-SUB (ADJP-PRD *T*-2)
+			    (ADVP-TMP (ADV ever))	  
+			    (BED was)		  
+			    (NP-SBJ (NPR sir) (NPR Kay))))))
+  (ID CMMALORY-M4,200.3170))	  
+-->
+
+<p> WADJPs that modify nouns are contained within a WNP, as are WADJPs
+functioning as <a href="syn-const.html#np-msr">measure phrases</a> at
+the clausal level.
+
+<p>
+<blockquote> <pre>
+( (WNP (WADJP (WADV how)
+	      (ADJ serious))
+       (D a)
+       (N problem)))
+
+( (WNP (WADJP (WADV how)
+	      (ADJ serious))
+       (PP (P of)
+	   (NP (D a)
+	       (N problem)))))
+
+( (CP-QUE-MAT (WNP-1 (WADJP (WADV how)
+			    (ADJ long)))
+	      (IP-SUB (NP-MSR *T*-1)
+		      (MD will)
+		      (NP-SBJ (PRO you))
+		      (BE be)
+		      (VAG staying))
+	      (PUNC ?)))
+</pre> </blockquote>
+
+<!--
+( (CP-QUE-SUB (WNP-2 (WADJP (WADJP (WADV hou) (ADJ gode))
+			    (CONJP (CONJ &)					   
+				   (WADJP (WADV hou) (ADJ ioiful))))			   
+		     (N +ting))						   
+	      (C 0)							   
+	      (IP-SUB (NP-PRD *T*-2)				   
+		      (NP-SBJ-1 (PRO it))					   
+		      (BEP is)						   
+		      (PUNC ,)						   
+		      (NP-VOC (NS bre+ter))					   
+		      (IP-INF-1 (TO to)					   
+				(VB wonen)						   
+				(PP (P in)						   
+				    (NP (ONE on))))))					   
+  (ID CMEARLPS-M2,163.7229))				   
+
+( (CP-QUE-SUB (WNP-1 (WADJP (WADV how) (ADJ gret))
+		     (N gude))					    
+	      (C 0)						    
+	      (IP-SUB (NP-OB1 *T*-1)			    
+		      (NP-SBJ (PRO He))				    
+		      (HVP has)					    
+		      (DON done)					    
+		      (NP-OB2 (PRO +te))				    
+		      (PP (P on)					    
+			  (NP (Q ilk) (ONE a) (N syde)))))		    
+  (ID CMEDTHOR-M34,20.103))				    
+
+( (CP-QUE-SUB (WPP-3 (P wit)
+		     (WNP (WADJP (WADV how) (ADJ softe)
+				 (CONJP (CONJ and)		    
+					(ADJX (ADJ swete))))		    
+			  (N voys)))			    
+	      (C 0)				    
+	      (IP-SUB (PP *T*-3)		    
+		      (NP-SBJ (PRO he))		    
+		      (VBD asoylede)		    
+		      (NP-OB1 (PRO here))))		    
+  (ID CMAELR3-M23,42.459))		    
+
+( (CP-QUE-SUB (WNP-3 (WADJP (WADV how) (ADJ longe)))
+	      (C 0)						      
+	      (IP-SUB (NP-MSR *T*-3)			      
+		      (NP-SBJ (PRO thou))				      
+		      (HVP hast)					      
+		      (VBN continued)				      
+		      (PP (P in)					      
+			  (NP (N synne)))))				      
+  (ID CMCTPARS-M3,322.C2.1496))			      
+-->
+
+<a name="wadvp">
+<h4>WADVP</h4>
+
+A WADVP consists of a wh- adverb (possibly modified by other dependents)
+or of an empty operator <tt>(WADVP 0)</tt>.
+
+<p>
+<blockquote> <pre>
+( (WADVP (WADV where)))
+
+( (WADVP (WADV how)
+	 (ADV often)))
+
+( (WADVP (WADV why)
+	 (PP (P in)
+	     (NP (D the) (N world)))))
+
+( (NP (D the) (N reason)
+      (CP-REL (WADVP-1 0)
+	      (C 0)
+	      (IP-SUB (ADVP *T*-1)
+		      (NP-SBJ (PRO they))
+		      (VBD left)))))
+</pre> </blockquote>
+
+<!--
+( (CP-QUE-MAT (WADVP-1 (WADV Where))
+	      (IP-SUB (ADVP-LOC *T*-1)	      
+		      (BEP are)			      
+		      (NP-SBJ (PRO you)))		      
+	      (PUNC ?)))			      
+
+( (CP-QUE-SUB (WADVP-1 (WADV why))
+	      (C 0)				    
+	      (IP-SUB (ADVP *T*-1)		    
+		      (NP-SBJ (PRO he))		    
+		      (BED was)			    
+		      (ADJP-PRD (ADJ seke))))	    
+  (ID CMMALORY-M4,3.43))		    
+
+( (ADVP-DIR (CP-FRL (WADVP-2 (WADV whydur) (ADV euere))
+		    (C 0)							 
+		    (IP-SUB (ADVP-DIR *T*-2)				 
+			    (NP-SBJ (PRO he))					 
+			    (VBP walke))))					 
+  (ID CMAELR3-M23,27.39))					 
+
+( (NP-OB1 (Q alle) (D the) (N cause)
+	  (CP-QUE-SUB (WADVP-1 (WADV how))    
+		      (C 0)				      
+		      (IP-SUB (ADVP *T*-1)		      
+			      (NP-SBJ (PRO it))		      
+			      (BED was)			      
+			      (PP (P by)			      
+				  (NP (NPR$ Merlyns) (N counceil))))))
+  (ID CMMALORY-M4,5.134))		      
+
+( (ADVP-LOC (ADV there@)
+	    (CP-REL (WADVP-4 0)	  
+		    (C as)		  
+		    (IP-SUB (ADVP-LOC *T*-4)
+			    (NP-SBJ (PRO I))	  
+			    (MD wille)		  
+			    (HV have)		  
+			    (NP-OB1 (PRO it)))))	  
+  (ID CMMALORY-M4,4.74))	  
+-->
+
+<a name="wnp">
+<h4>WNP</h4>
+
+A WNP consists of a wh- pronoun or wh- determiner
+(<tt>WPRO</tt>, <tt>WD</tt>), possibly accompanied by other material, or
+of an empty operator <tt>(WNP 0)</tt>.
+
+<p>
+<blockquote> <pre>
+( (WNP (WPRO who)))
+
+( (WNP (WD which) (N guest)))
+
+( (NP (D the) (N lady)
+      (CP-REL (WNP-1 0)
+	      (C that)
+	      (IP-SUB (NP-SBJ (PRO we))
+		      (VBD told)
+		      (NP-OB2 (PRO you))
+		      (PP (P about)
+			  (NP *T*-1))))))
+</pre> </blockquote>
+
+<!--
+( (NP (D the) (N Astrelabie)
+      (CP-REL (WNP-1 0)	      
+	      (C that)		      
+	      (IP-SUB (NP-OB1 *T*-1)      
+		      (NP-SBJ (PRO I))	      
+		      (HVP have)		      
+		      (VBN seyn))))		      
+  (ID CMASTRO-M3,662.C1.10))     
+
+( (NP (Q all) (NS thinges)
+      (CP-REL (WNP-2 0)	    
+	      (C +tat)		    
+	      (IP-SUB (NP-SBJ *T*-2)    
+		      (BEP ben)		    
+		      (VAN contayned)	    
+		      (PP (P in)		    
+			  (NP (PRO hem))))))	    
+  (ID CMMANDEV-M3,1.5))	    
+
+( (CP-QUE-SUB (WNP-1 (WPRO What))
+	      (IP-SUB (NP-SBJ *T*-1)	   
+		      (VBP happith)			   
+		      (PP (ADV+P herof)))		   
+	      (PUNC ?))			   
+  (ID CMAELR4-M4,2.22))		   
+
+( (CP-QUE-SUB (WNP-1 (WPRO whome))
+	      (C 0)				    
+	      (IP-SUB (NP-OB1 *T*-1)	    
+		      (NP-SBJ (PRO thou))		    
+		      (VBP sekest)))		    
+  (ID CMMALORY-M4,3.52))		    
+
+( (CP-FRL (WNP-1 (WD what) (ADJ poure) (N man))
+	  (C 0)						 
+	  (IP-SUB (NP-OB1 *T*-1)			 
+		  (NP-SBJ (PRO ye))				 
+		  (VBP mete)					 
+		  (PP (P at)					 
+		      (NP (D the) (N posterne) (N yate)		 
+			  (PP (P of)					 
+			      (NP (D the) (N castel)))))))			 
+  (ID CMMALORY-M4,6.149))				 
+
+( (CP-QUE-SUB (WNP-2 (WD what) (N counceill))
+	      (C 0)
+	      (IP-SUB (NP-SBJ *T*-2)
+		      (BED were)
+		      (ADJP-PRD (ADJS best))))
+  (ID CMMALORY-M4,6.172))
+-->
+
+<a name="wpp">
+<h4>WPP</h4>
+
+A WPP consists of a preposition with some type of wh- complement
+(see <a href="syn-empty.html#pied_piping">Pied piping</a> for some
+unusual cases).  WPPs consisting of an empty operator <tt>(WPP 0)</tt>
+are possible in connection
+with <a href="syn-empty.html#chopped_p">chopped prepositions</a>.
+
+<p>
+<blockquote> <pre>
+( (WPP (P for)
+       (WNP (WD whatever) (N reason))))
+
+( (WPP (P for)
+       (WNP (WADJP (WADV how) (ADJ long)))))
+
+( (WPP (P till)
+       (WADVP (WADV when))))
+</pre> </blockquote>
+
+<!--
+( (CP-QUE-MAT-SPE (WPP-1 (P For)
+			 (WNP (WD what) (N Cause)))	  
+		  (IP-SUB (PP *T*-1)		  
+			  (BEP is)			  
+			  (NP-SBJ-2 (D that) (N boye)	  
+				    (NP-PRN (NPR Arthur)))	  
+			  (VAN made)			  
+			  (IP-SMC (NP-SBJ *-2)		  
+				  (NP-PRD (PRO$ your) (N kynge)))))
+  (ID CMMALORY-M4,12.349))		   
+
+( (CP-QUE-SUB (WPP-1 (P frome)
+		     (WADVP (WADV whens)))		
+	      (C 0)				
+	      (IP-SUB (PP *T*-1)		
+		      (NP-SBJ (PRO they))		
+		      (VBD com)))			
+  (ID CMMALORY-M4,16.480))		
+
+( (CP-CAR (WPP-2 (WADV+P wherfor))
+	  (C 0)				    
+	  (IP-SUB (PP *T*-2)		    
+		  (NP-SBJ (D the) (N quene)	    
+			  (PUNC ,)			    
+			  (NP-PRN (ADJ fayre) (NPR Igrayne)))
+		  (PUNC ,)			     
+		  (VBD made)			     
+		  (NP-OB1 (ADJ grete) (N sorowe))))  
+  (ID CMMALORY-M4,7.182))		     
+
+( (CP-REL (WPP-1 (P of)
+		 (WNP (D the) (WPRO whiche)))
+	  (C 0)			      
+	  (IP-SUB (PP *T*-1)	      
+		  (VBP cometh)		      
+		  (NP-SBJ (N couetise) (CONJ and) (N auarice))))
+  (ID CMAELR4-M4,2.31))				
+-->
+
+<a name="wqp">
+<h4>WQP</h4>
+
+A WQP consists of a quantifier modified by HOW.  It is always contained
+within some other wh- phrase, in the same way that a measure QP is always
+contained within some other phrase.
+
+<p>
+<blockquote> <pre>
+( (WNP (WQP (WADV how) (Q many))
+       (NS chords)))
+  
+( (WADJP (WQP (WADV how) (Q much))
+         (ADJR brighter)))
+
+( (WADVP (WQP (WQP (WADV how) (Q much))
+	      (QR more))
+	 (ADV quickly)))
+</pre> </blockquote>
+
+<!--
+( (CP-QUE-SUB (WNP-1 (WQP (WADV how) (Q many)))
+	      (C 0)						 
+	      (IP-SUB (NP-SBJ *T*-1)			 
+		      (HVD had)					 
+		      (VBN undirtake)				 
+		      (NP-OB1 (D the) (N queste)			 
+			      (PP (P of)					 
+				  (NP (D the) (NPR Holy) (NPR Grayle))))))	 
+  (ID CMMALORY-M4,637.3844))			 
+
+( (CP-QUE-SUB (WNP-1 (WQP (WADV how) (Q moche))
+		     (N drede)					 
+		     (CONJP (CONJ and)				 
+			    (NX (N pareyle))))				 
+	      (C 0)						 
+	      (IP-SUB (NP-SBJ (PRO he))			 
+		      (VBP leueth)					 
+		      (PP (P yn)					 
+			  (NP *T*-1))					 
+		      (ADVP-TMP (ADV alway))))			 
+  (ID CMMIRK-M34,47.1344))				 
+
+( (CP-QUE-SUB (WNP-1 (WQP (WADV how) (Q many))
+		     (NS degrees))					
+	      (C 0)						
+	      (IP-SUB (NP-MSR *T*-1)			
+		      (NP-SBJ (PRO$ thy) (N rule))			
+		      (BEP is)					
+		      (VAN areised)					
+		      (PP (P fro)					
+			  (NP (D the) (ADJ litel) (N cros)		
+			      (PP (P upon)					
+				  (NP (PRO$ thin) (N est) (N lyne)))))))	
+  (ID CMASTRO-M3,669.C2.210))			
+-->
+
+<a name="nonstructural">
+<h3>Nonstructural labels</h3>
+
+<ul>
+<li><a href="syn-phrase.html#code">CODE</a>
+<li><a href="syn-phrase.html#foreign">Foreign language passage</a>
+    (<tt>LATIN</tt>, <tt>FOREIGN</tt>)
+<li><a href="syn-phrase.html#ls">List marker</a> (<tt>LS</tt>)
+<li><a href="syn-phrase.html#meta">META</a>
+<li><a href="syn-phrase.html#qtp">Quotation phrase</a> (<tt>QTP</tt>)
+<li><a href="syn-phrase.html#ref">Reference</a> (<tt>REF</tt>)
+</ul>
+
+<hr>
+
+<a name="code">
+<h4>CODE</h4>
+
+<tt>CODE</tt> is used for material such as page numbers and 
+<a href="general-intro.html#text_markup">text markup information</a>
+that is not part of the original text.  Like punctuation, it is attached
+as high as possible without regard to where it "belongs".  See the
+<a href="general-intro.html#psd">general introduction</a> for
+examples and discussion.
+
+<a name="foreign">
+<h4>Foreign language passage (<tt>LATIN</tt>, <tt>FOREIGN</tt>)</h4>
+
+Foreign language passages longer than a single word are labeled either
+<tt>LATIN</tt> or <tt>FOREIGN</tt> (without further distinguishing the
+language at hand).  The internal syntax of foreign language passages is
+treated as a black box, but the function of this black box in the
+English sentence is indicated in the ordinary way as far as possible.
+Quotations are labeled <tt><a href="syn-phrase.html#qtp">QTP</a></tt>.
+
+<p>
+<blockquote> <pre>
+( (LATIN (FW Narracio) (FW valde) (FW deuota) (FW contra) (FW $temptacionem))
+  (ID CMAELR3-M23,29.95))
+
+( (FOREIGN (FW Le) (FW Feste) (FW de) (FW Sentt) (FW Gorge) (FW a) (FW Wyndesore)
+           (PUNC .))
+  (ID CMGREGOR-M4,113.405))
+
+( (IP-MAT (NP-SBJ (D +Te) (N boc))
+          (VBP sey+t)
+          (PUNC :)
+	  (QTP (LATIN (FW Qui) (FW non) (FW est) (FW temptatus)
+		      (PUNC ,)
+		      (FW non) (FW est) (FW probatus)))
+	  (PUNC -))
+  (ID CMAELR3-M23,27.27))
+
+( (IP-MAT (CONJ And)
+          (NP-SBJ (D the) (NPRS Iewes))
+          (VBP clepen)
+          (IP-SMC (NP-SBJ (PRO $hem))
+                  (PP (P in)
+		      (NP (D this) (N manere)))
+                  (PP (P in)
+		      (NP (NPR Ebrew)))
+                  (PUNC :)
+                  (NP-PRD (FOREIGN (FW APPELIUS) (FW AMERRIUS) (CONJ &) (FW DAMASUS))))
+          (PUNC .))
+  (ID CMMANDEV-M3,46.1136))
+</pre> </blockquote>
+
+<a name="ls">
+<h3>List marker (LS)</h3>
+
+Letters (<tt>N</tt>), numbers (<tt>NUM</tt>), or other categories that
+identify items in a list are additionally
+tagged <tt>LS</tt>.  <tt>LS</tt> attaches where it "belongs" - that is,
+as a daughter of the item that it is associated with.
+
+<p>
+<blockquote> <pre>
+( (IP-MAT (NP-SBJ (PRO We))
+	  (VBP need)
+	  (NP-OB1 (NP (LS a)
+		      (Q some)
+	  	      (N water))
+		  (PUNC ,)
+		  (CONJP (CONJ and)
+			 (NP (LS b)
+			     (Q some)
+			     (N wood))))
+	  (PUNC .)))
+
+( (IP-MAT (NP-SBJ (PRO We))
+	  (VBP need)
+	  (NP-OB1 (NP (LS (NUM 1))
+		      (Q some)
+	  	      (N water))
+		  (PUNC ,)
+		  (CONJP (CONJ and)
+			 (NP (NUM (LS 2))
+			     (Q some)
+			     (N wood))))
+	  (PUNC .)))
+
+( (IP-MAT (NP-SBJ (PRO We))
+	  (VBP need)
+	  (NP-OB1 (NP (LS (NUM i))
+		      (Q some)
+	  	      (N water))
+		  (PUNC ,)
+		  (CONJP (CONJ and)
+			 (NP (LS (NUM ii))
+			     (Q some)
+			     (N wood))))
+	  (PUNC .)))
+
+( (IP-MAT (NP-SBJ (PRO We))
+	  (VBP need)
+	  (NP-OB1 (LS (ADJ 1st))
+		  (NP (Q some)
+	  	      (N water))
+		  (PUNC ,)
+		  (CONJP (CONJ and)
+			 (LS (ADJ 2nd))
+			 (NP (Q some)
+			     (N wood))))
+	  (PUNC .)))
+
+( (IP-MAT (IP-MAT-1 (NP-SBJ (PRO We))
+		    (ADVP-TMP (ADV first))		&larr; ADV, not LS
+		    (VBP need)
+		    (NP-OB1 (Q some)
+	          	    (N water)))
+	  (PUNC ,)
+	  (CONJP (CONJ and)
+		 (IP-MAT=1 (ADVP-TMP (ADV then))
+			   (NP-OB1 (Q some)
+				   (N wood))))
+	  (PUNC .)))
+</pre> </blockquote>
+
+<p>
+Punctuation is split off from list markers and tagged separately.
+
+<p>
+If possible, items annotated as LS do not form separate tokens.
+
+<p>
+<blockquote> <pre>
+( (NP (LS (NUM I))
+      (PUNC .)
+      (N Water)
+      (PUNC .)))
+
+( (IP-IMP (VBI Take)
+	  (NP-ACC (N plenty))
+	  (ADVP (ADV along))
+	  (PUNC .)))
+</pre> </blockquote>
+
+<p>
+But they can form separate tokens if the list marker does not belong
+directly with adjacent material.  In that case, <tt>LS</tt> is the root
+of the token.
+
+<p>
+<blockquote> <pre>
+( (LS (NUM I)                      &larr; chapter heading without title
+      (PUNC .)))
+
+( (IP-IMP (VBI Take)
+	  (ADVP (ADV along))
+	  (NP-ACC (N plenty)
+		  (PP (P of)
+		      (NP (N water))))
+	  (PUNC .)))
+</pre> </blockquote>
+
+<p>
+Otherwise, chapter, section, and verse numbers are not annotated as
+<tt>LS</tt>, whether accompanied by an explicit noun or not.
+
+<p>
+<blockquote> <pre>
+( (NP (N Chapter) (NUM 10)))			&larr; NUM without LS
+
+( (NP (NPR John) (N c.) (NUM 23) (PUNC ,) (N v.) (NUM 1)))
+
+( (NP (NPR John) (NUM 23) (PUNC ,) (NUM 1)))
+</pre> </blockquote>
+
+<a name="meta">
+<h4>META</h4>
+
+<tt>META</tt> is similar to <tt>CODE</tt>, but is used for material that
+forms part of the original text, though separate from it - for instance,
+stage directions or material identifying characters in plays or
+dialogues, participants in trials, and the like.
+
+<p>
+<blockquote> <pre>
+( (IP-MAT-SPE (META (NP (CODE &lt;font&gt;) (NPR Ph.) (CODE &lt;$$font&gt;)))
+	      (NP-SBJ (PRO Thou))
+	      (VBP sayest)
+	      (ADVP (ADV well))
+	      (PUNC ,))
+  (ID BOETHPR-1695-E3-H,124.8))
+
+( (IP-MAT (META (NP (CODE &lt;font&gt;) (NPR Mis) (NPR Page) (PUNC .) (CODE &lt;$$font&gt;)))
+	  (IP-IMP-PRN (CONJ And)
+		      (VBI trust)
+		      (NP-OB1 (PRO me)))
+	  (PUNC ,)
+	  (NP-SBJ (PRO I))
+	  (BED was)
+	  (VAG comming)
+	  (PP (P to)
+	      (NP (PRO you)))
+	  (PUNC :))
+  (ID SHAKESP-1599-E2-H,43.C2.39))
+
+( (META (IP-MAT (CODE &lt;font&gt;)
+		(VBP Enter)
+		(CODE &lt;$$font&gt;)
+		(NP-SBJ (NPR Loveless) (CODE &lt;font&gt;) (CONJ and) (CODE &lt;$$font&gt;) (NPR Amanda)))
+	(PUNC .))
+  (ID VANBR-1696-E3-H,32.8))
+</pre> </blockquote>
+
+<a name="qtp">
+<h3>Quotation phrase (<tt>QTP</tt>)</h3>
+
+<tt>QTP</tt> is used instead of <tt>FRAG-SPE</tt> to surround quotations
+with not enough material to construct an IP clause, including quotations
+in foreign languages.  For quotations consisting of complete clauses,
+see <a href="syn-const.html#spe">Direct speech</a>.  <tt>QTP</tt> can
+also indicate that a word or expression is being mentioned rather than
+used in the ordinary way.
+
+<p>
+<blockquote> <pre>
+( (QTP (PUNC ')
+       (INTJ A)
+       (PUNC ,)
+       (NP-VOC (NPR Ihesu))
+       (PUNC ,)
+       (NP (PRO$ +ty) (ADJ wundurful) (N pyte))
+       (PUNC ,)
+       (NP (PRO$ +ty) (N mercy)
+           (CP-REL (WNP-1 0)
+                   (C +tat)
+                   (IP-SUB (NP-SBJ *T*-1)
+                           (MD may)
+                           (NEG not)
+                           (BE be)
+                           (VAN told))))
+       (PUNC !))
+  (ID CMAELR3-M23,43.491))
+
+( (QTP (PUNC ')
+       (NP-VOC (N Syr))
+       (PUNC ,)
+       (PUNC ')
+       (IP-MAT-PRN (VBD said)
+                   (NP-SBJ (NPR sir) (NPR Kay)))
+       (PUNC ,)
+       (PUNC ')
+       (PP (P by)
+	   (NP (PRO$ my) (N broder)
+               (NP-PRN (NPR Arthur))))
+       (PUNC ,))
+  (ID CMMALORY-M4,9.240))
+
+( (IP-MAT (NP-SBJ (D +Te) (N apostel))
+          (VBP sei+t)
+          (PUNC :)
+          (QTP (LATIN (FW Virgo) (FW prudens) (FW cogitat) (FW que)
+                      (FW domini) (FW sunt) (PUNC ,) (FW etcetera)))
+          (PUNC -))
+  (ID CMAELR3-M23,26.6))
+
+( (IP-MAT (NP-LFD (NPR hester)               &larr; Hester in Hebrew, that is 'hidden' in English.
+                  (PP (P on)
+                      (NP (NPR ebreu))))
+          (NP-SBJ-RSP (D +tt))
+          (BEP is)
+          (QTP (VAN ihud))
+          (PP (P an)
+              (NP (NPR englisch)))
+          (PUNC .))
+  (ID CMANCRIW-1-M1,II.115.1451))
+</pre> </blockquote>
+
+<blockquote style="background-color:#F5FFFA"><!--mideng-->
+<pre>
+( (IP-MAT (NP-SBJ (D +tis) (N nome)
+                  (NP-PRN (NPR assuer)))
+          (VBP spele+d)
+          (QTP (ADJ eadi))                 &larr; blessed
+          (PP-PRN (P as)
+                  (CP-ADV (WNP-1 0)
+                          (C 0)
+                          (IP-SUB (NP-SBJ *T*-1)
+                                  (BEP is)
+                                  (VAN iseid)
+                                  (ADVP-TMP (ADV ear)))))
+          (PUNC .))
+  (ID CMANCRIW-1-M1,II.130.1716))
+
+( (IP-MAT (QTP (ADVP (ADVR to) (ADV earliche)))    &larr; The one is called 'too early'.
+          (NP-SBJ (D +te) (ONE an))
+          (VBP hatte))
+  (ID CMANCRIW-1-M1,II.152.2061))
+
+( (IP-MAT (NP-SBJ (N Drede))
+          (VBP zay+t)
+          (PUNC .)
+          (PUNC ')
+          (QTP (PP (P Vram)
+		   (NP (NPR helle))))
+          (PUNC .)
+          (PUNC '))
+  (ID CMAYENBI-M2,264.2531))
+
+( (QTP (INTJP (INTJ loo)
+              (CP-QUE-SUB (WADVP-1 (WADV wher))
+                          (C 0)
+                          (IP-SUB (ADVP-LOC *T*-1)
+                                  (NP-SBJ (NPR Ihesus))
+                                  (VBP come+t)))
+              (PUNC -)))
+  (ID CMAELR3-M23,32.171))
+</pre> </blockquote>
+
+<a name="ref">
+<h4>Reference (<tt>REF</tt>)</h4>
+
+<tt>REF</tt> is used to indicate the source or reference for a statement
+when it occurs without any explicit connection to the statement itself.
+The reference can form a separate token.
+
+<p>
+<blockquote> <pre>
+( (IP-MAT (NP-SBJ (D The) (NPR appostle))
+          (NP-OB1 (D this))
+          (VBP declareth)
+          (PP (P to)
+              (NP (D the) (NPRS Hebreos)))
+          (REF (D the) (NUM .ix.) (N chapytre))
+          (PUNC .))
+  (ID CMFITZJA-M4,A5V.83))
+
+( (IP-SUB (NP-SBJ-RSP (PRO it))
+          (BEP is)
+          (VAN declaryd)
+          (REF (NP (D the) (ADJ fyrste) (N boke)
+                   (PP (P of)
+                       (NP (NPR Esdre))))
+               (NP (D the)
+                   (ADJP (ADJ fyrste) (CONJ &) (ADJ syxte))
+                   (NS chapytours))))
+  (ID CMFITZJA-M4,A6R.84))
+
+( (IP-MAT (CONJ but)
+          (NP-SBJ (NPR Willelmus) (NPR de) (NPR Regibus))
+          (PUNC ,)
+          (REF (LATIN (FW libro) (FW 2=o=)))
+          (PUNC ,)
+          (VBP sei+t)
+          (CP-THT (C +tat)
+                  (IP-SUB (NP-SBJ (D +te) (N kyng))
+                          (BED was)
+                          (PP (P at)
+                              (NP (D +te) (N feste)
+                                  (PP (P at)
+                                      (NP (NPR Pulkercherche)))))
+                          (PP (P in)
+                              (NP (D a)
+				  (NP-POS (NPR seynt) (NPR$ Austyns))
+                                  (NPR day)))))
+          (PUNC ,))
+  (ID CMPOLYCH-M3,VI,443.3252))
+
+( (PP-PRN (P as)
+          (CP-ADV (WNP-1 0)
+	          (C 0)
+    		  (IP-SUB (NP-OB1 *T*-1)
+		          (NP-SBJ (NPR Gregory))
+		          (VBP seith)
+		          (PP (P in)
+		              (NP (NUM ij.) (N bok)
+		                  (PP (P of)
+		                      (NP (NS Pastrals)))
+				  (REF (NP (NUM v.) (N c=o=.))))))))
+  (ID CMPURVEY-M3,I,33.1610))
+
+( (REF (NP (NPR Seint) (NPR Iohan)
+           (NP-PRN (D +te) (N ewangeliste)))
+       (PUNC .)
+       (PP (P in)
+           (NP (D +te) (NPR apocalipse)))
+       (PUNC .))
+  (ID CMANCRIW-1-M1,II.129.1679))
+
+( (REF (LATIN (FW Beda) (PUNC ,) (FW libro) (FW 3=o=) (PUNC ,) (FW capitulo) (FW 6=o=))
+       (PUNC .))
+  (ID CMPOLYCH-M3,VI,3.9))
+
+( (REF (LATIN (FW Ecclesiastes) (FW 9=no=)))
+  (ID CMROYAL-M34,258.327))
+</pre> </blockquote>
+
+</body>
+</html>

@@ -1,0 +1,458 @@
+<!doctype html><!--DONE-->
+<html>
+<head>
+<link rel="stylesheet" href="manual.css">
+<title>General introduction</title>
+</head>
+
+<body>
+
+<a name="top">
+<h2>General introduction</h2>
+
+<ul>
+<li><a href="general-intro.html#philosophy_and_goals">Philosophy and goals</a>
+<li><a href="general-intro.html#file_formats">File formats</a>
+    <ul>
+    <li><a href="general-intro.html#txt">Text files</a> (<tt>.txt</tt>)
+    <li><a href="general-intro.html#pos">Part-of-speech (POS) tagged files</a>
+       (<tt>.pos</tt>)
+    <li><a href="general-intro.html#psd">Parsed files</a> (<tt>.psd</tt>)
+    <li>Lemmatized (.lem)
+        (see <a href="lemmatization/lemmatization-index.html">Lemmatization (beta)</a>
+    </ul>
+<li><a href="general-intro.html#text_markup">Text markup</a>
+</ul>
+
+<p>
+<hr>
+
+<a name="philosophy_and_goals">
+<h3>Philosophy and goals</h3>
+
+<ul>
+
+<li>
+Our primary goal has been to create an annotation system that facilitates
+automated searches, not to give a correct linguistic analysis of each
+sentence in our corpora.  As a result, our bracketed structures do not
+contain all of the information that a full phrase structure representation
+would have.
+
+<p>
+<li>
+We have tried to plan our system so that at each stage of the annotation,
+information is added in a monotonic way.  In particular, we want any
+future revisions of the bracketed structures always to add information,
+never to change it.  This goal requires us to avoid subjective judgments.
+So, for example, we do not attempt to implement the argument-adjunct
+distinction with PPs.  In this release, we do, however, attempt to
+distinguish between adjectival and verbal passive participles.
+
+<p>
+<li>
+As many categories as possible should have clear meanings so that unclear
+cases can be relegated to a few residual categories.  The price of making
+most categories homogeneous is that the residual categories will not be.
+In future revisions of the corpora, it may be possible to improve the
+analysis of the residual categories.
+
+<p>
+<li>
+As much as possible, we have avoided making decisions that would be
+controversial, whether with regard to text interpretation or to linguistic
+theory.  In doubtful cases, we either avoid specifying structure, or we
+use default rules to decide the case for search purposes.  An example of
+the first strategy concerns VPs.  These are normally not indicated in the
+corpus, since VP boundaries are generally indeterminate.  This is clearly
+the case in Middle English, which allows scrambling and where the internal
+structure of the VP is variable and changing.  But even in modern English,
+there are many cases where it is not clear whether some phrase attaches as
+a daughter of VP or higher up in the tree.  An example of the second
+strategy concerns the attachment of PPs and modifiers more generally.
+Whenever it is unclear where such a constituent attaches, we attach it by
+default in the highest position that is semantically plausible.
+
+</ul>
+
+<a name="file_formats">
+<a name="txt">
+<h3>File formats</h3>
+
+Each text in the corpora comes in three different formats, each with a
+characteristic filename extension:
+
+<ul>
+<li><a href="general-intro.html#txt">text</a> (<tt>.txt</tt>)
+<li><a href="general-intro.html#pos">part-of-speech (POS) tagged</a>
+    (<tt>.pos</tt>)
+<li><a href="general-intro.html#psd">parsed</a> (<tt>.psd</tt>)
+</ul>
+
+<h4>Text files (<tt>.txt</tt>)</h4>
+
+Text files have the extension <tt>.txt</tt>.  Besides the text, they
+contain text-level codes, inherited from the Helsinki Corpus and converted
+into HTML-type codes, as described
+in <a href="general-intro.html#text_markup">Text markup</a>.  The original page
+layout is not retained.  Rather, the text is divided into tokens, which
+generally correspond to a main clause together with any subordinate
+clauses that it contains.  Each token has a token ID, enclosed in
+parentheses, which contains the name of the file, a page reference to the
+printed text (possibly including a volume reference), and a running token
+number that locates the token within the computer file.  Tokens may also
+consist entirely of text-level codes.  Such tokens do not have IDs in the
+file, but they are counted by the token counter, which can lead to gaps in
+the running token numbers.
+
+<p>
+Material that has been split or separated in the course of annotation
+(punctuation, contractions, cliticized articles, and so on) remains
+separated in the text files in order to simplify searches and tallies.
+See <a href="pos-tok.html">Word tokenization</a> for details.
+
+<blockquote>
+<pre>
+&lt;P_2&gt;
+
+&lt;heading&gt;
+
+I . (CMMALORY,2.3)
+
+Merlin (CMMALORY,2.4)
+
+&lt;$$heading&gt;
+
+HIT befel in the dayes of Uther Pendragon , when he was kynge of all
+Englond and so regned , that there was a myghty duke in Cornewaill that
+helde warre ageynst hym long tyme . (CMMALORY,2.6)
+
+and the duke was called the duke of Tyntagil . (CMMALORY,2.7)
+
+And so by meanes kynge Uther send for this duk chargyng hym to brynge
+his wyf with hym . (CMMALORY,2.8)
+
+for she was called a fair lady and a passynge wyse . (CMMALORY,2.9)
+
+and her name was called Igrayne . (CMMALORY,2.10)
+</pre>
+</blockquote>
+
+<a name="pos">
+<h4>Part-of-speech (POS) tagged files (<tt>.pos</tt>)</h4>
+
+Part-of-speech (POS) tagged texts have the extension <tt>.pos</tt>.  They
+contain the material in the text files with a POS tag added to each word.
+Editorial material such as the text-level codes is given the
+tag <tt>CODE</tt>.  Text elements are separated from their POS tags; the
+delimiter is the forward slash character (/).
+
+<p>
+The text is divided into tokens in the same way as in the text files.
+
+<blockquote>
+<pre>
+&lt;P_2&gt;/CODE
+
+&lt;heading&gt;/CODE
+
+I/NUM ./PUNC CMMALORY,2.3/ID
+
+Merlin/NPR CMMALORY,2.4/ID
+
+&lt;$$heading&gt;/CODE
+
+HIT/PRO befel/VBD in/P the/D dayes/NS of/P Uther/NPR Pendragon/NPR
+,/PUNC when/P he/PRO was/BED kynge/N of/P all/Q Englond/NPR and/CONJ 
+so/ADV regned/VBD ,/PUNC that/C there/EX was/BED a/D myghty/ADJ duke/N 
+in/P Cornewaill/NPR that/C helde/VBD warre/N ageynst/P hym/PRO long/ADJ
+tyme/N ,/PUNC CMMALORY,2.6/ID
+
+and/CONJ the/D duke/N was/BED called/VAN the/D duke/N of/P Tyntagil/NPR
+./PUNC CMMALORY,2.7/ID
+
+And/CONJ so/ADV by/P meanes/NS kynge/NPR Uther/NPR send/VBD for/P
+this/D duk/N chargyng/VAG hym/PRO to/TO brynge/VB his/PRO$ wyf/N with/P
+hym/PRO ,/PUNC CMMALORY,2.8/ID
+
+for/CONJ she/PRO was/BED called/VAN a/D fair/ADJ lady/N and/CONJ a/D
+passynge/ADV wyse/ADJ ,/PUNC CMMALORY,2.9/ID
+
+and/CONJ her/PRO$ name/N was/BED called/VAN Igrayne/NPR ./PUNC CMMALORY,2.10/ID
+</pre>
+</blockquote>
+
+<a name="psd">
+<h4>Parsed files (<tt>.psd</tt>)</h4>
+
+Parsed files have the extension <tt>.psd</tt>.  They contain a labeled
+bracketing of the text, with the first set of labeled parentheses around
+a word repeating the information from the POS-tagged files.  The division
+into tokens in the parsed files is the same as in the text and POS files.
+Each token is enclosed with its ID in a set of unlabeled parentheses.
+
+<blockquote>
+<pre>
+( (CODE &lt;BEGIN_cmmalory-m4&gt;))
+
+( (CODE &lt;P_2&gt;))
+
+( (CODE &lt;heading&gt;))
+
+( (LS (NUM I) (PUNC .))
+  (ID CMMALORY-M4,2.4))
+
+( (NP (NPR Merlin))
+  (ID CMMALORY-M4,2.5))
+
+( (CODE &lt;$$heading&gt;))
+
+( (IP-MAT (NP-SBJ=1 (PRO HIT))
+	  (VBD befel)
+	  (PP (P in)
+	      (NP (D the)
+		  (NS dayes)
+		  (PP (P of)
+		      (NP (NPR Uther) (NPR Pendragon)))))
+	  (PUNC ,)
+	  (PP (P when)
+	      (CP-ADV (C 0)
+		      (IP-SUB (IP-SUB (NP-SBJ (PRO he))
+				      (BED was)
+				      (NP-PRD (N kynge)
+					      (PP (P of)
+						  (NP (Q all) (NPR Englond)))))
+			      (CONJP (CONJ and)
+				     (IP-SUB (NP-SBJ *con*)
+					     (ADVP (ADV so))
+					     (VBD regned))))))
+	  (PUNC ,)
+	  (CP-THT-1 (C that)
+		    (IP-SUB (NP-SBJ=2 (EX there))
+			    (BED was)
+			    (NP-2 (D a)
+				  (ADJ myghty)
+				  (N duke)
+				  (CP-REL *ICH*-3))
+			    (PP (P in)
+				(NP (NPR Cornewaill)))
+			    (CP-REL-3 (WNP-4 0)
+				      (C that)
+				      (IP-SUB (NP-SBJ *T*-4)
+					      (VBD helde)
+					      (NP-ACC (N warre))
+					      (PP (P ageynst)
+						  (NP (PRO hym)))
+					      (NP-MSR (ADJ long) (N tyme))))))
+	  (PUNC ,))
+  (ID CMMALORY-M4,2.7))
+
+( (IP-MAT (CONJ and)
+	  (NP-SBJ-1 (D the) (N duke))
+	  (BED was)
+	  (VAN called)
+	  (IP-SMC (NP-SBJ *-1)
+		  (NP-PRD (D the)
+			  (N duke)
+			  (PP (P of)
+			      (NP (NPR Tyntagil)))))
+	  (PUNC .))
+  (ID CMMALORY-M4,2.8))
+
+( (IP-MAT (CONJ And)
+	  (ADVP (ADV so))
+	  (PP (P by)
+	      (NP (NS meanes)))
+	  (NP-SBJ (NPR kynge) (NPR Uther))
+	  (VBD send)
+	  (PP (P for)
+	      (NP (D this) (N duk)))
+	  (IP-PPL (VAG chargyng)
+		  (NP-ACC (PRO hym))
+		  (IP-INF (TO to)
+			  (VB brynge)
+			  (NP-ACC (PRO$ his) (N wyf))
+			  (PP (P with)
+			      (NP (PRO hym)))))
+	  (PUNC ,))
+  (ID CMMALORY-M4,2.9))
+
+( (IP-MAT (CONJ for)
+	  (NP-SBJ-1 (PRO she))
+	  (BED was)
+	  (VAN called)
+	  (IP-SMC (NP-SBJ *-1)
+		  (NP-PRD (NP (D a) (ADJ fair) (N lady))
+			  (CONJP (CONJ and)
+				 (NP (D a)
+				     (ADJP (ADV passynge) (ADJ wyse))))))
+	  (PUNC ,))
+  (ID CMMALORY-M4,2.10))
+
+( (IP-MAT (CONJ and)
+	  (NP-SBJ-1 (PRO$ her) (N name))
+	  (BED was)
+	  (VAN called)
+	  (IP-SMC (NP-SBJ *-1)
+		  (NP-PRD (NPR Igrayne)))
+	  (PUNC .))
+  (ID CMMALORY-M4,2.11))
+</pre>
+</blockquote>
+
+<a name="text_markup">
+<h3>Text markup</h3>
+
+In general, it has not been possible to retain the markup conventions of
+the Helsinki Corpus in their original form because of conflicts with the
+annotation system.  The major changes made are as follows:
+
+<ul>
+<li> The representation of the text as printed on the page is not
+retained.  The text is presented in tokens, as just described
+in <a href="general-intro.html#file_formats">File formats</a>, rather than line by
+line.
+
+<p>
+<li>All text-level codes in the text have been changed to HTML-type codes
+or omitted as follows:
+
+<p>
+<b>Editor comments</b> are either omitted or enclosed in
+<tt>{ED:...}</tt>.  Comments added by Helsinki or Penn are enclosed in
+<tt>{COM:...}</tt>.
+
+<!--
+<blockquote>
+<pre>
+( (IP-SUB (IP-SUB-2 (NP-SBJ (PRO we))
+                    (MD scale)
+                    (VB festen))
+          (, .)
+          (CONJP (CONJ and)
+                 (IP-SUB=2 (NP-OB1 (NP (N fleis))
+                                   (CONJP *ICH*-1))
+                           (VB bileuen)
+                           (CONJP-1 (CONJ and)
+                                    (NP (Q muchel)
+                                        (PP (P of)
+                                            (NP (PRO$ ure)
+               			                (CODE {ED:ure_WRITTEN_ABOVE_THE_LINE})
+                                                (N wille)))))
+                           (PP (P for)
+                               (NP (PRO$ ure)
+                                   (CODE {ED:ure_WRITTEN_ABOVE_THE_LINE})
+                                   (NS wrechede))))))
+          (. .)
+  (ID CMLAMB1-M1,83.196))
+</pre>
+</blockquote>
+-->
+
+<a name="emendation">
+<p>
+<b>Emendations</b> are preceded by a dollar sign (for
+instance, <tt>$the</tt>); multi-word emendations are also sometimes
+surrounded by <tt><em> ... </em></tt>.  Emendations include those in the
+original edition as well as those introduced by Helsinki or Penn.
+
+<p>
+<b>Font codes</b> are retained.
+
+<p>
+<b>Headings that are part of the original text</b> are enclosed in
+<tt>&lt;heading&gt; ... &lt;$$heading&gt;</tt>.  Headings in the Helsinki
+samples are in all caps.  This convention is generally not followed in the
+samples added at Penn.
+
+<p>
+<b>Headings added by the editor</b> are treated as editor comments.
+That is, they are either omitted or enclosed in <tt>{ED:...}</tt>.
+
+<p>
+<b>Language codes</b> are omitted.
+
+<p>
+<b>Parentheses</b> indicating emendations in the original text are
+omitted, and the material in them is treated like other emendations.
+Otherwise, parentheses are represented as <tt><paren>
+... <$$paren></tt> in order to avoid confusion with the parentheses
+introduced in the course of the syntactic annotation.
+
+<p>
+<li>All editorial material in the files (text-level codes, comments,
+page numbers, and so on) is tagged <tt>CODE</tt> to differentiate it
+from the contents of the text itself.
+
+<!--
+&lt;P_73&gt;/CODE
+
+&lt;heading&gt;/CODE                         
+
+VII/NUM ./PUNC {COM:Trinity_Homily_IV}/CODE
+CREDO/NPR ./PUNC LAMB1,73.3/ID
+
+&lt;$$heading&gt;/CODE              
+-->
+<blockquote>
+<pre>
+( (CODE &lt;P_73&gt;))                           &larr; page number in edition
+
+( (CODE &lt;heading&gt;))                        &larr; beginning of heading
+
+( (FRAG (NUM VII)
+        (CODE {COM:Trinity_Homily_IV})     &larr; comment added at Penn
+        (, .)
+        (LATIN (FW CREDO))
+        (. .))
+  (ID CMLAMB1-M1,73.4))
+
+( (CODE &lt;$$heading&gt;))                      &larr; end of heading
+</pre>
+</blockquote>
+
+<p>
+<li>
+Any differences between the text in our corpora and the underlying text in
+the printed edition are indicated
+as <a href="general-intro.html#emendation">emendations</a>, and the original text
+follows enclosed in <tt>(CODE {TEXT:...})</tt>.
+
+<li>
+Clear errors in the printed text are sometimes corrected, generally
+following a suggestion by the editor, but occasionally without outside
+support, especially in cases involving an item's part of speech.
+
+<blockquote>
+<pre>
+( (IP-MAT-SPE (NP-SBJ (PRO $we))            &larr; emendation
+              (CODE {TEXT:+te})             &larr; text in edition
+              (MD wulle+d)
+              (VB fole+ge)
+              (NP-OB1 (PRO +te)))
+  (ID CMANCRIW-1-M1,II.130.1708))
+
+( (IP-MAT-SPE (' ')
+              (NP-SBJ (D +De) (N mann))
+              (NEG ne)
+              (VBP leue+d)
+              (NEG naht)
+              (PP (P $be)                   &larr; emendation
+                  (CODE {TEXT:he})          &larr; text in edition
+                  (NP (N bread) (FP ane)))
+              (. ,))
+  (ID CMVICES1-M1,89.1018))
+
+( (IP-SUB (NP-SBJ (N mihte))
+          (NP-OB1 (PRO $+te))               &larr; emendation over two words
+          (NEG $ne)
+          (CODE {TEXT:+te_+te})             &larr; text in edition
+          (VBP atiere+d))
+  (ID CMTRINIT-MX1,29.394))
+</pre>
+</blockquote>
+
+</ul>
+
+</body>
+</html>

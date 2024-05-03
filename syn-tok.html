@@ -1,0 +1,364 @@
+<!doctype html><!--DONE-->
+<html>
+<head>
+<link rel="stylesheet" href="manual.css">
+<title>Division into sentence tokens</title>
+</head>
+
+<body>
+
+<a name="top">
+<h2>Division into sentence tokens</h2>
+
+<ul>
+<li><a href="syn-tok.html#conj">Conjunction-related</a>
+    <ul>
+    <li><a href="syn-tok.html#conj_1">No token break with conjoined simple verbs</a>
+    <li><a href="syn-tok.html#conj_2">Token break with VP conjunction</a>
+    <li><a href="syn-tok.html#conj_3">A tricky case</a>
+    </ul>
+<li><a href="syn-tok.html#spe">Direct speech</a>
+    <ul>
+    <li><a href="syn-tok.html#spe_1">No token break with first direct speech clause
+    <li><a href="syn-tok.html#spe_2">Token break with continuation
+    </ul>
+<li><a href="syn-tok.html#car">Clause-adjoined relative</a>
+    <ul>
+    <li><a href="syn-tok.html#car_1">No token break in simple case</a>
+    <li><a href="syn-tok.html#car_2">No token break with first direct speech clause</a>
+    <li><a href="syn-tok.html#car_3">Token break with continuation of direct speech</a>
+    </ul>
+<li><a href="syn-tok.html#other">Other cases</a>
+    <ul>
+    <li><a href="syn-tok.html#intj_voc">Interjections and vocatives</a>
+    <li><a href="syn-tok.html#plays">Plays</a>
+    <li><a href="syn-tok.html#headings_titles">Headings and titles</a>
+    <li><a href="syn-tok.html#code">CODE material</a>
+    <li><a href="syn-tok.html#diaries_letters">Diaries and letters</a>
+    </ul>
+</ul>
+
+<p>
+<hr>
+
+As mentioned in the general introduction, the text in the corpora is
+divided into tokens, which generally correspond to a main clause together
+with any subordinate clauses that it contains.  In legal texts and
+statutes, this definition can result in tokens that go on at excessive
+length.  In such cases, we sometimes split off WHEREAS clauses and similar
+units on an ad hoc basis for convenience.  In what follows, we ignore
+these special cases.
+
+<p>
+In most of the examples below, the issues concerning tokenization arise
+from our annotation
+conventions. See <a href="syn-conj.html#conj_clause">Clausal
+conjunction</a> and <a href="syn-const.html#spe">Direct speech</a> for
+details.  The final section covers several further minor cases.
+
+<p>
+Throughout, token breaks are indicated by a blank line.
+
+<a name="conj">
+<h3>Conjunction-related</h3>
+
+<a name="conj_1">
+<h4>No token break with conjoined simple verbs</h4>
+
+<p>
+<blockquote>
+<pre>
+Julius Caesar came , saw , and conquered .                 &larr; conjoined intransitive verbs
+
+( (IP-MAT (NP-SBJ (NPR Julius) (NPR Caesar))
+          (VBD (VBD came) (, ,) (VBD saw) (, ,) (CONJ and) (VBD conquered))
+          (. .)))
+
+They spotted , approached , and greeted the queen .        &larr; conjoined transitive verbs with shared argument
+
+( (IP-MAT (NP-SBJ (PRO They))
+          (VBD (VBD spotted) (, ,) (VBD approached) (, ,) (CONJ and) (VBD greeted))
+          (NP-OB1 (D the) (N queen))
+          (. .)))
+</pre>
+</blockquote>
+
+<a name="conj_2">
+<h4>Token break with VP conjunction</h4>
+
+The absence of VP in our annotation scheme in the general case means that
+we cannot treat cases like the following as a single token with VP
+conjunction.  Rather, we are forced to treat the two conjuncts as separate
+tokens.
+
+<p>
+<blockquote>
+<pre>
+They sang ,
+
+and danced the polka .
+
+( (IP-MAT (NP-SBJ (PRO They))
+          (VBD sang)
+          (. ,)))
+
+( (IP-MAT (CONJ and)
+          (NP-SBJ *con*)
+          (VBD danced)
+          (NP-OB1 (D the) (N polka))
+          (. .)))
+</pre>
+</blockquote>
+
+<a name="conj_3">
+<h4>A tricky case</h4>
+
+<p>
+<blockquote>
+<pre>
+They came and left ten years later .	        &larr; one token if the two events occur in the same year
+
+( (IP-MAT (NP-SBJ (PRO He))
+          (VBD (VBD came) (CONJ and) (VBD left))
+          (ADVP-TMP (NP-MSR (NUM ten) (NS years))
+                    (ADVR later))
+          (. .)))
+
+They came ,                                     &larr; two tokens if the two events are separated by a decade
+
+and left ten years later .
+
+( (IP-MAT (NP-SBJ (PRO They))
+          (VBD came)
+          (. ,)))
+
+( (IP-MAT (CONJ and)
+          (NP-SBJ *con*)
+          (VBD left)
+          (ADVP-TMP (NP-MSR (NUM ten) (NS years))
+                    (ADVR later))
+          (. .)))
+</pre>
+</blockquote>
+
+<a name="spe">
+<h3><a href="syn-conj.html#conj_direct_speech">Direct speech</a></h3>
+
+<a name="spe_1">
+<h4>No token break with first direct speech clause</h4>
+
+<p>
+<blockquote>
+<pre>
+Caesar said , " I came . "
+
+( (IP-MAT (NP-SBJ (NPR Caesar))
+          (VBD said)
+          (PUNC ,)
+          (PUNC ")
+          (IP-MAT-SPE (NP-SBJ (PRO I))
+                      (VBD came))
+          (PUNC ")
+          (PUNC .)))
+</pre>
+</blockquote>
+
+<a name="spe_2">
+<h4>Token break with continuation</h4>
+
+<p>
+<blockquote>
+<pre>
+Caesar said , " I came ,
+
+I saw ,
+
+I conquered . "
+
+( (IP-MAT (NP-SBJ (NPR Caesar))
+          (VBD said)
+          (PUNC ,)
+          (PUNC ")
+          (IP-MAT-SPE (NP-SBJ (PRO I))
+                      (VBD came))
+          (PUNC ,)))
+
+( (IP-MAT-SPE (NP-SBJ (PRO I))
+              (VBD saw)
+              (PUNC ,)))
+
+( (IP-MAT-SPE (NP-SBJ (PRO I))
+              (VBD conquered)
+              (PUNC .)
+              (PUNC ")))
+</pre>
+</blockquote>
+
+<a name="car">
+<h3><a href="syn-sub.html#cp-car">Clause-adjoined relative</a></h3>
+
+For simplicity, we indicate only relevant details of the structures below.
+
+<a name="car_1">
+<h4>No token break in simple case</h4>
+
+<p>
+<blockquote>
+<pre>
+She baked brownies , Which made everyone jump for joy .
+
+( (IP-MAT (She baked brownies)
+          (PUNC ,)
+          (CP-CAR which made everyone jump for joy)
+          (PUNC .)))
+</pre>
+</blockquote>
+
+<a name="car_2">
+<h4>No token break with first direct speech clause</h4>
+
+<p>
+<blockquote>
+<pre>
+She announced , " I will bake brownies , " which made everyone jump for joy .
+
+( (IP-MAT (She announced)
+          (PUNC ,)
+          (PUNC ")
+          (IP-MAT-SPE (I will bake brownies))
+          (PUNC ")
+          (PUNC ,)
+          (CP-CAR which made everyone jump for joy)
+          (PUNC .)))
+</pre>
+</blockquote>
+
+<a name="car_3">
+<h4>Token break with continuation of direct speech</h4>
+
+<p>
+<blockquote>
+<pre>
+She announced , " I will bake brownies ,
+
+and I will start right now , "
+
+which made everyone jump for joy .
+
+( (IP-MAT (She announced)
+          (PUNC ,)
+          (PUNC ")
+          (IP-MAT-SPE I will bake brownies)
+	  (PUNC ,)))
+
+( (IP-MAT-SPE (and I will start right now)
+              (PUNC ,)
+              (PUNC ")))
+
+( (CP-CAR (which made everyone jump for joy)
+          (PUNC .)))
+</pre>
+</blockquote>
+
+<a name="other">
+<h3>Other cases</h3>
+
+<a name="intj_voc">
+<h4>Interjections and vocatives</h4>
+
+<p>
+Where possible, <a href="syn-phrase.html#intjp">interjections</a>
+and <a href="syn-const.html#np-voc">vocatives</a> are incorporated into
+adjacent tokens, rather than split off.
+
+<a name="plays">
+<h4>Plays</h4>
+
+<p>
+Where possible, characters and the following line they speak count as a
+single token.
+
+<p>
+<blockquote>
+<pre>
+Falstaff .			&larr; period does not trigger token break
+It is I .
+</pre>
+</blockquote>
+
+<a name="headings_titles">
+<h4>Headings and titles</h4>
+
+The remaining cases below can be thought of as extending the principle of
+default high attachment to tokenization.
+
+<p>
+Where possible, headings and titles are split into separate tokens.
+
+<p>
+<blockquote>
+<pre>
+Section 102 ,                                   &larr; heading
+
+Soldering tips					&larr; separate token for title
+</pre>
+</blockquote>
+
+<a name="code">
+<h4>CODE material</h4>
+
+<p>
+Where possible, material tagged with CODE counts as a separate token.
+However, font change indications are never separated from their associated
+text.
+
+<p>
+<blockquote>
+<pre>
+&lt;text&gt;/CODE
+
+&lt;heading&gt;/CODE
+
+Chapter 22
+
+&lt;$$heading&gt;/CODE
+
+Here is a sentence.
+
+&lt;P_234&gt;/CODE				&larr; separate token
+
+And here is another one.
+
+But lo,
+&lt;P_235&gt;/CODE				&larr; part of surrounding token
+the preceding page number is not
+a separate token !
+</pre>
+</blockquote>
+
+<a name="diaries_letters">
+<h4>Diaries and letters</h4>
+
+<p>
+In diaries and letters, the place and date of writing each count as
+separate tokens.
+
+<p>
+<blockquote>
+<pre>
+( (NP-LOC (NPR London)))
+
+( (NP-TMP (NPR June) (ADJ 21st) (NUM 1706)))
+
+( (CP-QUE-MAT (NP-VOC (ADJS Dearest) (NPR Delilah))
+              (, ,)
+              (WADVP-1 (WADV How))
+              (IP-SUB (ADVP *T*-1)
+	  	      (BEP are)
+                      (NP-SBJ (PRO you)))
+              (? .)))
+</pre>
+</blockquote>
+
+</body>
+</html>

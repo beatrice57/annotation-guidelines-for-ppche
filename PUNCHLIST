@@ -1,0 +1,71 @@
+RRC > NP-ACC/OB1
+   DONE: ME2, MBE2, PCEEC
+
+exocentric NUMP (NUMP that doesn't dominate NUM or ONE)
+   DONE: ME2, PCEEC
+
+coordination of unlike categories at the word level
+   DONE: ME2	    
+
+<a name="according_etc">
+<p>
+<li>
+In the PPCME2,
+the <a href="syn-const.html#ob1_ob2_with_like_etc">experiencer
+argument</a> of LIKE and similar verbs (LACK, NEED, WANT) may be mistagged
+as <tt>NP-OB1</tt> rather than <tt>NP-OB2</tt>.
+
+<p>
+<li>*** ACCORDING in ACCORDING TO is annotated and lemmatized as <tt>ADJ</tt>,
+    whereas CONCERNING, TOUCHING, and others are annotated and lemmatized
+    as prepositions (<tt>P</tt>).  AND THAT'S A PROBLEM?
+
+<p>
+*** The illustrative examples may be inconsistent with the current
+annotation guidelines (reflecting earlier versions of the guidelines
+instead).  For example, they may contain complex tags that have been
+simplified in the corpus.  In such cases, the guidelines in the text
+supersede the examples.
+
+<p>
+*** Where is this in the manual?
+
+If their form is possessive, measure phrase modifiers of nouns may be
+tagged <tt>NP-POS</tt> rather than <tt>NP-MSR</tt>.
+
+Rethink the default in cases that are ambiguous between extraction and
+parenthetical
+
+----------------------------------------------------------------------
+
+ISSUES TO BE RESOLVED
+
+Enforce QTP vs. META.  Likely not to be an issue for CEEC.  This is best
+done once the files are separated (so that trials and plays can be dealt
+with separately or ignored for the moment)
+
+----------------------------------------------------------------------
+
+DONE
+
+Enforced gapping for extraposed conjoined subjects
+
+Quantifiers vs. measure phrases
+
+HALF - N is lemmatized as OED noun; all other POS tags are lemmatized as OED adj
+
+PAST
+
+NEEDS - keep as is (treated differently in Middle English versus later corpora).
+
+EACH IN HIS OWN WAY - the proper analysis is almost certainly gapping
+(as the documentation now says), but leaving as is for now.
+
+Removed double function tags on extraposed. NP-COM, NP-PRN at IP level
+(function now indicated only on the traces, as usual)
+
+Added NP-POS around single-word resumptive pronouns
+
+      (NP-POS-RSP his)
+
+Reviewed and corrected NP-ADT

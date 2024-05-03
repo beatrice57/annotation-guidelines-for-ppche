@@ -1,0 +1,173 @@
+<!doctype html><!--DONE-->
+<html>
+<head>
+<link rel="stylesheet" href="manual.css">
+<title>Known issues</title>
+</head>
+
+<body>
+
+<a name="top">
+<h2>Known issues</h2>
+
+<ul>
+
+<a name="examples">
+
+<dl>
+
+<dt>
+Sentence token IDs
+<dd>
+Due to changes in sentence tokenization, the running ID numbers in the
+examples in the documentation no longer always match the current ID
+numbers.  If necessary, the examples can be traced back to their source
+via the page numbers in the IDs, which are stable.
+
+<p>
+<dt>
+ACCORDING TO and the like
+<dd>
+ACCORDING (TO), CONCERNING, REGARDING, and TOUCHING in their
+quasi-prepositional uses are not annotated alike.  ACCORDING (TO) and
+REGARDING are tagged <tt>VAG</tt> and lemmatized as verbs, whereas
+CONCERNING and TOUCHING are tagged <tt>P</tt> and lemmatized as
+prepositions.
+
+<p>
+<dt>
+<a href="words.html#all">ALL</a>
+<dd>
+There likely remain inconsistencies in the annotation of ALL in its
+floated quantifier vs. intensifier use, both within PPCME2 and between
+PPCME2 and the later corpora.
+
+<p>
+<dt>
+<a href="syn-sub.html#cp-adv_as_x_said">AS X
+SAID</a>
+<dd>
+The <tt>-PRN</tt> dash tag on AS X SAID and similar parenthetical
+expressions is likely appended inconsistently, especially in the later
+corpora.
+
+<p>
+<dt>
+<a href="syn-conj.html#backwards_gapping">Backwards gapping</a> 
+<dd>
+Backwards gapping may be mistagged
+as <a href="syn-conj.html#gapping">ordinary gapping</a>.
+
+<p>
+<dt>
+<a href="changes.html#adj-ppl">Departicipial adjectives</a> 
+<dd>
+Departicipial adjectives (INTERESTED, INTERESTING) in predicate position
+may be mistagged as participles (<tt>VAG</tt>, <tt>VAN</tt>), especially
+in the PPCME2.
+
+<p>
+<dt>
+<a href="syn-sub.html#cp-cmp_elision_brackets">Comparative clauses with
+elision</a>
+<dd>
+In comparative clauses with elision, brackets around elided subordinate
+clauses are likely to be missing.
+
+<p>
+<dt>
+<a href="syn-const.html#spe">Direct speech</a> 
+<dd>
+Direct speech fragments may be labeled <tt>FRAG</tt> rather
+than <tt>QTP</tt>.
+
+<!--
+<a name="elided-for">
+<p>
+<dt>
+<dd>
+<a href="syn-empty.html#elided_for_to">Elided FOR and TO in conjoined
+infinitives</a> may be missing.
+-->
+
+<!--
+<a name="ecm">
+<p>
+<dt>
+<dd>
+<a href="syn-sub.html#ecm_or_obj_control">Exceptional Case-Marking
+(ECM) versus object control</a>
+-->
+
+<p>
+<dt>
+<a href="syn-sub.html#ip-inf-adt">Infinitival adjuncts</a>
+<dd>
+Infinitival adjuncts (<tt>IP-INF-ADT</tt>) may be missing
+the <tt>-ADT</tt> tag.
+
+<p>
+<dt>
+<a href="syn-const.html#np-msr">Measure phrases</a>
+<dd>
+In searches for measure phrases (<tt>NP-MSR</tt>), it is wise to
+include <tt>QP</tt>, and vice versa.
+
+<p>
+<dt>
+<a href="pos.html#noun_proper">Proper nouns</a>
+<dd>
+Many inconsistencies and outright errors likely remain in connection
+with <a href="pos.html#noun_proper">proper nouns</a> (<tt>NPR</tt>).
+
+<p>
+The guidelines for proper nouns of the
+form <nobr><a href="pos.html#noun_by_form_the_n_of_np">THE N OF
+NP</a></nobr> (THE WAR OF THE ROSES) have the counterintuitive result that
+none of the nouns is tagged <tt>NPR</tt>.
+
+<p>
+<dt>
+<a href="syn-conj.html#pseudo-imp">Pseudo-imperatives</a> 
+<dd>
+Pseudo-imperatives are not annotated in the PCEEC.
+
+<p>
+<dt>
+<a href="syn-sub.html#ip-inf-prp">Purpose infinitives</a>
+<dd>
+Purpose infinitives (<tt>IP-INF-PRP</tt>) may be missing
+the <tt>-PRP</tt> dash tag, particularly in connection with GO and SEND.
+
+<a name="ip-ppl">
+<p>
+<dt>
+<a href="syn-sub.html#ip-ppl_or_rrc">Reduced relative clauses</a>
+<dd>
+In searches for reduced relative clauses (<tt>RRC</tt>), it is wise to
+consider including ordinary participial clauses (<tt>IP-PPL</tt>), and
+vice versa.
+
+<p>
+<dt>
+<a href="syn-conj.html#right_node_raising">Right node raising</a>
+<dd>
+Instances of right node raising may be missing the index required by the
+guidelines, particularly in the statutes.
+
+<a name="spr">
+<p>
+<dt>
+Secondary predicates
+<dd>
+Secondary predicates (<a href="syn-const.html#adjp-spr"><tt>ADJP-SPR</tt></a>,
+<a href="syn-const.html#np-spr"><tt>NP-SPR</tt></a>) may be mistagged as
+simple predicates (marked by <tt>-PRD</tt>)
+of <a href="syn-sub.html#ip-smc">small clauses</a> (<tt>IP-SMC</tt>),
+and vice versa.
+  
+</dl>
+
+</body>
+</html>
+
