@@ -80,10 +80,12 @@ between the PPCME2 and the later corpora</a>
 <p>
 <a href="known-issues.html" target="mainframe">Known issues</a>
 
+<!--
 <p>
-<a href="lemmatization/lemmatization-index.html" target="_new">Lemmatization (draft)</a>
+<a href="lemmatization/lemmatization-index.html" target="_new">Lemmatization (beta)</a>
 <br>
 (with Hezekiah Bacovcin)
+-->
 
 <p>
 <a href="labels.html" target="mainframe">List of tags and empty categories</a>
