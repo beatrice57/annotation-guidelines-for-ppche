@@ -858,12 +858,17 @@ Modifiers of adverbs include other adverbs,
 <a name="frag">
 <h3>Fragment (<tt>FRAG</tt>)</h3>
 
-<tt>FRAG</tt> is a last resort for annotating material consisting of at
-least two constituents, for which there is not enough material to
-construct an IP, not even an <a href="syn-sub.html#ip-abs">absolute
-clause</a> (<tt>IP-ABS</tt>, <tt>IP-PPL-ABS</tt>).  Fragments that are
-direct speech are labeled <a href="syn-phrase.html#qtp"><tt>QTP</tt></a>
-rather than <tt>FRAG</tt>.
+<tt>FRAG</tt> is a last resort for annotating material for which there
+is not enough material to construct an IP, not even
+an <a href="syn-sub.html#ip-abs">absolute clause</a>
+(<tt>IP-ABS</tt>, <tt>IP-PPL-ABS</tt>).  <tt>FRAG</tt>s generally
+consist of at least two constituents, but unary-branching <tt>FRAG</tt>s
+can be appropriate in connection with elision or gapping.
+
+<p>
+Fragments that are direct speech are
+labeled <a href="syn-phrase.html#qtp"><tt>QTP</tt></a> rather
+than <tt>FRAG</tt>.
 
 <p>
 <blockquote>
@@ -880,6 +885,14 @@ rather than <tt>FRAG</tt>.
 				(BEP @'s)
 				(VAG pouring))))
 	(PUNC !)))
+
+( (IP-MAT (NP-SBJ (Q many))
+	  (PP (P if)
+	      (FRAG (NEG not)
+		    (NP (QS most))))
+	  (MD would)
+	  (VB agree)
+	  (PUNC .)))
 </blockquote>
 </pre>
 

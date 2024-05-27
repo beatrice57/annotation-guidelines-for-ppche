@@ -5136,8 +5136,6 @@ WONDER with the the meaning of WONDROUSLY is tagged <tt>ADV</tt>.
 <a name="worth">
 <h3>WORTH</h3>
 
-See also <a href="syn-phrase.html#adjp_comp_np">NP complement of ADJ</a>.
-
 <p>
 When WORTH means VALUE, it is tagged <tt>N</tt>.  Otherwise, it is
 tagged <tt>ADJ</tt>.
@@ -5149,6 +5147,31 @@ tagged <tt>ADJ</tt>.
 
 ( (ADJP (ADJ worth)
 	(NP (NUM ten) (NS dollars))))
+</pre> </blockquote>
+
+See also <a href="syn-phrase.html#adjp_comp_np">NP complement of ADJ</a>.
+
+<blockquote> <pre>
+( (ADJP (ADJ worth)
+        (NP (NUM ten) (NS shillings))))
+
+( (ADJP (ADJ worth)
+        (NP (N watching))))               &larr; <a href="syn-phrase.html#np_gerund">bare gerund</a>
+
+( (ADJP (ADJ worth)
+        (IP-PPL (VAG starting)
+                (NP-OB1 (D a)
+                        (ADJ fresh)
+                        (N sheet)))))
+
+( (ADJP (ADJ worth)
+        (CP-EOP (WNP-1 0)
+                (IP-PPL (VAG starting)
+                        (NP-OB1 (D a)
+                                (ADJ fresh)
+                                (N sheet))
+                        (PP (P for)
+                            (NP *T*-1))))))
 </pre> </blockquote>
 
 <a name="would-god">
