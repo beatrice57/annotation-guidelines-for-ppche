@@ -18,8 +18,8 @@
     <li><a href="general-intro.html#pos">Part-of-speech (POS) tagged files</a>
        (<tt>.pos</tt>)
     <li><a href="general-intro.html#psd">Parsed files</a> (<tt>.psd</tt>)
-    <li>Lemmatized (.lem)
-        (see <a href="lemmatization/lemmatization-index.html">Lemmatization (beta)</a>
+    <li>Lemmatized (<tt>.lem</tt>)
+        (see <a href="lemmatization.html">Lemmatization</a>)
     </ul>
 <li><a href="general-intro.html#text_markup">Text markup</a>
 </ul>
@@ -87,6 +87,7 @@ characteristic filename extension:
 <li><a href="general-intro.html#pos">part-of-speech (POS) tagged</a>
     (<tt>.pos</tt>)
 <li><a href="general-intro.html#psd">parsed</a> (<tt>.psd</tt>)
+<li><a href="general-intro.html#lem">lemmatized</a> (<tt>.lem</tt>)
 </ul>
 
 <h4>Text files (<tt>.txt</tt>)</h4>
@@ -240,7 +241,7 @@ Each token is enclosed with its ID in a set of unlabeled parentheses.
 				      (C that)
 				      (IP-SUB (NP-SBJ *T*-4)
 					      (VBD helde)
-					      (NP-ACC (N warre))
+					      (NP-OB1 (N warre))
 					      (PP (P ageynst)
 						  (NP (PRO hym)))
 					      (NP-MSR (ADJ long) (N tyme))))))
@@ -268,10 +269,10 @@ Each token is enclosed with its ID in a set of unlabeled parentheses.
 	  (PP (P for)
 	      (NP (D this) (N duk)))
 	  (IP-PPL (VAG chargyng)
-		  (NP-ACC (PRO hym))
+		  (NP-OB1 (PRO hym))
 		  (IP-INF (TO to)
 			  (VB brynge)
-			  (NP-ACC (PRO$ his) (N wyf))
+			  (NP-OB1 (PRO$ his) (N wyf))
 			  (PP (P with)
 			      (NP (PRO hym)))))
 	  (PUNC ,))
@@ -299,6 +300,14 @@ Each token is enclosed with its ID in a set of unlabeled parentheses.
   (ID CMMALORY-M4,2.11))
 </pre>
 </blockquote>
+
+<a name="lem">
+<h4>Lemmatized files (<tt>.lem</tt>)</h4>
+
+Lemmatized files have the extension <tt>.lem</tt>.  In addition to the
+annotation in the parsed files, each word is associated with a lemma
+from the OED.  See <a href="lemmatization.html">Lemmatization</a> for
+further details.
 
 <a name="text_markup">
 <h3>Text markup</h3>
