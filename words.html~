@@ -1700,8 +1700,7 @@ simple <tt>IP-INF-DEG</tt>.
 <h3>ETC.</h3>
 
 ETC. and its spelling variants are tagged <tt>X</tt>.  It is not
-tagged <tt>FW</tt> because it has an entry in the third edition of the
-OED.
+tagged <tt>FW</tt> because it has an OEDID entry.
 
 <a name="even">
 <h3>EVEN</h3>
@@ -1785,7 +1784,7 @@ when the subject is in Latin.
 </pre> </blockquote>
 
 <p>
-EXEANT has no OED entry and is hence tagged <tt>FW</tt>.
+EXEANT is not listed as a headword in the OED and is hence tagged <tt>FW</tt>.
 
 <blockquote> <pre>
 ( (META (FW Exeant)

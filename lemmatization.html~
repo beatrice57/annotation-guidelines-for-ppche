@@ -15,10 +15,8 @@
 
 <p>
 <ul>
-<!--
 <li><a href="https://github.com/beatrice57/pceec2" target="_blank">Parsed
      Corpus of Early English Correspondence, second edition</a> (PCEEC2)
--->
 <li><a href="https://github.com/beatrice57/ppceme" target="_blank">Penn
     Parsed Corpus of Early Modern English</a> (PPCEME)
 <li><a href="https://github.com/beatrice57/ppcmbe2" target="_blank">Penn Parsed Corpus
@@ -56,8 +54,7 @@
 <a name="lemma-authority">
 <h3>Lemma authority</h3>
 
-Our lemma authority is the third edition of the Oxford English
-Dictionary (OED).
+Our lemma authority is the Oxford English Dictionary (OED).
 
 <a name="lemma-format">
 <h3>Lemma format</h3>
