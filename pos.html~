@@ -2238,8 +2238,7 @@ of midde +tine bosme
 <h4>Foreign word (<tt>FW</tt>)</h4>
 
 Our operational definition of a foreign word is one that has no entry in
-the OED.  Words that do have an OED entry are not tagged <tt>FW</tt>, even
-nouns that retain a foreign plural.
+the third edition of the Oxford English Dictionary (OED).
 
 <p> Certain abbreviations of foreign terms are listed in the OED, but
 their POS tag in English is difficult to determine.  Such abbreviations

@@ -305,9 +305,8 @@ Each token is enclosed with its ID in a set of unlabeled parentheses.
 <h4>Lemmatized files (<tt>.lem</tt>)</h4>
 
 Lemmatized files have the extension <tt>.lem</tt>.  In addition to the
-annotation in the parsed files, each word is associated with a lemma
-from the OED.  See <a href="lemmatization.html">Lemmatization</a> for
-further details.
+annotation in the parsed files, each word is associated with a lemma.
+See <a href="lemmatization.html">Lemmatization</a> for details.
 
 <a name="text_markup">
 <h3>Text markup</h3>

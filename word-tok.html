@@ -11,10 +11,10 @@
 <h2>Word tokenization</h2>
 
 <ul>
-<li><a href="pos-tok.html#split">Always split</a>
-<li><a href="pos-tok.html#unitary">Always unitary</a>
-<li><a href="pos-tok.html#as_written">Treated as written</a>
-<li><a href="pos-tok.html#differences">Differences among the corpora</a>
+<li><a href="word-tok.html#split">Always split</a>
+<li><a href="word-tok.html#unitary">Always unitary</a>
+<li><a href="word-tok.html#as_written">Treated as written</a>
+<li><a href="word-tok.html#differences">Differences among the corpora</a>
 <li>Possessive clitic (see <a href="pos.html#noun_dollar">Dollar tag</a>,
    <a href="syn-phrase.html#np_mod_poss">Genitive/possessive modifier of N</a>)
 </ul>
@@ -32,16 +32,16 @@ attempt to adhere to the following principles and strategies.
 <p>
 <ul>
 <p>
-<li>Certain forms are always <a href="pos-tok.html#split">split</a> due
+<li>Certain forms are always <a href="word-tok.html#split">split</a> due
 to the requirements of the annotation or of (possibly future) lemmatization.
 
 <p>
 <li>Items that fused before Middle English are treated as 
-<a href="pos-tok.html#unitary">unitary</a>.
+<a href="word-tok.html#unitary">unitary</a>.
 
 <p>
 <li>Items that are not completely fused by Middle English are generally
-treated <a href="pos-tok.html#as_written">as written</a>.  That is, the
+treated <a href="word-tok.html#as_written">as written</a>.  That is, the
 components receive separate POS tags when they are spelled apart.  When
 spelled together, the resulting word receives a complex POS tag in the
 PPCME2 to reflect its phrasal origin.  In the later corpora, such words
@@ -50,7 +50,7 @@ receives a compound tag, as in cases like <nobr><tt>(Q+ONE someone</tt>)</nobr>.
 
 <p>
 <li>A handful of items are
-treated <a href="pos-tok.html#differences">differently in the later
+treated <a href="word-tok.html#differences">differently in the later
 corpora than in the PPCME2</a>.
 </ul>
 
@@ -214,9 +214,9 @@ This category includes apparent compounds with 'false participles'
 
 <blockquote>
 <pre>
-apon (but not <a href="pos-tok.html#upon">upon</a>)
+apon (but not <a href="word-tok.html#upon">upon</a>)
 asswa (but not <a href="words.html#alswa">ALSWA</a>)
-unto (but not <a href="pos-tok.html#into">into</a>)
+unto (but not <a href="word-tok.html#into">into</a>)
 
 adverbs ending in <a href="pos.html#adj_adv_sup">-MOST</a> and -WARD
 
@@ -248,7 +248,7 @@ whatforthi, withal, within, without(forth),
 <p>
 Nouns with degree OVER are treated as unitary items.  By contrast, other
 categories with degree OVER are
-treated <a href="pos-tok.html#degree_over">as written</a>.
+treated <a href="word-tok.html#degree_over">as written</a>.
 
 <blockquote> <pre>
 (ADVR+N over_fondness)
@@ -385,7 +385,7 @@ analogously: ABED, ADAY, AFIRE, AFOOT, AFRESH, AMORROW, ANIGHT, APACE, APIECE, A
 
 <p>
 <b>Note:</b> Nouns with degree OVER are treated
-as <a href="pos-tok.html#degree_over_n">unitary</a>.
+as <a href="word-tok.html#degree_over_n">unitary</a>.
 
 <blockquote> <pre>
 (ADJP (ADVR over) (ADJ ripe))		(ADJP (ADVR+ADJ overripe))
@@ -450,14 +450,14 @@ as <a href="pos-tok.html#degree_over_n">unitary</a>.
 (PP (P in)			    (PP (P+N instead))
     (NP (N stead)))
 
-(PP (RP in)			    (PP (P <a name="into">into</a>)                &larr; unlike unitary <a href="pos-tok.html#unto">unto</a>
+(PP (RP in)			    (PP (P <a name="into">into</a>)                &larr; unlike unitary <a href="word-tok.html#unto">unto</a>
     (P to)                              (NP ...))
     (NP ...))
 
 (PP (P o')			    (PP (P+N o'clock))
     (NP (N clock)))
 
-(PP (RP up)			    (PP (P <a name="upon">up-on</a>)               &larr; unlike unitary <a href="pos-tok.html#apon">apon</a>
+(PP (RP up)			    (PP (P <a name="upon">up-on</a>)               &larr; unlike unitary <a href="word-tok.html#apon">apon</a>
     (P on)                              (NP ...))
     (NP ...))
 </pre> </blockquote>
