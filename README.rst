@@ -11,6 +11,8 @@ This repository contains
   examples (<https://github.com/beatrice57/ellegard-examples-parsed>).
 - These guidelines (or earlier versions) have also been used as the
   basis for annotation schemes for other languages.
+- For updates and corrections, see the github site
+  (<https://github.com/beatrice57/annotation-guidelines-for-ppche>).
 
 Citation
 ========

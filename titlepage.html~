@@ -9,15 +9,9 @@
 <a name="top">
 <h2>Annotation manual for the Penn Parsed Corpora of Historical English</h2>
 
-<p>
-<b>Citation:</b>
-Beatrice Santorini.
-2024.
-Annotation manual for the Penn Parsed Corpora of Historical English.
-https://github.com/annotation-guidelines-for-ppche.
-
-<p>
-<hr>
+Beatrice Santorini
+<br>
+(July 2024)
 
 <p> This annotation manual is the latest revision of previous versions
 (2004, 2016).  It is heavily indebted to the original document developed
@@ -41,9 +35,8 @@ The guidelines are in force for:
      Corpus of Early English Correspondence, second edition</a> (PCEEC2)
 <li><a href="https://github.com/beatrice57/ellegard-examples-parsed" target="_blank">Parsed
      Ellegård examples</a>
-<li>Penn Parsed Corpora of Historical English (2025 release)
-    <br>
-    Information for the 2016 release is
+<li>Penn Parsed Corpora of Historical English, 2024 release (information
+    for the 2016 release is
     available <a href="https://www.ling.upenn.edu/ppche/ppche-release-2016"
     target="_new">here</a>).
     <ul>
