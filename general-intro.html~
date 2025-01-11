@@ -110,7 +110,7 @@ the running token numbers.
 Material that has been split or separated in the course of annotation
 (punctuation, contractions, cliticized articles, and so on) remains
 separated in the text files in order to simplify searches and tallies.
-See <a href="pos-tok.html">Word tokenization</a> for details.
+See <a href="word-tok.html">Word tokenization</a> for details.
 
 <blockquote>
 <pre>
