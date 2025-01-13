@@ -6094,8 +6094,8 @@ are indicated.
 
 ( (IP-IMP (VBI Give)
 	  (NP-OB2 (PRO me))
-	  (NP-OB1 (CP-EOP (WNP-1 0)			&larr; not <tt>CP-FRL</tt> because of empty wh- operator
-			  (IP-INF (NP-OB1 *T*-1)
+	  (NP-OB1 (CP-EOP (WNP-1 0)
+			  (IP-INF (NP-OB1 *T*-1)        &larr; not <tt>CP-FRL</tt> because of IP-INF
 				  (TO to)
 				  (VB drink))))))
 </pre> </blockquote>
