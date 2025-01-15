@@ -2698,7 +2698,9 @@ position is always included, as it is sometimes filled.
 					       (PP (P on)
                                                    (NP (D the) (N faythe)
 						       (PP (P of)
-                                                           (NP (Q alle) (ADJ Hooly) (NPR Chyrche)))))))))
+							   (NP (Q alle)
+							       (ADJ Hooly)
+							       (NPR Chyrche)))))))))
           (PUNC ,))
   (ID CMGREGOR-M4,106.228))
 
@@ -3606,15 +3608,15 @@ with a nonverbal predicate are a last resort.
 		  (PP (P of)
 		      (NP (NPR Richard)
 			  (PUNC ,)
-			  (RRC (NP-TMP (Q+N sumtyme))	&larr; RRC because NP-TMP and NP-PRD need to form a constituent
-			       (NP-PRD (N kyng))))))))
+			  (RRC (NP-TMP (Q+N sumtyme))	&larr; RRC because NP-TMP and NP-PRD 
+			       (NP-PRD (N kyng))))))))    need to form a constituent
   (ID CMCAPCHR-M4,215.3858))
 
 ( (IP-PPL (VAG sitting)
 	  (PP (P in)
 	      (NP (D a) (N tunne)
-		  (RRC (ADVP-TMP (ADV euyr))		&larr; RRC because ADVP and ADJP need to form a constituent
-		       (ADJP-PRD (ADJ open)	
+		  (RRC (ADVP-TMP (ADV euyr))		&larr; RRC because ADVP and ADJP 
+		       (ADJP-PRD (ADJ open)	          need to form a constituent
 				 (PP (P to)
 				     (NP (D +te) (N sunne))))))))
   (ID CMCAPCHR-M4,41.292))
@@ -3682,18 +3684,18 @@ action taking place simultaneously with that of the main verb.
 
 ( (IP-MAT (NP-SBJ (PRO we))
 	  (VBD perceived)
-	  (NP-OB1 (D the) (NS children))	&larr; treated as <a href="syn-sub.html#ecm_criteria">object control</a> because referent is animate
-	  (IP-PPL (VAG dancing))))
+	  (NP-OB1 (D the) (NS children))		&larr; treated as <a href="syn-sub.html#ecm_criteria">object control</a> 
+	  (IP-PPL (VAG dancing))))			  because referent is animate
 
 ( (IP-MAT (NP-SBJ (PRO we))
 	  (VBD perceived)
-	  (IP-PPL-OB1 (NP-SBJ (D the) (N pendulum))	&larr; treated as <a href="syn-sub.html#ecm_criteria">ECM</a> because referent is inanimate
-		      (VAG swinging))))
+	  (IP-PPL-OB1 (NP-SBJ (D the) (N pendulum))	&larr; treated as <a href="syn-sub.html#ecm_criteria">ECM</a> 
+		      (VAG swinging))))	 		  because referent is inanimate
 
 ( (IP-MAT (NP-SBJ=1 (EX there))
 	  (BED was)
-	  (NP-1 (D a) (N pendulum))             &larr; analogous to A PENDULUM WAS HANGING FROM THE CEILING
-	  (VAG hanging)
+	  (NP-1 (D a) (N pendulum))		        &larr; analogous to A PENDULUM 
+	  (VAG hanging)	 				  WAS HANGING FROM THE CEILING     
 	  (PP (P from)
 	      (NP (D the) (N ceiling)))))
 </pre> </blockquote>
@@ -3770,19 +3772,17 @@ preposed wh- phrase functioning as a topicalized constituent, but we do
 not attempt to distinguish the two cases.
 
 <blockquote> <pre>
-( (IP-MAT ...
-	  (NP (D a) (N foundation))
-	  (CP-CAR (WPP-1 (P without)
-			 (WNP (WD which) (N foundation)))       &larr; <tt>CP-CAR</tt> because of wh- modified noun
-		  (IP-SUB ...))
-	  ...))
+( (NP (D a) (N foundation)
+      (CP-CAR (WPP-1 (P without)
+                     (WNP (WD which) (N foundation)))   &larr; <tt>CP-CAR</tt> - head of WNP = N
+              (IP-SUB (PP *T*-1)
+                      ...))))
 
-( (IP-MAT ...
-          (NP (D a) (N foundation)
-	      (CP-REL (WPP-1 (P without)
-			     (WNP (WPRO which)))                &larr; <tt>CP-REL</tt> because of wh- pronoun
-		      (IP-SUB ...)))
-	  ...))
+( (NP (D a) (N foundation)
+      (CP-REL (WPP-1 (P without)
+                     (WNP (WPRO which)))                &larr; <tt>CP-REL</tt> - head of WNP = WPRO
+              (IP-SUB (PP *T*-1)
+                      ...))))
 </pre> </blockquote>
 
 <blockquote style="background-color:#F5FFFA"><!--mideng-->

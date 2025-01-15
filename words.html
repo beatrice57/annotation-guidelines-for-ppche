@@ -133,7 +133,7 @@ the collocation AS AFORESAID.
 <p> See also <a href="words.html#once">ONCE AGAIN</a>.
 
 <blockquote> <pre>
-(ADVP (ADV again)		&larr; no ADVP-TMP
+(ADVP (ADV again)		&larr; no -TMP
 </pre> </blockquote>
 
 <a name="ago">
@@ -606,8 +606,8 @@ contexts, AS and SO can be paraphrased by TO SUCH A DEGREE/EXTENT.
                         (NP-OB1 (N belief))))))
 
 ( (ADJP (ADVR so) (ADJ merciful)
-        (IP-INF-DEG (TO to)			&larr; -DEG when IP-INF is complement of licensing degree head (SO)
-                    (VB forgive)
+        (IP-INF-DEG (TO to)			&larr; -DEG because IP-INF is complement of 
+		    (VB forgive)                  licensing degree head (SO)
                     (NP-OB1 (Q all) (PRO$ our) (NS sins)))))
 
 ( (ADJP (ADVR so) (ADJ unbelievable)
@@ -853,13 +853,13 @@ linked to AS WELL via an *ICH* trace.
 <blockquote> <pre>
 ( (PP (PP (P on)
 	  (NP (NPR earth)))
-      (ADVP (ADVR as)                                       &larr; ADVP corresponds to CONJP; AS WELL AS corresponds to CONJ
-	    (ADV well)
+      (ADVP (ADVR as)				&larr; ADVP corresponds to CONJP;
+	    (ADV well)				  AS WELL AS corresponds to CONJ
 	    (PP (P as)
 		(PP (P in)
 		    (NP (NPR heaven)))))))
 
-( (PP (ADVP (ADVR as)                                       &larr; extraposed PP corresponds to extraposed CONJP
+( (PP (ADVP (ADVR as)				&larr; extraposed PP corresponds to extraposed CONJP
 	    (ADV well)
 	    (PP *ICH*-1))
       (PP (P on)
@@ -896,8 +896,8 @@ linked to AS WELL via an *ICH* trace.
 ( (PP (P for)
       (IP-PPL (IP-PPL (VAG buying)
 		      (NP-OB1 (N wool)))
-	      (ADVP (ADVR as)                               &larr; ADVP corresponds to CONJP; AS WELL AS corresponds to CONJ
-		    (ADV well)
+	      (ADVP (ADVR as) 	                    &larr; ADVP corresponds to CONJP;
+		    (ADV well)			      AS WELL AS corresponds to CONJ     
 		    (PP (P as)
 			(IP-PPL (VAG selling)
 				(NP-OB1 (PRO it))))))))
@@ -1138,7 +1138,7 @@ because BID can be used as a ditransitive verb (see below).
 <blockquote> <pre>
 ( (IP-MAT (NP-SBJ (PRO They))
           (VBD bade)
-          (NP-OB2 (D the)			&larr; object control; postverbal NP = matrix indirect object
+          (NP-OB2 (D the)		&larr; object control; postverbal NP = matrix indirect object
                   (NS grooms)) 
           (IP-INF (TO to)
                   (VB feed)
@@ -1148,7 +1148,7 @@ because BID can be used as a ditransitive verb (see below).
 
 ( (IP-MAT (NP-SBJ (PRO They))
           (VBD bade)
-          (IP-INF (NP-SBJ (D the)		&larr; ECM because of passive complement
+          (IP-INF (NP-SBJ (D the)	&larr; ECM because of passive complement
 			  (NS horses)) 
 		  (TO to)
 		  (BE be)
@@ -1460,8 +1460,8 @@ their complements.  They are also relevant in distinguishing between
 structures.
 
 <blockquote> <pre>
-APPEAR, BE, BECOME, CHANCE, CONTINUE, FALL, FEEL, GET, GROW, KEEP, LOOK,
-PLEAD (in legal sense), PROVE, REMAIN, SAVOR, SEEM, SHOW, SMELL, SOUND, STAY, TASTE, TURN, WAX
+APPEAR, BE, BECOME, CHANCE, CONTINUE, FALL, FEEL, GET, GROW, KEEP, LOOK, PLEAD (in legal sense),
+PROVE, REMAIN, SAVOR, SEEM, SHOW, SMELL, SOUND, STAY, TASTE, TURN, WAX
 </pre> </blockquote>
 
 <a name="couple">
@@ -3676,7 +3676,7 @@ cases where PAST is tagged as the past participle (<TT>VBN</tt>).
           (ADJ past)
           (NPR Wednesday)))
 
-( (NP-TMP (NPR Wednesday)			&larr; like the following rather than the preceding
+( (NP-TMP (NPR Wednesday)
           (ADJP (ADJ past))))
 
 ( (NP-TMP (NPR Wednesday)
@@ -5024,8 +5024,8 @@ also appears in the variant forms NONE or NOT.
 			     (IP-SUB=1 (NEG no))))))
 
 ( (CP-QUE-SUB-ADV (WQ Whether)
-		  (CONJP (CONJ or)				&larr; backwards gapping; note the position before C, which can be overt
-			 (IP-SUB=1 (NEG no)))
+		  (CONJP (CONJ or)				&larr; backwards gapping;
+			 (IP-SUB=1 (NEG no)))			  note position before C, which can be overt
                   (C 0 / that)
 		  (IP-SUB (IP-SUB-1 (NP-SBJ (PRO it))
                                     (VBP rains)))))
