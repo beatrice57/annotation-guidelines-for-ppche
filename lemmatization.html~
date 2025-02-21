@@ -315,12 +315,10 @@ follows:
 
 <ul>
 <li>the number words from 0 to 19
-<li>the tens or <i>-ty</i> words from 20 to 90
-<!--
+<li>the tens or <i>-ty</i> words from 20 to 100
 <li>bare "basic" powers of ten (HUNDRED, THOUSAND, MILLION).  In principle,
     BILLION, TRILLION, etc. belong here, but they do not occur in the
     corpora.
-  -->
 </ul>
 
 <blockquote> <pre>
@@ -329,10 +327,8 @@ follows:
 (NUM xix#nineteen)
 
 (NUM xx#twenty)
-<!--
 
 (NUM 100#hundred)
--->
 </pre> </blockquote>
 
 <p> All other numbers, including ones with initial A_ for ONE, are not lemmatized.
