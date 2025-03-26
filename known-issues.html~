@@ -114,12 +114,14 @@ numerical indices sometimes replace expected equal signs.
 Infinitival adjuncts (<tt>IP-INF-ADT</tt>) may be missing
 the <tt>-ADT</tt> tag.
 
+<!--
 <p>
 <dt>
 <a href="lemmatization.html">Lemmatization</a>
 <dd>
 Words that should have derived lemmas may have compound lemmas, and vice
 versa.
+-->
 
 <p>
 <dt>

@@ -5,50 +5,11 @@
 <a name=top>
 <h2>Lemmatization</h2>
 
-<table border cellpadding=5>
-<tr>
-<td>
-<p>
 <ul>
-<li>Due to intellectual property issues, the lemmatized versions of the
-    corpora are not yet available.  Negotiations between Oxford
-    University Press and the Linguistic Data Consortium are ongoing
-    (Last update: January 2025).
-</table>
-
-<!--
-<table border cellpadding=5>
-<tr>
-<td>
-<p>
-<ul>
-<li>Not all parsed files are lemmatized.  As of July 2024, the lemmatized
-    corpora include:
-
-<p>
-<ul>
-<li><a href="https://github.com/beatrice57/pceec2" target="_blank">Parsed
-     Corpus of Early English Correspondence, second edition</a> (PCEEC2)
-<li><a href="https://github.com/beatrice57/ppceme" target="_blank">Penn
-    Parsed Corpus of Early Modern English</a> (PPCEME)
-<li><a href="https://github.com/beatrice57/ppcmbe2" target="_blank">Penn Parsed Corpus
-    of Modern British English, second edition</a> (PPCMBE2)
-</ul>
-
-<p>
-<li>The lemmatization of the PPCME2 remains to be implemented.
-
-<p>
-<li>The lemmatized files are best regarded as beta versions.  Please
-    report errors to beatrice DOT santorini AT gmail DOT com.
-</ul>
-</table>
--->
-
-<ul>
+<li><a href="#prolegomena">Prolegomena</a>
 <li><a href="#lemma-authority">Lemma authority</a>
 <li><a href="#lemma-format">Lemma format</a>
-<li><a href="#lemma-types">Lemma types</a>
+<li><a href="#lemma-types">Lemma type</a>
     <ul>
     <li><a href="#ordinary-lemma">Ordinary lemma</a>
     <li><a href="#derived-lemma">Derived lemma</a>
@@ -64,163 +25,285 @@
     </ul>
 </ul>
 
+<a name="prolegomena">
+<h3>Prolegomena</h3>
+
+<blockquote>
+
+Ideally, we would like to use the Oxford English Dictionary (OED) as our
+lemma authority for lemmatizing the parsed corpora of (Early) Modern
+English that we have worked on.  But the OED is under copyright, so it
+is not straightforward to do this.  Therefore, we have instead chosen
+the
+<a href="https://onlinebooks.library.upenn.edu/webbin/metabook?id=newenglishdictionary">New
+English Dictionary</a> (NED) as our lemma authority, which is entirely
+in the public domain.  It is a forerunner of the current edition of the
+OED and hence an excellent second-best resource.
+
+<p>
+<ul>
+<li>An NED-based lemmatized version of the Parsed Corpus of Early English
+Correspondence, second edition (PCEEC2) is available.
+
+<p><a href="https://github.com/beatrice57/pceec2" target="_blank">Parsed
+    Corpus of Early English Correspondence, second edition</a> (PCEEC2)
+
+<p>
+<li>
+An NED-based lemmatized version of the (Early) Modern English parts of
+the PPCHE exists, but is not yet available because it is based on an
+upcoming release of the PPCHE by the Linguistic Data Consortium (LDC) at
+the University of Pennsylvania.
+
+<p>
+<ul>
+<li><a href="https://github.com/beatrice57/ppceme" target="_blank">Penn
+    Parsed Corpus of Early Modern English</a> (PPCEME)
+<li><a href="https://github.com/beatrice57/ppcmbe2"
+    target="_blank">Penn Parsed Corpus of Modern British English,
+    second edition</a> (PPCMBE2)
+</ul>
+
+<p>
+It is not yet clear whether the lemmatized files will be released by LDC
+directly or whether the lemmatization will be posted on github as a
+patch on the parsed version.  Please check back here for updates.
+
+<p>
+Since this is (or will be) the first release of the lemmatized versions
+of the corpora, it is especially important to report errors.  This
+ensures that the annotation improves over time.  Please report errors to
+beatrice DOT santorini AT gmail DOT com.
+</ul>
+
+</blockquote>
+
 <a name="lemma-authority">
 <h3>Lemma authority</h3>
 
-Our lemma authority is the Oxford English Dictionary (OED).
+<blockquote>
+For the reasons just stated, our lemma authority is the New English
+Dictionary (NED).  NED lemmas are generally associated with one or more
+parts of speech, and homonyms with the same part of speech are
+distinguished by trailing Arabic numerals.  We have streamlined this
+system as follows.
+
+<p>
+<table border cellpadding=5>
+<tr>
+<th align=left>Simplification
+<th align=left>NED
+<th align=left>Current system
+<tr>
+<td>Replace "sb." (substantive) by "n" (noun) and "a." by "adj" (adjective).
+<td>event, sb.
+    <br>
+    eye, sb1.
+    <br>
+    unconsolable, a.
+<td>event_n
+    <br>
+    eye_n1
+    <br>
+    unconsolable_adj
+<tr>
+<td>Simplify "vbl. sb." (verbal substantive) to "n" (noun) and
+    "ppl. a." (participial adjective) to "adj" (adjective).
+<td>musing, vbl. sb.
+    <br>
+    interested, ppl. a.
+    <br>
+    interesting, ppl. a.
+<td>musing_n
+    <br>
+    interested_adj
+    <br>
+    interesting_adj
+<tr>
+<td>Use only the first of several parts of speech.
+<td>ill, a. and sb.
+<td>ill_adj
+<tr>
+<td>Supply any missing parts of speech.
+<td>imponderability
+<td>imponderabilty_n
+<tr>
+<td>Add trailing Arabic numbers to distinguish any identical 
+    headwords resulting from the above rules.
+<td>reading, sb., <br> reading, vbl. sb.
+<td>reading_n1, <br> reading_n2
+</table>  
+
+</blockquote>
 
 <a name="lemma-format">
 <h3>Lemma format</h3>
+
+<blockquote>
 
 The delimiter between a word and its lemma is the pound sign (#), which
 does not otherwise appear in the corpora.
 
 <p>
-Schematically:
+<table border cellpadding=5>
+<tr>
+<th align=left>Schema
+<th align=left>Example(s)
+<tr>
+<td>(POS-tag word#lemma)
+<td>(N cabbage#cabbage_n1)
+<br>
+(<font color="red">D</font> a#a_<font color="red">adj2</font>)
+<br>
+(<font color="red">P</font> while#while_<font color="red">adv</font>)
+<tr>
+<td colspan=3>
+<b>Note:</b> As the last two examples show, the lemma authority's
+authority is restricted to lemmas; it does not trump our annotation
+guidelines regarding POS tag assignment.
+</table>
 
-<blockquote> <pre>
-(POS-tag word#lemma))
-</pre> </blockquote>
-
-<p>
-<b>Note:</b> The OED is not our authority for POS tags.
-
-<blockquote> <pre>
-(<font color="red">D</font> a#a_<font color="red">adj</font>))
-
-(<font color="red">P</font> while#while_<font color="red">adv</font>))
-</pre> </blockquote>
+</blockquote>
 
 <a name="lemma-type">
 <h3>Lemma type</h3>
 
+<blockquote>
+
 There are four lemma types:
 
 <ul>
-<li><a href="ordinary-lemma">ordinary</a>
-<li><a href="derived-lemma">derived</a>
-<li><a href="compound-lemma">compound</a>
-<li><a href="no-lemma">none</a>
+<li><a href="ordinary-lemma">ordinary</a> (indicated by the relevant
+    headword)
+<li><a href="derived-lemma">derived</a> (indicated by the first relevant
+    headword, preceded by "SEE_")
+<li><a href="compound-lemma">compound</a> (indicated by "cNA")
+<li><a href="no-lemma">none</a> (indicated by "NA")
 </ul>
 
 <a name="ordinary-lemma">
 <h4>Ordinary lemma</h4>
 
-The word has its own OED headword.
+<p>
+<blockquote>
+The word has a headword of its own.
 
 <p>
-Schematically:
+<table border cellpadding=5>
+<tr>
+<th align=left>Schema
+<th align=left>Example(s)
+<tr>
+<td>(POS-tag word#headword)
+<td>(N cabbage#cabbage_n1)
+</table>
 
-<blockquote> <pre>
-(POS-tag word#OED_headword))
-</pre> </blockquote>
-
-<p>
-Example:
-
-<blockquote> <pre>
-(N cat#cat_n))
-</pre> </blockquote>
+</blockquote>
 
 <a name="derived-lemma">
 <h4>Derived lemma</h4>
 
-The word has no OED headword of its own, but is listed under some other
-headword.
-
-<p>
-Schematically:
-
-<blockquote> <pre>
-(POS-tag word#SEE_OED_headword)
-</pre> </blockquote>
-
-<p>
-Example:
-
-<blockquote> <pre>
-(ADJ many-legged#SEE_many_adj)
-
-(N palmer-worm#SEE_palmer_n1)
-</pre> </blockquote>
-
-<p>
-Derived lemmas are also assigned if:
+<blockquote>
+Derived lemmas are assigned when:
 
 <ul> 
-<li>the word contains an element listed in the OED as a so-called
-    combining form (productive affix).
-
-<blockquote> <pre>
-(ADJ ill-suited#SEE_ill_combform)
-</pre> </blockquote>
-
-<li>the word is a parasynthetic compound.  Such words are formed by both
-    compounding and derivation, with the derivational morpheme
-    (here, <i>-ed</i>) taking scope over an otherwise unattested
-    compound (here, <i>hazel-hair</i>).
-
-<blockquote> <pre>
-(ADJ hazel-haired#SEE_hazel_n)
-</pre> </blockquote>
+<li>the word has no headword of its own, but is listed under some other
+    headword.
+<li>the word contains a constituent listed in the lemma authority as an
+    affix or "combining form".
+<li>the word is a "parasynthetic compound" (for
+    instance, <i>hazel-haired</i>).  Such words are formed by both
+    compounding and derivation, with a derivational morpheme
+    like <i>-ed</i> taking scope over an otherwise unattested compound
+    like <i>hazel-hair</i>.
 </ul>
 
-<p> In assigning a derived lemma in these last two cases, the lemma of
-the first constituent takes precedence over later ones.  In other words,
-<i>ill-suited</i> and <i>hazel-haired</i> get their lemmas from
-<i>ill-</i> and <i>hazel</i> rather than from <i>suited</i> and
-<i>haired</i>.
+<p> In the last two cases, the lemma of first constituent takes
+precedence over later ones in determining the lemma of the whole word.
+For instance, in <i>protonephron</i> and <i>hazel-haired</i> get their
+lemmas from <i>proto-</i> and <i>hazel</i> rather than
+from <i>nephron</i> and <i>haired</i>.
+
+<p>
+<table border cellpadding=5>
+<tr>
+<th align=left>Schema
+<th align=left>Example(s)
+<tr>
+<td>(POS-tag word#SEE_headword)
+<td>
+(ADJ plundered#SEE_plunder_v2)
+<br>
+(N protonephron#SEE_proto_combform)
+<br>
+(ADJ hazel-haired#SEE_hazel_n)
+</table>
+
+</blockquote>
 
 <a name="compound-lemma">
 <h4>Compound lemma</h4>
 
-The word has no OED headword of its own and is not a candidate for the
-derived lemma type, but at least one constituents does have an OED
-headword.
+<blockquote>
 
-<blockquote> <pre>
-(N coral-rock#cNA)
-</pre> </blockquote>
+<p>
+The word has no headword of its own nor does it meet the requirements
+for derived lemmas.  But at least one constituent has a headword.
+
+<p>
+<table border cellpadding=5>
+<tr>
+<th align=left>Schema
+<th align=left>Example(s)
+<tr>
+<td>(POS-tag word#cNA)
+<td>(N coral-rock#cNA)
+</table>
+
+</blockquote>
 
 <a name="no-lemma">
 <h4>No lemma</h4>
 
-The word cannot be associated with an OED headword at all, either
-directly or indirectly.  This is true by definition of words tagged
-as <tt>FW</tt> (foreign word).
+<blockquote>
 
 <p>
-Schematically:
-
-<blockquote> <pre>
-(POS-tag word#NA)
-</pre> </blockquote>
+The word is not associated with headword, either directly or indirectly.
+This is true by definition of words tagged as <tt>FW</tt> (foreign
+word).
 
 <p>
-Example:
+<table border cellpadding=5>
+<tr>
+<th align=left>Schema
+<th align=left>Example(s)
+<tr>
+<td>(POS-tag word#NA)
+<td>(FW Beutelratte#NA)
+</table>
 
-<blockquote> <pre>
-(FW Beutelratte#NA)
-</pre> </blockquote>
+</blockquote>
 
-</ul>
+</blockquote>
 
 <a name="general-principles">
 <h3>General principles</h3>
+
+<blockquote>
 
 <p>
 The two main principles for our lemmatization are:
 
 <ul>
-<li>to associate the word with the first possible lemma type
-    (ordinary &gt; derived &gt; compound &gt; NA), and
-<li>to respect the original orthography of the text 
+<li>to respect the original orthography of the text, and
+<li>to associate each word with the first possible lemma type (ordinary
+    &gt; derived &gt; compound &gt; NA)
 </ul>
 
 <p>
-Cases (especially in earlier stages of English) that are (in principle)
-ambiguous between a phrasal and a compound word analysis are treated as
-spelled.
+These principles, applied in order, give the following results when
+applied to cases (especially in earlier stages of English) that are (in
+principle) ambiguous between phrases and compound words.
 
 <blockquote> <pre>
 (NP (ADJ gentle#gentle_adj)
@@ -229,27 +312,24 @@ spelled.
 (NP (N gentleman#gentleman_n))
 </pre> </blockquote>
 
-<p> We attempt to resolve conflicts between the two principles by
-adjusting orthographic word boundaries - that is, by joining or
-splitting orthographic words.
+<p> In certain cases, we modify orthographic boundaries in the text.
+Joining is indicated by "_" (underscore).  It is frequent in connection
+with nativized abbreviations and expressions from Latin
+(<i>a. m.,</i> <i>P. S.,</i> <i>p. m.,</i> <i>per cent.,</i> and the
+like).
 
-<p> Joining is indicated by "_" (underscore).  It occurs frequently in
-connection with abbreviations and expressions from Latin (<i>a. m.,</i>
-<i>P. S.,</i> <i>p. m.,</i> <i>per annum,</i> <i>per cent,</i> and the
-like).  The rationale for joining is that the joined expression gets an
-ordinary lemma, which outranks any NAs of the unjoined expression.
+<blockquote><pre>
+(ADVP (ADV a._m.#a.m._adv))				&larr; this way
+(LATIN (FW a.#NA) (FW m.#NA))				&larr; not this way
 
-<blockquote> <pre>
-(ADVP (ADV per_Annum#per-annum_adv))			&larr; this way
-
+(ADVP (ADV per_cent.#per_cent_adv))			&larr; this way
 (PP (P per#per_prep)					&larr; not this way
-    (NP (FW Annum#NA)))
+    (NP (N cent.#n1)))
 </pre> </blockquote>
 
-<p> Splitting is indicated by trailing and leading "@" (at sign).  By
-default, words are split after hyphens (rather than before).  The
-rationale for splitting is that the ordinary lemmas of the split
-expression outrank the NA of the unsplit expression.
+<p>
+Splitting is indicated by trailing and leading "@" (at sign).  By
+default, words are split after hyphens (rather than before).
 
 <blockquote> <pre>
 (ADJP (Q little-@#little_adj)                           &larr; this way
@@ -259,31 +339,38 @@ expression outrank the NA of the unsplit expression.
 </pre> </blockquote>
 
 <p>
-<b>Note:</b> Splitting is not carried out consistently.  In practice, it
-is restricted to prenominal participial adjectives as in the above
-example.
+Our rationale for adjusting orthographic word boundaries when we do is
+that it tends to produce items with lemmas over ones with NA.  Due to
+the number and complexity of relevant cases, joining and splitting are
+difficult to apply consistently.  We have done our best to do so for
+certain individual items and for certain recurring subtypes such as
+complex prenominal participial adjectives like <i>little-compounded</i>.
+
+</blockquote>
 
 <a name="special-cases">
 <h3>Special cases</h3>
 
+<blockquote>
+
 By convention, certain words are not associated with a lemma even when
-they have an OED headword.
+they could be assigned one.
 
 <a name="proper-nouns">
 <h4>Proper nouns (<tt>NPR</tt> and variants)</h4>
 
-<p>The OED does not list proper nouns when used as names.  For
+<p>The NED does not list proper nouns when used as names.  For
    uniformity, we apply this convention to all instances of words tagged
    with the <tt>NPR</tt> tag and its variants, including where these
    words are used as modifiers and the like.
 
-<p>Proper nouns used as common nouns are treated in the ordinary way if
-   they have an OED headword.
+<p>When used as common nouns, proper nouns are lemmatized according to
+   the above rules.
 
 <blockquote> <pre>
 (NP (NPR Elizabeth#NA))
 
-(NP (D an#a_adj) (N Elizabeth#elizabeth_n)		&larr; coin with likeness of Elizabeth I
+(NP (D an#a_adj) (N Elizabeth#elizabeth_n))		&larr; coin with likeness of Elizabeth I
 </pre> </blockquote>
 
 <a name="numbers">
@@ -315,23 +402,20 @@ follows:
 
 <ul>
 <li>the number words from 0 to 19
-<li>the tens or <i>-ty</i> words from 20 to 100
-<li>bare "basic" powers of ten (HUNDRED, THOUSAND, MILLION).  In principle,
-    BILLION, TRILLION, etc. belong here, but they do not occur in the
-    corpora.
+<li>the tens or <i>-ty</i> words from 20 to 90
 </ul>
 
 <blockquote> <pre>
-(NUM one#one)
-(NUM 2#two)
-(NUM xix#nineteen)
+(NUM one#one_adj)
+(NUM 2#two_adj)
+(NUM xix#nineteen_adj)
 
-(NUM xx#twenty)
-
-(NUM 100#hundred)
+(NUM twenty#twenty_adj)
+(NUM .L.#fifty_adj)
 </pre> </blockquote>
 
-<p> All other numbers, including ones with initial A_ for ONE, are not lemmatized.
+<p> All other numbers, including ones with initial A_ for ONE, are not
+lemmatized.
 
 <blockquote> <pre>
 (NUM twenty_two#NA)
@@ -344,14 +428,19 @@ follows:
 (NUM two_hundred#NA)
 (NUM 200#NA)
 (NUM 3,000#NA)
-
-(NUM half-a-dozen#NA)
-(NUM two_dozen#NA)
-(NUM threescore#NA)
-(NUM three_score_and_fifteen#NA)
 </pre> </blockquote>
 
-</ul>
+<p>
+"Bare" powers of ten (HUNDRED, THOUSAND, MILLION) - that is, ones not
+preceded by some number (including A or ONE) - are tagged as plural
+nouns (<tt>NS</tt>), not numerals (<tt>NUM</tt>).  As a result, they do
+receive lemmas.  In principle, this also goes for BILLION, TRILLION,
+etc., but these do not occur in the corpora.
+
+<blockquote> <pre>
+(NS hundreds#hundred_n)
+(NS Thowsands#thousand_n)   
+</pre> </blockquote>
 
 Ordinal numbers (<tt>ADJ</tt>) are joined like cardinal numbers.
 
@@ -369,6 +458,7 @@ Higher ordinal numbers have no lemma.
 (ADJ first#first_adj)
 (ADJ 2nd#second_adj)
 
+(ADJ sixth#NA)
 (ADJ twenty-first#NA)
 </pre> </blockquote>
 
@@ -376,7 +466,7 @@ Higher ordinal numbers have no lemma.
 analogously.
 
 <blockquote> <pre>
-(ADV Firstlie=#firstly_adv)
+(ADV Firstlie#firstly_adv)
 (ADV 2nd=ly=#secondly_adv)
 (ADV sixthly#NA)
 </pre> </blockquote>
@@ -393,3 +483,5 @@ Letters of the alphabet, symbols in diagrams, and the like are not lemmatized.
 (NP (D the_adj) (N line_n2)
     (NP-PRN (N ab#NA)))
 </pre> </blockquote>
+
+</blockquote>

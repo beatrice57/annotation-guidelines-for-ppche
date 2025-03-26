@@ -2381,9 +2381,8 @@ Otherwise, unless used as <a href="syn-phrase.html#ls">list markers</a>
 (LS), all cardinal numbers except for <a href="words.html#one">ONE</a>
 are tagged <tt>NUM</tt>, whether spelled out, in numeral form, or in
 some combination of the two.  In the lemmatized corpora, all numbers are
-represented as single orthographic words; see the
-<a href="lemmatization.html" target="_new">lemmatization guidelines</a>
-for details.
+represented as single orthographic words; see the lemmatization
+guidelines for details.
 
 <p>
 <blockquote>
