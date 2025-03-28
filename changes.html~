@@ -71,9 +71,9 @@ the first and subsequent words share the same category.
 <h3>Complex tags</h3>
 
 <p>
-To facilitate lemmatization, we have split complex tags
-by <a href="word-tok.html#split">splitting words</a> in more cases than
-in previous releases.
+To facilitate lemmatization, we have reduced the incidence of complex
+tags by <a href="word-tok.html#split">splitting words</a> in more cases
+than in previous releases.
 
 <p>
 In compound words, complex tags in the (Early) Modern English corpora

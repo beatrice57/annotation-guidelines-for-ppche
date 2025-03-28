@@ -140,8 +140,8 @@ and a leading "@" on the second component.
 
 </ul>
 
-In order to facilitate lemmatization, determiners and possessive
-pronouns are also always split, with very rare exceptions.
+In order to facilitate (possibly future) lemmatization, determiners and
+possessive pronouns are also always split, with very rare exceptions.
 
 <ul>
 <li> D or PRO$ + N

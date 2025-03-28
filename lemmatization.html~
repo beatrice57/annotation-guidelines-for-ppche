@@ -35,7 +35,7 @@ lemma authority for lemmatizing the parsed corpora of (Early) Modern
 English that we have worked on.  But the OED is under copyright, so it
 is not straightforward to do this.  Therefore, we have instead chosen
 the
-<a href="https://onlinebooks.library.upenn.edu/webbin/metabook?id=newenglishdictionary">New
+<a href="https://archive.org/details/oed01arch/page/522/mode/2up">New
 English Dictionary</a> (NED) as our lemma authority, which is entirely
 in the public domain.  It is a forerunner of the current edition of the
 OED and hence an excellent second-best resource.
@@ -43,17 +43,14 @@ OED and hence an excellent second-best resource.
 <p>
 <ul>
 <li>An NED-based lemmatized version of the Parsed Corpus of Early English
-Correspondence, second edition (PCEEC2) is available.
+    Correspondence, second edition (PCEEC2) is available.
 
 <p><a href="https://github.com/beatrice57/pceec2" target="_blank">Parsed
     Corpus of Early English Correspondence, second edition</a> (PCEEC2)
 
 <p>
-<li>
-An NED-based lemmatized version of the (Early) Modern English parts of
-the PPCHE exists, but is not yet available because it is based on an
-upcoming release of the PPCHE by the Linguistic Data Consortium (LDC) at
-the University of Pennsylvania.
+<li>An NED-based lemmatized version of the (Early) Modern English parts
+    of the PPCHE exists, but is not yet publicly available.
 
 <p>
 <ul>
@@ -65,9 +62,9 @@ the University of Pennsylvania.
 </ul>
 
 <p>
-It is not yet clear whether the lemmatized files will be released by LDC
-directly or whether the lemmatization will be posted on github as a
-patch on the parsed version.  Please check back here for updates.
+It lemmatizes an upcoming release of the PPCHE by the Linguistic Data
+Consortium (LDC) at the University of Pennsylvania and will at some
+point become available through LDC.  Please check back here for updates.
 
 <p>
 Since this is (or will be) the first release of the lemmatized versions
