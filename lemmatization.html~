@@ -34,8 +34,7 @@ Ideally, we would like to use the Oxford English Dictionary (OED) as our
 lemma authority for lemmatizing the parsed corpora of (Early) Modern
 English that we have worked on.  But the OED is under copyright, so it
 is not straightforward to do this.  Therefore, we have instead chosen
-the
-<a href="https://archive.org/details/oed01arch/page/522/mode/2up">New
+the <a href="https://archive.org/details/oed01arch/page/522/mode/2up">New
 English Dictionary</a> (NED) as our lemma authority, which is entirely
 in the public domain.  It is a forerunner of the current edition of the
 OED and hence an excellent second-best resource.
@@ -66,12 +65,13 @@ It lemmatizes an upcoming release of the PPCHE by the Linguistic Data
 Consortium (LDC) at the University of Pennsylvania and will at some
 point become available through LDC.  Please check back here for updates.
 
-<p>
-Since this is (or will be) the first release of the lemmatized versions
-of the corpora, it is especially important to report errors.  This
-ensures that the annotation improves over time.  Please report errors to
-beatrice DOT santorini AT gmail DOT com.
 </ul>
+
+<p>
+Since these are (or will be) first releases of lemmatized versions, it
+is especially important to report errors.  This ensures that the
+annotation improves over time.  Please report errors to beatrice DOT
+santorini AT gmail DOT com.
 
 </blockquote>
 
@@ -138,8 +138,19 @@ system as follows.
 
 <blockquote>
 
-The delimiter between a word and its lemma is the pound sign (#), which
-does not otherwise appear in the corpora.
+The delimiter between a word and its lemma is the pound sign or hash
+mark (#).
+
+<p>
+<table border cellpadding=5>
+<tr>
+<td><img src="caution.GIF">
+<td>This character was chosen as delimiter because it does not otherwise
+appear in the corpora.  It has the drawback of having special
+significance for various shells and programs.  In such cases, the
+workaround is to replace '#' by some otherwise unattested expression
+like "XHASHX" or the like.
+</table>
 
 <p>
 <table border cellpadding=5>
