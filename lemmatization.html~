@@ -40,28 +40,20 @@ in the public domain.  It is a forerunner of the current edition of the
 OED and hence an excellent second-best resource.
 
 <p>
-<ul>
-<li>An NED-based lemmatized version of the Parsed Corpus of Early English
-    Correspondence, second edition (PCEEC2) is available.
-
-<p><a href="https://github.com/beatrice57/pceec2" target="_blank">Parsed
-    Corpus of Early English Correspondence, second edition</a> (PCEEC2)
-
-<p>
-<li>An NED-based lemmatized version of the (Early) Modern English parts
-    of the PPCHE exists, but is not yet publicly available.
+<li>An NED-based lemmatized version of the following (Early) Modern
+    English corpora exists, but is not yet publicly available.
 
 <p>
 <ul>
-<li><a href="https://github.com/beatrice57/ppceme" target="_blank">Penn
+<li><a href="https://github.com/beatrice57/ppceme" target="_new">Penn
     Parsed Corpus of Early Modern English</a> (PPCEME)
 <li><a href="https://github.com/beatrice57/ppcmbe2"
-    target="_blank">Penn Parsed Corpus of Modern British English,
+    target="_new">Penn Parsed Corpus of Modern British English,
     second edition</a> (PPCMBE2)
 </ul>
 
 <p>
-It lemmatizes an upcoming release of the PPCHE by the Linguistic Data
+It lemmatizes the 2025 release of these corpora by the Linguistic Data
 Consortium (LDC) at the University of Pennsylvania and will at some
 point become available through LDC.  Please check back here for updates.
 
