@@ -1,4 +1,4 @@
-y<!doctype html><!--DONE-->
+<!doctype html><!--DONE-->
 <html>
 <head>
 <link rel="stylesheet" href="manual.css">
@@ -67,8 +67,8 @@ y<!doctype html><!--DONE-->
 <li><a href="syn-sub.html#cp_with_initial_non-wh_phrase">CP with initial non-wh phrase</a>
     <ul>
     <li><a href="syn-sub.html#adjunction_to_cp">Adjunction to CP</a>
-    <li><a href="syn-sub.html#non-wh_phrase_in_spec_cp">Non-wh phrase in Spec(CP)</a>
     <li><a href="syn-sub.html#cp_recursion">CP recursion</a>
+    <li><a href="syn-sub.html#cp-frl_verb_fronting">Verb fronting in free relative clause</a>
     </ul>
 <li><a href="syn-sub.html#ip-inf">Infinitival clause</a>
     <ul>
@@ -4545,25 +4545,36 @@ externally, they are daughters of IP.
 -->
 
 <a name="cp_with_initial_non-wh_phrase">
+<a name="adjunction_to_cp">
 <h3>CP with initial non-wh phrase</h3>
 
-<a name="adjunction_to_cp">
 <h4>Adjunction to CP</h4>
 
-Material appearing before a wh- element must be adjoined to CP rather
-than occupying Spec(CP) (since the wh- element occupies that position),
-but our annotation does not explicitly express the distinction between
-the two types of positions.  For verb movement to the pre-wh position,
-see <a href="syn-sub.html#cp-frl_verb_fronting">Verb fronting in free
-relative clause</a>.
+See also <a href="syn-sub.html#cp_recursion">CP recursion</a>,
+<a href="syn-phrase.html#pp_movement_to_spec">Movement to Spec(PP)</a>,
+and <a href="syn-sub.html#cp-frl_verb_fronting">Verb fronting in free relative
+clause</a>.
+
+<p>
+There are cases of CPs where a clause-initial non-wh phrase enters into a
+dependency with an element within IP.  In conventional phrase structure
+representations, such non-wh phrases would be adjoined to CP, but our annotation
+guidelines do not explicitly represent adjunction.  We therefore treat the
+non-wh phrase as a daughter of the only CP in our representation.  Depending on
+whether the dependent element is overt or not, the clause-initial phrase is
+treated as left-dislocated (<tt>LFD</tt>) with a resumptive (<tt>RSP</tt>) overt
+counterpart or as the antecedent of an <tt>*ICH*</tt> trace.  We illustrate the
+annotation for matrix and subordinate CPs in turn.
 
 <blockquote> <pre>
+Matrix context:
+    
 ( (CP-QUE-MAT (NP-LFD (D The) (N party))
 	      (PUNC ,)          
 	      (WADVP-1 (WADV where))
 	      (IP-SUB (ADVP-LOC *T*-1)
 		      (BEP is)
-		      (NP-SBJ-RSP (PRO it)))
+		      (NP-SBJ-RSP (PRO it)))               &larr; resumptive element
 	      (PUNC ?)))
                   
 ( (CP-QUE-MAT (NP-VOC (NS Ladies) (CONJ and) (ADJ+NS gentlemen))
@@ -4572,7 +4583,7 @@ relative clause</a>.
 	      (PUNC ,)          
 	      (WNP-2 (WPRO whom))
 	      (IP-SUB (NP-OB1 *T*-2)
-		      (ADVP-TMP *ICH*-1)
+		      (ADVP-TMP *ICH*-1)                   &larr; *ICH* trace
 		      (MD shall)
 		      (NP-SBJ (PRO we))
 		      (VB elect))
@@ -4604,7 +4615,7 @@ relative clause</a>.
 			  (WADVP-2 (WADV hwer))
 			  (IP-SUB (ADVP-LOC *T*-2)
 				  (BEP is)
-				  (NP-SBJ-RSP (PRO he))
+				  (NP-SBJ-RSP (PRO he))                     &larr; resumptive element
 				  (ADVP-TMP (ADV nu+de)))))
   (ID CMJULIA-M1,122.464))
 
@@ -4627,7 +4638,7 @@ relative clause</a>.
                                   (NS degrez)))
 		      (C 0)
 		      (IP-SUB (PP *T*-2)
-			      (NP-SBJ-RSP (PRO ha))
+			      (NP-SBJ-RSP (PRO ha))                         &larr; resumptive element
 			      (VBP falle+d)
 			      (ADVP-DIR (RP+WARD dunewardes))))
           (PUNC .))
@@ -4645,7 +4656,7 @@ relative clause</a>.
 		      (WADVP-2 (WADV how))
 		      (C 0)
 		      (IP-SUB (ADVP *T*-2)
-			      (PP *ICH*-1)
+			      (PP *ICH*-1)                                  &larr; *ICH* trace
 			      (NP-SBJ (NPR Nero))
 			      (BED was)
 			      (VAN (VAN destroyed) (CONJ and) (VAN slayne))
@@ -4664,7 +4675,7 @@ relative clause</a>.
 					(BED were))))
                   (PUNC ;)
                   (C +tt)
-                  (IP-SUB (PP *ICH*-2)
+                  (IP-SUB (PP *ICH*-2)                                      &larr; *ICH* trace
                           (NP-SBJ (PRO ha))
                           (MD moste)
                           (BE beon)
@@ -4681,41 +4692,47 @@ relative clause</a>.
   (ID CMMARGA-M1,56.22))
 </pre> </blockquote>
 
-<a name="non-wh_phrase_in_spec_cp">
-<h4>Non-wh phrase in Spec(CP)</h4>
+<p>
+The subordinate clause context has certain subcases that are dealt with
+separately.  
+<ul>
+<li>Cases where an overt complementizer precedes the fronted
+    element are treated as <a href="syn-sub.html#cp_recursion">CP 
+    recursion</a>.
+<li>For verb movement to the pre-wh position,
+    see <a href="syn-sub.html#cp-frl_verb_fronting">Verb fronting in free
+    relative clause</a>.
+<li>For analogous cases in subordinate clauses that are introduced by a
+    subordinating conjunction (<tt>P</tt>),
+    see <a href="syn-phrase.html#pp_movement_to_spec">Movement to Spec(PP)</a>.
+</ul>
 
-It is possible for non-wh phrases to occupy Spec(CP).  Since the
-specifier position is not explicitly indicated in our annotation system,
-such phrases simply appear within the CP in pre-C position.  They are
-coindexed with an <tt>*ICH*</tt> trace or with a resumptive
-(<nobr><tt>-RSP</tt></nobr>) phrase.  For analogous cases in subordinate
-clauses that are introduced by a subordinating conjunction (<tt>P</tt>),
-see <a href="syn-phrase.html#pp_movement_to_spec">Movement to
-Spec(PP)</a>.  Cases where an overt complementizer precedes the fronted
-element are treated as <a href="syn-sub.html#cp_recursion">CP
-recursion</a>.
+<p>
+The ordinary case is treated on a par with the matrix case.
 
 <blockquote> <pre>
-( (IP-MAT (NP-SBJ (PRO He))
-          (VBD said)
-          (CP-THT (ADVP-1 (ADV tomorrow))
-                  (C that)
-                  (IP-SUB (ADVP-TMP *ICH*-1)
-                          (NP-SBJ (PRO he))
-                          (MD will)
-                          (VB fix)
-                          (NP-OB1 (D the) (N problem))))
-          (PUNC .)))
+Subordinate context:
 
-( (IP-MAT (NP-SBJ (PRO He))
+( (IP-MAT (NP-SBJ (PRO They))
           (VBD said)
           (CP-THT (NP-LFD (D the) (N problem))
                   (C that)
-                  (IP-SUB (NP-SBJ (PRO he))
-                          (MD will)
+                  (IP-SUB (NP-SBJ (PRO they))
+                          (MD would)
                           (VB fix)
-                          (NP-OB1-RSP (PRO it))
+                          (NP-OB1-RSP (PRO it))              &larr; resumptive element
                           (ADVP-TMP (ADV tomorrow))))
+          (PUNC .)))
+
+( (IP-MAT (NP-SBJ (PRO They))
+          (VBD said)
+          (CP-THT (ADVP-1 (ADV tomorrow))
+                  (C that)
+                  (IP-SUB (ADVP-TMP *ICH*-1)                 &larr; *ICH* trace
+                          (NP-SBJ (PRO they))
+                          (MD would)
+                          (VB fix)
+                          (NP-OB1 (D the) (N problem))))
           (PUNC .)))
 </pre> </blockquote>
 
@@ -4731,7 +4748,7 @@ recursion</a>.
 					  (NP-OB1 (PRO his))
 					  (VBD to-sant))))
 		  (C +tat)
-		  (IP-SUB (NP-SBJ-RSP (PRO he))
+		  (IP-SUB (NP-SBJ-RSP (PRO he))                         &larr; resumptive element
 			  (VBP +turwune+d)
 			  (PP (P on)
                               (NP (PRO$ his) (N godnesse))))))
@@ -4750,7 +4767,7 @@ recursion</a>.
                  (CP-ADV (NP-LFD (PRO$ his) (ADJ muchele) (N ouergart))
                          (C +tt)
                          (IP-SUB (NP-SBJ (PRO ich))
-                                 (NP-OB1-RSP (PRO hit))
+                                 (NP-OB1-RSP (PRO hit))                 &larr; resumptive element
                                  (MD mote)
                                  (VB afeallen))))
 	  (PUNC .))
@@ -4766,7 +4783,7 @@ relative clauses.
 
 <p> The higher complementizer must be overt.  Otherwise, the token is
 treated as an instance
-of <a href="syn-sub.html#non-wh_phrase_in_spec_cp">movement of a non-wh
+of <a href="syn-sub.html#cp_with_initial_non-wh_phrase">movement of a non-wh
 phrase to Spec(CP)</a>, without recursive structure.  As in that simpler
 case, the fronted constituent is either coindexed with an <tt>*ICH*</tt>
 trace or treated as <a href="syn-const.html#lfd">left-dislocated</a>
