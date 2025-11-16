@@ -4556,6 +4556,12 @@ and <a href="syn-sub.html#cp-frl_verb_fronting">Verb fronting in free relative
 clause</a>.
 
 <p>
+Cf. also the different treatment of a subclass of cases, the so-called
+<a href="https://www.ling.upenn.edu/mideng/ppcme2dir/YCOE/doc/annotation/YcoeRef.htm#double_complement_construction"
+target="_neW">clause and nominal construction</a> (CLAN), in the York Corpus of
+Old English.
+
+<p>
 There are cases of CPs where a clause-initial non-wh phrase enters into a
 dependency with an element within IP.  In conventional phrase structure
 representations, such non-wh phrases would be adjoined to CP, but our annotation
@@ -4589,7 +4595,29 @@ Matrix context:
 		      (VB elect))
 	      (PUNC ?)))
 </pre> </blockquote>
-                  
+
+<p>
+Very rarely, the CP-initial phrase is itself treated as a trace of scrambling.
+                 
+<blockquote> <pre>
+( (NP (PRO they)
+      (CP-REL (WNP-1 0)
+	      (C that)
+	      (IP-SUB (NP-SBJ *T*-1)
+		      (HVD had)
+		      (VBN sene)
+		      (NP-2 (PRO him))                                &larr; scrambled antecedent
+		      (ADVP-TMP (ADV before))
+		      (CP-QUE-SUB (NP-LFD *ICH*-2)                    &larr; trace of scrambling
+				  (WADVP-3 (WADV how))
+				  (C that)
+				  (IP-SUB (ADVP *T*-3)
+					  (NP-SBJ-RSP (PRO he))       &larr; resumptive element
+					  (BED was)
+					  (NP-PRD (D a) (N begger)))))))
+  (ID TYNDNEW-1534-E1-H,9,1J.827))
+</pre> </blockquote>
+
 <blockquote style="background-color:#F5FFFA"><!--mideng-->
 <pre>
 ( (IP-SUB (NP-SBJ (D tes) (ADJ unseli))
